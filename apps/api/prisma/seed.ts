@@ -506,6 +506,26 @@ async function main() {
     update: { status: "published" },
   });
 
+  // Clean up the legacy "getting-started" module slug if it still exists, to
+  // avoid duplicate external_id constraint violations when re-seeding.
+  const legacyModule = await prisma.module.findUnique({
+    where: { courseId_slug: { courseId: course.id, slug: "getting-started" } },
+    include: { lessons: { include: { quiz: { include: { questions: true } } } } },
+  });
+  if (legacyModule) {
+    for (const lesson of legacyModule.lessons) {
+      if (lesson.quiz) {
+        await prisma.quizQuestion.deleteMany({ where: { quizId: lesson.quiz.id } });
+        await prisma.quiz.delete({ where: { id: lesson.quiz.id } });
+      }
+      await prisma.lessonSection.deleteMany({ where: { lessonId: lesson.id } });
+      await prisma.practiceTask.deleteMany({ where: { lessonId: lesson.id } });
+      await prisma.lesson.delete({ where: { id: lesson.id } });
+    }
+    await prisma.module.delete({ where: { id: legacyModule.id } });
+    console.log("Cleaned up legacy 'getting-started' module.");
+  }
+
   const HTML_MODULES = [
     { slug: "foundations", title: "Foundations" },
     { slug: "text-content", title: "Text Content" },
@@ -519,9 +539,8 @@ async function main() {
     { slug: "best-practices-and-real-world-practice", title: "Best Practices & Real-World Practice" }
   ];
 
-  const modulesMap = new Map();
-  for (let i = 0; i < HTML_MODULES.length; i++) {
-    const modData = HTML_MODULES[i];
+  const modulesMap = new Map<string, { id: string }>();
+  for (const [i, modData] of HTML_MODULES.entries()) {
     const mod = await prisma.module.upsert({
       where: { courseId_slug: { courseId: course.id, slug: modData.slug } },
       create: {
@@ -535,7 +554,7 @@ async function main() {
     modulesMap.set(mod.slug, mod);
   }
 
-  const module_ = modulesMap.get("foundations");
+  const module_ = modulesMap.get("foundations")!;
 
   for (const def of LESSONS) {
     const cdnPath = `${CONTENT_ROOT}/${def.slug}`;
