@@ -49,6 +49,12 @@ export default function CourseHomePage({ params }: { params: { course: string } 
 
   return (
     <section className="relative mx-auto max-w-3xl space-y-7 px-6 py-14">
+      <Link
+        href="/courses"
+        className="mb-2 inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-medium text-text/50 transition-all duration-200 hover:bg-surface-hover hover:text-primary"
+      >
+        ← All Courses
+      </Link>
 
       {/* ── Course header ──────────────────────────────── */}
       <header className="animate-fade-in-up relative overflow-hidden rounded-2xl border border-accent/15 bg-surface p-7 shadow-card">
