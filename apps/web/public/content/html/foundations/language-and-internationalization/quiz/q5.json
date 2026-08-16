@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Why does a screen reader need to know the page's lang value?", "options": ["It doesn't matter", "To select correct pronunciation rules", "Only for SEO", "To change the page colors"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which languages are written right-to-left?",
+  "options": [
+    "French and German",
+    "Japanese and Chinese",
+    "Arabic and Hebrew",
+    "Russian and Greek"
+  ]
+}

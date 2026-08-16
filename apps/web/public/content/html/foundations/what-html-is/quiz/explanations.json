@@ -1,12 +1,12 @@
 {
-  "q1": "False. HTML is a markup language, not a programming language. It describes structure and meaning but has no logic, loops, or conditionals.",
-  "q2": "C - Structuring content and giving it semantic meaning. HTML's job is structure and semantics; CSS handles styling (A), JavaScript handles interactivity (B), and HTML doesn't compile to machine code (D).",
-  "q3": "WHATWG (Web Hypertext Application Technology Working Group). The WHATWG maintains the HTML Living Standard as a continuously evolving specification.",
-  "q4": "Browser sends request → Server responds with HTML → Browser parses HTML and builds DOM → Browser paints page. This is the correct order of the request-render cycle.",
-  "q5": "WHATWG. The Web Hypertext Application Technology Working Group maintains the HTML Living Standard as a continuously evolving specification.",
-  "q6": "Structuring content and giving it meaning. HTML's main job is structure and semantics, not styling (CSS) or interactivity (JavaScript).",
-  "q7": "Hyper Text Markup Language. HTML stands for HyperText Markup Language.",
-  "q8": "Adding complex interactivity and logic. HTML's three main responsibilities are: giving text meaning (semantics), structuring documents, and embedding content. Interactivity is JavaScript's job.",
-  "q9": "An in-memory tree representation of the HTML. The DOM is the browser's live in-memory tree built from HTML source, not the original file itself.",
-  "q10": "False. HTML describes structure and meaning, not visual appearance. Styling is handled by CSS."
+  "q1": "No — it is a markup language that describes structure and meaning. HTML has no execution engine, variables, or conditional logic. That is JavaScript's job.",
+  "q2": "Structuring content and giving it semantic meaning is HTML's primary role. CSS handles presentation; JavaScript handles behaviour.",
+  "q3": "WHATWG (Web Hypertext Application Technology Working Group) maintains the HTML Living Standard — a continuously evolving, single authoritative specification for HTML.",
+  "q4": "Browser sends request → Server responds with HTML → Browser parses HTML and builds DOM → Browser paints page. This is the fundamental client-server request/render cycle.",
+  "q5": "Hyper Text Markup Language. 'HyperText' refers to links that connect pages; 'Markup' means annotating content with tags; 'Language' is the syntax used to write it.",
+  "q6": "An in-memory tree the browser builds from HTML, manipulable by JavaScript. The DOM (Document Object Model) is a live representation — JS can change it without editing the original file.",
+  "q7": "Adding complex interactivity and logic is JavaScript's job. HTML's three roles are: providing semantic meaning, structuring documents, and embedding media content.",
+  "q8": "False — HTML describes structure; CSS handles visual presentation. Mixing styling directly into HTML (e.g. using the deprecated <font> tag) is considered bad practice today.",
+  "q9": "It identifies the location of a resource on the web for the browser to fetch. A URL (Uniform Resource Locator) includes a scheme, domain, and path that together point to a specific resource.",
+  "q10": "2014 — when HTML5 became a W3C Recommendation. Since then the WHATWG Living Standard has been the primary evolving specification, with browsers implementing it continuously."
 }

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the difference between an element and a tag?", "options": ["They are the same thing", "Element = opening tag + content + closing tag; tag = just the markers", "Tag = opening tag + content + closing tag; element = just the markers", "Neither has a specific meaning"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is a **boolean attribute**?",
+  "options": [
+    "An attribute that only accepts numbers",
+    "An attribute whose mere presence means true",
+    "An attribute with two possible string values",
+    "An attribute declared in CSS"
+  ]
+}

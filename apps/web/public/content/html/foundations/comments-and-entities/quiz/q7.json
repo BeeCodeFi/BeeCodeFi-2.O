@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: Comments can be safely nested inside other comments.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "What happens to extra whitespace (multiple spaces, tabs) in rendered HTML?",
+  "options": [
+    "They are all displayed exactly",
+    "They collapse to a single space",
+    "They are converted to &nbsp;",
+    "They trigger a syntax error"
+  ]
+}

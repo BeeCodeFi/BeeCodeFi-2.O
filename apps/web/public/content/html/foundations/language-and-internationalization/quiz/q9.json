@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What happens if you use full language names instead of BCP 47 codes?", "options": ["It works correctly", "It may not work as expected", "It's the recommended approach", "It causes JavaScript errors"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is the `hreflang` attribute used for on a `<link>` element?",
+  "options": [
+    "To set the link text colour",
+    "To tell search engines about alternate-language versions of the page",
+    "To detect the user's browser language",
+    "To restrict access to certain locales"
+  ]
+}

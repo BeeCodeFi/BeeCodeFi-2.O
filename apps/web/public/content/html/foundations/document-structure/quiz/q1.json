@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: <!DOCTYPE html> is an HTML element and requires a closing tag.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does `<!DOCTYPE html>` tell the browser?",
+  "options": [
+    "Link to an external stylesheet",
+    "Render the page in standards mode",
+    "Define the page language",
+    "Start a comment"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What happens if you put visible content inside <head>?", "options": ["It displays correctly", "Browsers may silently move it to <body> or ignore it", "It causes a JavaScript error", "It automatically becomes metadata"] }
+{
+  "qtype": "mcq",
+  "prompt": "If you accidentally place a visible `<h1>` inside `<head>`, what typically happens?",
+  "options": [
+    "It displays correctly at the top",
+    "The page crashes with an error",
+    "Browsers silently move it to <body> or ignore it",
+    "It becomes invisible metadata"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which of these is NOT a void element?", "options": ["<img>", "<br>", "<input>", "<div>"] }
+{
+  "qtype": "mcq",
+  "prompt": "How many attributes can a single HTML element have?",
+  "options": [
+    "Exactly one",
+    "Maximum of five",
+    "Zero, one, or many",
+    "Only those defined by the spec"
+  ]
+}

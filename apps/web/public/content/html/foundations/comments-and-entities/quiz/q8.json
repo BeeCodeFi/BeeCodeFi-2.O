@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What character reference is used for a non-breaking space?", "options": ["&space;", "&nbsp;", "&nbsp", "&nnbsp;"] }
+{
+  "qtype": "mcq",
+  "prompt": "Are HTML comments visible to end users in the rendered page?",
+  "options": [
+    "Yes, always",
+    "Yes, but in tiny grey text",
+    "No — but they ARE visible in page source",
+    "No — they are stripped before the file is served"
+  ]
+}

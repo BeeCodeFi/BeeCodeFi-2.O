@@ -1,12 +1,12 @@
 {
-  "q1": "False. HTML comments are not rendered by the browser but are fully visible in the page's source code. Anyone can view them by selecting 'View Source.'",
-  "q2": "<, >, &. These characters must be escaped because they have special meaning in HTML markup — < and > as tag delimiters, & as the start of character references.",
-  "q3": "Copyright symbol. The entity &copy; renders as the copyright symbol (©).",
-  "q4": "The browser may interpret it as markup. When you type < literally, the browser may think it's the start of an HTML tag, which can break your page layout.",
-  "q5": "Wrong case may not resolve correctly. Entity names are case-sensitive, so &Amp; is not the same as &amp; and may not render as intended.",
-  "q6": "&#60;. The correct numeric character reference format starts with &# followed by the number and ends with ;.",
-  "q7": "False. HTML comments cannot be nested. Attempting to nest comments will result in the first closing --> ending the entire comment block.",
-  "q8": "&nbsp;. The entity &nbsp; represents a non-breaking space, which prevents browsers from collapsing multiple spaces into one.",
-  "q9": "&amp;. The correct entity for the ampersand character is &amp;. This is necessary because & itself starts character references.",
-  "q10": "They are visible in page source. HTML comments are not rendered on the page but are fully visible to anyone who views the page source, making them unsuitable for sensitive information."
+  "q1": "<!-- comment --> is the HTML comment syntax. Everything between <!-- and --> is ignored by the browser's rendering engine but visible in page source.",
+  "q2": "< and > and & must be escaped. These three characters are special in HTML. < becomes &lt;, > becomes &gt;, and & becomes &amp; to prevent parsing errors.",
+  "q3": "A copyright symbol ©. &copy; is the named HTML entity for ©. You can also use the numeric form &#169;.",
+  "q4": "A non-breaking space. &nbsp; inserts a space that also prevents a line-wrap at that position — useful for keeping values like '10 km' together on one line.",
+  "q5": "An ampersand & is rendered. &amp; is the safe way to display a literal & character in HTML without starting an entity sequence.",
+  "q6": "No — nested comments break parsing. The first --> closes the outermost comment, so text after it is treated as regular HTML content.",
+  "q7": "They collapse to a single space. HTML normalises runs of whitespace into one space during rendering. Use &nbsp; or CSS to preserve extra spacing.",
+  "q8": "No — but they ARE visible in page source. Comments don't render on screen, but anyone can view them via View Source or DevTools, so never put passwords or secrets in comments.",
+  "q9": "&#60; represents <. Numeric entities use the decimal Unicode code point. 60 = <, 62 = >, 38 = &, 160 = non-breaking space.",
+  "q10": "To prevent the browser from interpreting them as tag markers. Writing a raw < in content can confuse the parser into thinking a new tag is starting, causing broken markup."
 }

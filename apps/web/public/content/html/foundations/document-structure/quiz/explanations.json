@@ -1,12 +1,12 @@
 {
-  "q1": "False. <!DOCTYPE html> is not an HTML element and does not require a closing tag. It's a special instruction to the browser.",
-  "q2": "The browser renders in quirks mode. Without the doctype, browsers use legacy compatibility mode that can cause inconsistent rendering.",
-  "q3": "<head>. The head element contains machine-readable metadata like title, meta tags, and links to CSS, which are not displayed directly on the page.",
-  "q4": "One. A valid HTML document should have exactly one <body> element that contains all the visible content.",
-  "q5": "It causes inconsistent rendering and box-model behavior. Standards mode ensures consistent rendering across browsers, while quirks mode mimics old browser behavior.",
-  "q6": "html → head → body. The correct order is: <!DOCTYPE html>, then <html> as the root, containing <head> first, then <body>.",
-  "q7": "Contains metadata about the document. The <head> element holds information like title, meta tags, and links to external resources, not visible content.",
-  "q8": "Visible and interactive content. The <body> element contains everything the user sees and interacts with: text, images, forms, etc.",
-  "q9": "Browsers may silently move it to <body> or ignore it. Putting visible content in <head> is invalid, and browsers may attempt to fix it, but you shouldn't rely on this.",
-  "q10": "To tell the browser to render in standards mode. The doctype instruction switches the browser from legacy quirks mode to modern standards mode."
+  "q1": "Render the page in standards mode. The doctype declaration switches the browser from legacy quirks mode into modern HTML5 standards mode, ensuring consistent cross-browser rendering.",
+  "q2": "No — it is not an HTML element. `<!DOCTYPE html>` is a processing instruction, not a tag, so it never has a closing counterpart.",
+  "q3": "<head> holds machine-readable metadata. It contains the title, meta tags, and links to external resources — none of which are rendered as visible content.",
+  "q4": "One <body> element is the rule. It is the single container for all visible, interactive content on the page.",
+  "q5": "html → head → body is the correct order. The <html> root wraps everything; <head> comes first, then <body>.",
+  "q6": "The browser switches to quirks mode when the doctype is missing. Quirks mode emulates old browser behaviour, causing inconsistent rendering especially around the box model.",
+  "q7": "Sets the browser tab text and search-result title. The <title> is metadata — it appears in the browser tab and as the clickable link in search engine results, but not on the page itself.",
+  "q8": "Visible and interactive content lives in <body>. Everything the user sees and interacts with — text, images, forms, buttons — belongs here.",
+  "q9": "Browsers silently move it to <body> or ignore it. HTML parsers are very forgiving and attempt error recovery, but you should never rely on this behaviour.",
+  "q10": "It causes inconsistent rendering and box-model behaviour. In quirks mode the box model and many CSS properties work differently across browsers, making layouts unpredictable."
 }

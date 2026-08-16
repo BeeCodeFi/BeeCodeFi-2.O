@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Give a real scenario where you'd set lang on a <span> rather than on <html>.", "options": ["Never, always set it on html", "When part of a page is in a different language", "Only for JavaScript", "Only for CSS styling"] }
+{
+  "qtype": "mcq",
+  "prompt": "When should you add `lang` and `dir` attributes to an *inner* element (not just `<html>`)?",
+  "options": [
+    "Never — only the root element needs them",
+    "When a section of the page is in a different language or direction",
+    "Only for images",
+    "Only on form inputs"
+  ]
+}

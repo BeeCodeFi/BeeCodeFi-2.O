@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: <img> requires a closing tag </img>.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "An HTML element consists of which three parts?",
+  "options": [
+    "Class, ID, and style",
+    "Opening tag, content, and closing tag",
+    "Attribute, value, and selector",
+    "Head, body, and footer"
+  ]
+}

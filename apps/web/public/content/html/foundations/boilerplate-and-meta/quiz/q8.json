@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What does UTF-8 encoding provide?", "options": ["Only English characters", "Virtually all characters and emoji from all languages", "Only numbers", "Only special symbols"] }
+{
+  "qtype": "mcq",
+  "prompt": "Why should `<meta charset=\"UTF-8\">` appear as early as possible in `<head>`?",
+  "options": [
+    "To enable JavaScript loading",
+    "To avoid encoding issues and re-parsing before other text is read",
+    "To activate CSS variables",
+    "To prevent hotlinking of images"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What does width=device-width do in the viewport meta tag?", "options": ["Sets the page width to 980px", "Matches CSS viewport width to the device width", "Disables zooming", "Makes the page full screen"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does the viewport meta tag prevent on mobile browsers?",
+  "options": [
+    "It prevents horizontal scrolling on desktop",
+    "It prevents mobile browsers from forcing a zoomed-out desktop view",
+    "It prevents users from pinching to zoom",
+    "It prevents landscape mode"
+  ]
+}

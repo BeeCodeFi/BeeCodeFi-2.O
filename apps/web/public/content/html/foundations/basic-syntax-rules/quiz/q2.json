@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which of these is a boolean attribute?", "options": ["href", "class", "disabled", "src"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which of the following is a **void element** (self-closing, no content)?",
+  "options": [
+    "<p>",
+    "<div>",
+    "<img>",
+    "<span>"
+  ]
+}

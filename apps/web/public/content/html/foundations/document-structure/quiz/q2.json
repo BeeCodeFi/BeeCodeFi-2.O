@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What happens if you omit the doctype?", "options": ["The page fails to load", "The browser renders in quirks mode", "CSS is disabled", "Nothing changes"] }
+{
+  "qtype": "mcq",
+  "prompt": "Does `<!DOCTYPE html>` require a closing tag?",
+  "options": [
+    "Yes — `</DOCTYPE>`",
+    "Yes — `</html>`",
+    "No — it is not an HTML element",
+    "Only in XML mode"
+  ]
+}

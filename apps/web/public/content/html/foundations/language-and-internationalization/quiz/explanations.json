@@ -1,12 +1,12 @@
 {
-  "q1": "False. The lang attribute has significant accessibility impact — screen readers use it to select correct pronunciation rules, and it also affects SEO and browser language features.",
-  "q2": "en-US. BCP 47 language tags use the format language-code-region-code, so en-US is the correct format for US English.",
-  "q3": "rtl. The dir attribute with value 'rtl' declares right-to-left text direction, which is needed for languages like Arabic and Hebrew.",
-  "q4": "When part of a page is in a different language. You can set lang on specific elements (like <span>) when a section of content is in a different language than the rest of the page.",
-  "q5": "To select correct pronunciation rules. Screen readers use the lang attribute to choose the right pronunciation and intonation for reading content aloud.",
-  "q6": "Arabic, Hebrew. These are RTL (right-to-left) languages that require dir=\"rtl\" for correct text direction and layout.",
-  "q7": "A standard for language identifiers. BCP 47 is the standard that defines the format for language tags like en, fr, hi, etc.",
-  "q8": "ltr. Left-to-right (ltr) is the default text direction for most languages including English, Hindi, and others.",
-  "q9": "It may not work as expected. Browsers and tools expect BCP 47 codes (like 'en') rather than full language names (like 'English').",
-  "q10": "It can flip margins, padding, and flex/grid direction. RTL affects more than just text flow — it can affect the entire layout including spacing and directional properties."
+  "q1": "The human (natural) language of the page. Browsers, screen readers, translation tools, and search engines all read `lang` to determine how to process and present the content.",
+  "q2": "On the <html> root element. Setting it there declares the default language for the entire document. It can be overridden on individual child elements for mixed-language content.",
+  "q3": "dir controls text direction. Use dir=\"ltr\" for left-to-right languages (default) and dir=\"rtl\" for right-to-left languages such as Arabic, Hebrew, and Persian.",
+  "q4": "When a section of the page is in a different language or direction. For example, an Arabic quote inside an English page should have lang=\"ar\" dir=\"rtl\" on its wrapping element.",
+  "q5": "Arabic and Hebrew (and also Persian/Farsi and Urdu) are written right-to-left. These scripts require dir=\"rtl\" to render correctly.",
+  "q6": "A standardised string like \"en-US\" or \"fr\". BCP 47 tags combine an ISO 639 language code with an optional ISO 3166 region subtag — for example \"en\" for English, \"en-US\" for American English.",
+  "q7": "It selects the correct pronunciation engine for the language. Without the correct `lang`, a screen reader may pronounce foreign text with the wrong accent or phonetics, making it incomprehensible.",
+  "q8": "It can flip margins, padding, and flex/grid direction. Setting dir=\"rtl\" switches the logical writing direction, causing browsers to mirror layouts so they feel natural for RTL readers.",
+  "q9": "To tell search engines about alternate-language versions of the page. For example, <link rel=\"alternate\" hreflang=\"fr\" href=\"/fr/page\"> helps Google serve the French version to French-speaking users.",
+  "q10": "Screen readers may mispronounce content; translation tools may guess wrong. The browser has to guess the language, and a wrong guess affects accessibility, SEO, and automatic translation quality."
 }

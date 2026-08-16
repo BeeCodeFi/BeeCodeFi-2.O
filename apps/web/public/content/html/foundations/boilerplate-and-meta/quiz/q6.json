@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which is NOT required for a technically valid HTML document?", "options": ["<!DOCTYPE html>", "<title>", "<meta name=\"description\">", "<html>"] }
+{
+  "qtype": "mcq",
+  "prompt": "How do you link a favicon (browser-tab icon) in HTML?",
+  "options": [
+    "<icon href=\"/favicon.ico\">",
+    "<link rel=\"icon\" href=\"/favicon.ico\">",
+    "<meta name=\"icon\" content=\"/favicon.ico\">",
+    "<img src=\"/favicon.ico\" hidden>"
+  ]
+}

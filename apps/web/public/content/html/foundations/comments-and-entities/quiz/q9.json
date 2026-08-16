@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the correct entity for the ampersand (&) character?", "options": ["&and;", "&amp;", "&persand;", "&a;"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which numeric entity correctly represents a less-than sign `<`?",
+  "options": [
+    "&#60;",
+    "&#62;",
+    "&#38;",
+    "&#160;"
+  ]
+}

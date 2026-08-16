@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What does the DOM (Document Object Model) represent?", "options": ["The original HTML source file", "An in-memory tree representation of the HTML", "The CSS stylesheet", "The JavaScript code"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is a URL's role in the browser request cycle?",
+  "options": [
+    "It stores the HTML content",
+    "It identifies the location of a resource on the web for the browser to fetch",
+    "It executes JavaScript on the server",
+    "It defines the page's stylesheet"
+  ]
+}

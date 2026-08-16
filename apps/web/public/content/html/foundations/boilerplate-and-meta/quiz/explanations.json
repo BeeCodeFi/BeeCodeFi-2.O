@@ -1,12 +1,12 @@
 {
-  "q1": "False. The viewport meta tag is critical for responsive design. Without it, mobile browsers render pages at a fake desktop width and scale them down, making text tiny.",
-  "q2": "<meta charset=\"UTF-8\">. This meta tag declares the character encoding for the document, telling the browser how to interpret the text.",
-  "q3": "<title>. The <title> element sets the browser tab text, bookmark name, and default search-result title.",
-  "q4": "The site looks zoomed out with tiny text. Without the viewport meta tag, mobile browsers render at a fake desktop width (usually 980px) and scale it down.",
-  "q5": "To avoid encoding issues and re-parsing. Browsers may re-parse the page if charset is declared too late, potentially causing display issues with non-ASCII characters.",
-  "q6": "<meta name=\"description\">. This is not required for valid HTML, though it's recommended for SEO. <!DOCTYPE html>, <title>, and <html> are required.",
-  "q7": "To enable correct mobile rendering. The viewport meta tag prevents mobile browsers from using the fake desktop width and ensures proper scaling.",
-  "q8": "Virtually all characters and emoji from all languages. UTF-8 is a universal character encoding that covers almost all characters and symbols used worldwide.",
-  "q9": "<title> sets browser tab text, <h1> is visible on-page heading. They serve different purposes and both should typically exist on a page.",
-  "q10": "Matches CSS viewport width to the device width. This tells the browser to use the actual device width rather than a fake desktop width for rendering."
+  "q1": "<meta charset=\"UTF-8\"> is the correct syntax. It must appear as early as possible in <head> — ideally within the first 1024 bytes — so the browser knows the encoding before it parses any text.",
+  "q2": "Emoji display as question marks or garbled symbols. Without a declared encoding the browser guesses, and a wrong guess causes mojibake — corrupted multi-byte characters.",
+  "q3": "Matches the CSS viewport width to the physical device width and sets 1× zoom. Without it, mobile browsers render a virtual 980px-wide desktop layout and then scale it down, making text tiny.",
+  "q4": "The snippet text shown under the title in search results. Search engines read the description meta tag to generate the brief summary line shown below the clickable link in SERPs.",
+  "q5": "Yes — they often substitute their own snippet if they think it fits better. Google in particular frequently generates its own description from page content, especially if the meta description is thin or irrelevant.",
+  "q6": "<link rel=\"icon\" href=\"/favicon.ico\"> is correct. The <link> element with rel=\"icon\" tells the browser where to find the site icon shown in tabs and bookmarks.",
+  "q7": "<title> sets the browser-tab text; <h1> is the visible on-page heading. They often share the same wording but are separate elements with different roles.",
+  "q8": "To avoid encoding issues and re-parsing before other text is read. The browser reads the file sequentially; declaring the encoding late can cause it to re-parse already-read bytes with the wrong encoding.",
+  "q9": "Virtually all characters and emoji from all languages. UTF-8 is a variable-width encoding of Unicode, which covers over 140,000 code points including every major script and emoji.",
+  "q10": "It prevents mobile browsers from forcing a zoomed-out desktop view. Older mobile browsers assumed all pages were designed for desktop and shrank them to fit — the viewport tag overrides this behaviour."
 }

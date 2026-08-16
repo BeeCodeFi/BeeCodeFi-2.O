@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Why can't you just type < directly into visible page text if you want the browser to display it literally?", "options": ["It's not allowed", "The browser may interpret it as markup", "It causes a JavaScript error", "It automatically converts to &lt;"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does `&nbsp;` produce?",
+  "options": [
+    "A bold space",
+    "A new line break",
+    "A non-breaking space",
+    "A tab character"
+  ]
+}

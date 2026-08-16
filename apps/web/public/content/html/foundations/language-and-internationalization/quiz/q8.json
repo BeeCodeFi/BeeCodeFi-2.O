@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the default text direction for most languages including English?", "options": ["rtl", "ltr", "auto", "vertical"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does `dir=\"rtl\"` do to a block layout in CSS (e.g. flexbox or grid)?",
+  "options": [
+    "Has no effect on layout",
+    "It can flip margins, padding, and flex/grid direction",
+    "It only affects inline text",
+    "It rotates the element 180°"
+  ]
+}

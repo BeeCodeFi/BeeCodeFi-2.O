@@ -1,12 +1,12 @@
 {
-  "q1": "False. <img> is a void element and does not require a closing tag. Void elements like <img>, <br>, <input> have no content and no closing tag.",
-  "q2": "disabled. Boolean attributes like disabled, required, and checked don't need a value — their mere presence means true.",
-  "q3": "Crossed. The tags are crossed (improperly nested). Proper nesting means closing tags in the reverse order they were opened, like balanced parentheses.",
-  "q4": "Element = opening tag + content + closing tag; tag = just the markers. For example, in <p>Hello</p>, the whole thing is an element, while <p> and </p> are tags.",
-  "q5": "<br>. Void elements like <br>, <img>, <input>, <hr> have no content and no closing tag.",
-  "q6": "The trailing slash is optional and purely stylistic. In HTML, both <br> and <br /> are valid. The trailing slash is optional and only matters in strict XHTML.",
-  "q7": "False. Attribute values can use either double or single quotes. Both are valid — the convention is to be consistent, usually with double quotes.",
-  "q8": "Browsers may fix it silently but it's invalid and unpredictable. Improper nesting (crossed tags) is invalid HTML, and browsers may attempt to fix it, but the results can be unpredictable.",
-  "q9": "<div>. <div> is not a void element — it requires both opening and closing tags. Void elements include <img>, <br>, <input>, <hr>, <meta>, <link>.",
-  "q10": "An attribute whose mere presence means true. Boolean attributes like disabled, required, and checked don't need a value — just including them sets them to true."
+  "q1": "Opening tag, content, and closing tag make up an element — for example: <p>Hello</p>. The opening tag marks the start, the closing tag (with /) marks the end, and the content sits between them.",
+  "q2": "<img> is a void element. Void elements like <img>, <br>, <hr>, and <input> can never have children, so they have no closing tag.",
+  "q3": "Attributes go inside the opening tag, written as name=\"value\" pairs — for example: <a href=\"https://example.com\">.",
+  "q4": "An attribute whose mere presence means true is a boolean attribute. For example, <input disabled> — adding `disabled` enables the feature; omitting it disables it.",
+  "q5": "Children must be closed before their parent is closed. Overlapping tags like <b><i></b></i> is invalid; the correct form is <b><i></i></b>.",
+  "q6": "Browsers usually recover silently, hiding the bug. HTML parsers are forgiving by design, but this can mask errors that cause layout or accessibility problems.",
+  "q7": "Wrapped in double or single quotes. While HTML5 technically allows unquoted values in simple cases, quoting is universally required best practice to avoid parsing errors.",
+  "q8": "Tag = the angle-bracket marker; element = opening tag + content + closing tag. <p> is a tag; <p>Hello</p> is an element.",
+  "q9": "Zero, one, or many attributes are allowed. An element can have no attributes (<p>), one (<p class=\"note\">), or several (<a href=\"...\" target=\"_blank\" rel=\"noopener\">).",
+  "q10": "Optional and purely stylistic. HTML5 accepts both <br> and <br /> — the slash has no functional effect in HTML (unlike in XML/XHTML)."
 }

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: HTML controls how things look on a webpage.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "When did modern HTML5 effectively replace the older W3C HTML versions?",
+  "options": [
+    "1995 — with Netscape Navigator",
+    "2000 — with XHTML 1.0",
+    "2014 — when HTML5 became a W3C Recommendation",
+    "2020 — when WHATWG took sole control"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Why is <br /> valid in HTML even though <br> has no content?", "options": ["It's invalid in HTML", "The trailing slash is optional and purely stylistic", "It's required for void elements", "It creates a line break twice"] }
+{
+  "qtype": "mcq",
+  "prompt": "What happens if you forget a closing tag in modern browsers?",
+  "options": [
+    "The browser shows a blank page",
+    "Browsers usually recover silently, hiding the bug",
+    "CSS stops working",
+    "An error is thrown in the console"
+  ]
+}

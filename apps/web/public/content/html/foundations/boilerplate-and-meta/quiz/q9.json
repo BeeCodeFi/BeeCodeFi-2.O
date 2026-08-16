@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the difference between <title> and <h1>?", "options": ["They are the same thing", "<title> sets browser tab text, <h1> is visible on-page heading", "<h1> sets browser tab text, <title> is visible on-page heading", "Neither is used in modern HTML"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which characters and scripts does UTF-8 support?",
+  "options": [
+    "Only ASCII (English letters and digits)",
+    "Latin scripts only",
+    "Virtually all characters and emoji from all languages",
+    "Only the 256 ISO-8859-1 characters"
+  ]
+}

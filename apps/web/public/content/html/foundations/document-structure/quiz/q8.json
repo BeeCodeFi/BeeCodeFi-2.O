@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What does the <body> element contain?", "options": ["Metadata about the document", "Visible and interactive content", "CSS stylesheets", "JavaScript code only"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does the `<body>` element contain?",
+  "options": [
+    "Metadata about the document",
+    "CSS stylesheets and scripts only",
+    "Visible and interactive content",
+    "Only heading elements"
+  ]
+}

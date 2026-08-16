@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which organization maintains the HTML Living Standard as a continuously evolving specification?", "options": ["W3C", "WHATWG", "ISO", "ECMA"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does HTML stand for?",
+  "options": [
+    "Hyper Text Markup Language",
+    "High Tech Modern Language",
+    "Home Tool Markup Language",
+    "Hyperlink Text Management Language"
+  ]
+}

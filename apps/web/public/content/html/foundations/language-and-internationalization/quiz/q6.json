@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which languages typically require dir=\"rtl\"?", "options": ["English, French", "Arabic, Hebrew", "Hindi, Japanese", "Spanish, German"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is a BCP 47 language tag?",
+  "options": [
+    "A file compression format for fonts",
+    "A standardised string like \"en-US\" or \"fr\" identifying a language and optional region",
+    "A CSS media query for language detection",
+    "An HTTP header that forces a locale"
+  ]
+}

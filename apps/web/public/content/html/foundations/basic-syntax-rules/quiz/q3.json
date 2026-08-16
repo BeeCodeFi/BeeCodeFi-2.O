@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "<p>Hello <strong>world</p></strong> is invalid because the tags are:", "options": ["Nested correctly", "Crossed", "Boolean", "Void"] }
+{
+  "qtype": "mcq",
+  "prompt": "Where do attributes go in an HTML tag?",
+  "options": [
+    "After the closing tag",
+    "Inside the opening tag",
+    "Between opening and closing tags",
+    "In the <head> only"
+  ]
+}

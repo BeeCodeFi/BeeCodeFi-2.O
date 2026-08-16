@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the main purpose of <!DOCTYPE html>?", "options": ["To create a comment", "To tell the browser to render in standards mode", "To define the page title", "To link CSS stylesheets"] }
+{
+  "qtype": "mcq",
+  "prompt": "Why does standards mode vs. quirks mode matter for developers?",
+  "options": [
+    "It only affects page-load speed",
+    "It causes inconsistent rendering and box-model behaviour",
+    "It changes the page's colour scheme",
+    "It enables or disables JavaScript"
+  ]
+}

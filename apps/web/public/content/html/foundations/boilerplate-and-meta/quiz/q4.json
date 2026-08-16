@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What visibly goes wrong on mobile if you omit the viewport meta tag?", "options": ["The page fails to load", "The site looks zoomed out with tiny text", "Colors disappear", "JavaScript stops working"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does `<meta name=\"description\" content=\"...\">` affect?",
+  "options": [
+    "The page heading rendered on screen",
+    "The snippet text shown under the title in search results",
+    "The browser tab text",
+    "The page's reading order for screen readers"
+  ]
+}

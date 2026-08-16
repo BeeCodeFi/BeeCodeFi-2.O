@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "The two organizations most associated with maintaining the HTML standard are the W3C and which other organization?", "options": ["WHATWG", "ISO", "IEEE", "ECMA"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which organisation maintains the HTML Living Standard today?",
+  "options": [
+    "W3C",
+    "WHATWG",
+    "ISO",
+    "ECMA"
+  ]
+}

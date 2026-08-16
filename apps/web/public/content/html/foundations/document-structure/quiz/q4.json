@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "How many <body> elements should a valid HTML document have?", "options": ["Zero", "One", "Two or more", "As many as needed"] }
+{
+  "qtype": "mcq",
+  "prompt": "How many `<body>` elements should a valid HTML document contain?",
+  "options": [
+    "Zero",
+    "One",
+    "Two — one for desktop, one for mobile",
+    "As many as you need"
+  ]
+}

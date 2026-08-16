@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the purpose of the viewport meta tag?", "options": ["To set the page title", "To enable correct mobile rendering", "To declare character encoding", "To add JavaScript"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is the difference between `<title>` and a visible `<h1>` on a page?",
+  "options": [
+    "They are interchangeable",
+    "<title> sets the browser-tab text; <h1> is the visible on-page heading",
+    "<h1> sets the tab text; <title> appears on the page",
+    "<title> is for SEO only; <h1> is for accessibility only"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the main job of HTML in a webpage?", "options": ["Styling with colors and fonts", "Adding interactivity and logic", "Structuring content and giving it meaning", "Compiling to machine code"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is the DOM?",
+  "options": [
+    "The original HTML source file on disk",
+    "An in-memory tree the browser builds from HTML, manipulable by JavaScript",
+    "The CSS stylesheet applied to the page",
+    "A server-side template engine"
+  ]
+}

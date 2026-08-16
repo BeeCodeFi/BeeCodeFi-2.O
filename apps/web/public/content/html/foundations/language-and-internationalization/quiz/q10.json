@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "How does RTL text direction affect layout beyond just text flow?", "options": ["It only affects text", "It can flip margins, padding, and flex/grid direction", "It changes the page colors", "It has no effect on layout"] }
+{
+  "qtype": "mcq",
+  "prompt": "What happens if you omit `lang=\"en\"` on an English page?",
+  "options": [
+    "The page fails validation but nothing else changes",
+    "Screen readers may mispronounce content; translation tools may guess wrong",
+    "The browser defaults to the operating system language",
+    "Search engines ignore the page"
+  ]
+}

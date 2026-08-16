@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "The entity &amp;copy; renders as which symbol?", "options": ["Registered trademark", "Copyright symbol", "Trademark", "Degree symbol"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does the entity `&copy;` render as?",
+  "options": [
+    "A registered trademark symbol ®",
+    "A copyright symbol ©",
+    "A degree symbol °",
+    "A section symbol §"
+  ]
+}

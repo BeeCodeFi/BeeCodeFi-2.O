@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Why should you never put sensitive information in HTML comments?", "options": ["They are deleted automatically", "They are visible in page source", "They cause errors", "They are not supported"] }
+{
+  "qtype": "mcq",
+  "prompt": "Why would a developer use HTML entities for `<` and `>` inside page content?",
+  "options": [
+    "To make the page load faster",
+    "To prevent the browser from interpreting them as tag markers",
+    "To enable CSS animations",
+    "To add semantic meaning"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What does HTML stand for?", "options": ["Hyper Text Markup Language", "High Tech Modern Language", "Home Tool Markup Language", "Hyperlink Text Management Language"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which of the following is NOT one of HTML's three core responsibilities?",
+  "options": [
+    "Giving text semantic meaning",
+    "Structuring documents into logical sections",
+    "Adding complex interactivity and logic",
+    "Embedding content like images and video"
+  ]
+}

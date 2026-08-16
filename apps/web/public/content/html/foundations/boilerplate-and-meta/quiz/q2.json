@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which meta tag declares character encoding?", "options": ["<meta name=\"charset\">", "<meta charset=\"UTF-8\">", "<encoding>UTF-8</encoding>", "<meta http=\"UTF-8\">"] }
+{
+  "qtype": "mcq",
+  "prompt": "What happens if you omit `<meta charset=\"UTF-8\">` on a page with emoji?",
+  "options": [
+    "Emoji display as question marks or garbled symbols",
+    "Emoji are replaced with images automatically",
+    "The page fails to load",
+    "Only ASCII characters are affected"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What does BCP 47 stand for in the context of language tags?", "options": ["Best Code Practice 47", "A standard for language identifiers", "Browser Control Protocol 47", "Basic Character Pattern 47"] }
+{
+  "qtype": "mcq",
+  "prompt": "How does a screen reader use the `lang` attribute?",
+  "options": [
+    "It uses it to change the font",
+    "It selects the correct pronunciation engine for the language",
+    "It reads the lang value aloud to the user",
+    "It skips content in foreign languages"
+  ]
+}

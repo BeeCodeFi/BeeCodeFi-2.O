@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the correct order of the request-render cycle when you click a link?", "options": ["Browser sends request → Server responds with HTML → Browser parses HTML and builds DOM → Browser paints page", "Browser paints page → Server sends request → Browser parses HTML → Server responds with HTML", "Server responds with HTML → Browser sends request → Browser builds DOM → Browser paints page", "Browser builds DOM → Browser sends request → Server responds with HTML → Browser paints page"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is the correct order of the browser request-render cycle?",
+  "options": [
+    "Browser sends request → Server responds with HTML → Browser parses HTML and builds DOM → Browser paints page",
+    "Browser paints page → Server sends request → Browser parses HTML → Server responds",
+    "Server responds with HTML → Browser sends request → Browser builds DOM → Browser paints page",
+    "Browser builds DOM → Browser sends request → Server responds → Browser paints page"
+  ]
+}

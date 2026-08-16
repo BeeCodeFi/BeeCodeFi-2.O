@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "The element that sets the browser tab's text is:", "options": ["<header>", "<title>", "<meta>", "<heading>"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does the viewport meta tag `content=\"width=device-width, initial-scale=1\"` do?",
+  "options": [
+    "Sets a fixed 1920px canvas width",
+    "Matches the CSS viewport width to the physical device width and sets 1× zoom",
+    "Disables user zooming completely",
+    "Sets the font size to 1rem"
+  ]
+}

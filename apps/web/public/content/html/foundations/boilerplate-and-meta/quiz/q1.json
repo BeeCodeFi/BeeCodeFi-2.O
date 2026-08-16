@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: The viewport meta tag is purely optional and has no effect on mobile rendering.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which `<meta>` tag declares the character encoding of an HTML document?",
+  "options": [
+    "<meta name=\"charset\" content=\"UTF-8\">",
+    "<meta charset=\"UTF-8\">",
+    "<meta encoding=\"UTF-8\">",
+    "<meta http-equiv=\"charset\" content=\"UTF-8\">"
+  ]
+}

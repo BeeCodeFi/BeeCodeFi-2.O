@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "The element that contains machine-readable metadata not shown directly on the page is:", "options": ["<body>", "<head>", "<html>", "<title>"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which element holds machine-readable metadata that is NOT displayed on the page?",
+  "options": [
+    "<body>",
+    "<head>",
+    "<html>",
+    "<title>"
+  ]
+}

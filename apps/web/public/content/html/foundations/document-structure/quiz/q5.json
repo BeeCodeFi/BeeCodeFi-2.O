@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Why does standards mode vs quirks mode matter for a developer?", "options": ["It only affects loading speed", "It causes inconsistent rendering and box-model behavior", "It changes the page colors", "It enables JavaScript"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is the correct nesting order of the three main HTML structural elements?",
+  "options": [
+    "body → head → html",
+    "html → body → head",
+    "html → head → body",
+    "head → html → body"
+  ]
+}

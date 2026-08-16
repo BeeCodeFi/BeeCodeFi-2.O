@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "The attribute that declares right-to-left text direction is dir=\"______\".", "options": ["rtl", "ltr", "auto", "right"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which attribute controls text direction (left-to-right vs. right-to-left)?",
+  "options": [
+    "align",
+    "flow",
+    "dir",
+    "direction"
+  ]
+}

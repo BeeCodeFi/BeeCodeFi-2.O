@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "HTML is a programming language that can execute logic like loops and conditionals.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "Is HTML a programming language?",
+  "options": [
+    "Yes — it can run logic and loops",
+    "No — it is a markup language that describes structure and meaning",
+    "Yes — in HTML5 only",
+    "No — it is a styling language"
+  ]
+}

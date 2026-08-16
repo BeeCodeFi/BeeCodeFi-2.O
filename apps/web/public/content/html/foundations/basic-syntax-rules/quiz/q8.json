@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What happens if you improperly nest HTML elements (cross tags)?", "options": ["The page won't load", "Browsers may fix it silently but it's invalid and unpredictable", "It always works correctly", "It causes a JavaScript error"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is the difference between a **tag** and an **element**?",
+  "options": [
+    "They mean exactly the same thing",
+    "Tag = the angle-bracket marker; element = opening tag + content + closing tag",
+    "Element = only the content between tags",
+    "Tag includes the content; element includes only markers"
+  ]
+}

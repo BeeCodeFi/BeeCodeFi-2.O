@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: The lang attribute only affects search engine results and has no accessibility impact.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "What does the `lang` attribute on `<html>` tell the browser?",
+  "options": [
+    "Which CSS file to load",
+    "The human (natural) language of the page",
+    "The JavaScript runtime version",
+    "Which server region to use"
+  ]
+}

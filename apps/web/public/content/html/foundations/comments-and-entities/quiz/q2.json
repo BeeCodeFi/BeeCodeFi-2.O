@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which characters *must* generally be escaped as entities when used as literal content?", "options": ["a, b, c", "<, >, &", "Numbers only", "Spaces only"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which characters MUST be escaped as HTML entities inside content?",
+  "options": [
+    "@ and #",
+    "< and > and &",
+    ". and , and !",
+    "( and )"
+  ]
+}

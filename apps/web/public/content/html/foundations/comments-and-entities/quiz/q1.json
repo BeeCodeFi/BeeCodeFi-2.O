@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: HTML comments are completely invisible, even in the page's source code.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "What syntax marks an HTML comment?",
+  "options": [
+    "// comment //",
+    "/* comment */",
+    "<!-- comment -->",
+    "# comment"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Why should <meta charset=\"UTF-8\"> be placed as early as possible in <head>?", "options": ["It loads faster", "To avoid encoding issues and re-parsing", "It's required by CSS", "It only affects JavaScript"] }
+{
+  "qtype": "mcq",
+  "prompt": "Can search engines rewrite or replace your `<meta name=\"description\">` text?",
+  "options": [
+    "No — they must display it exactly",
+    "Yes — they often substitute their own snippet if they think it fits better",
+    "Only on mobile results",
+    "Only for e-commerce sites"
+  ]
+}

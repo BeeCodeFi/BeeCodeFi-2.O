@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "True or false: Attribute values must always use double quotes, never single quotes.", "options": ["True", "False"] }
+{
+  "qtype": "mcq",
+  "prompt": "How should attribute values be written in HTML5?",
+  "options": [
+    "Unquoted, using spaces as separators",
+    "In single quotes only",
+    "Wrapped in double or single quotes",
+    "As numeric codes only"
+  ]
+}

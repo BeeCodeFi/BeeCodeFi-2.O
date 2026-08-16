@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which of the following best describes HTML's primary role in a webpage?", "options": ["Defining colors, fonts, and layout", "Handling user interactivity and dynamic behavior", "Structuring content and giving it semantic meaning", "Compiling into machine code for the browser"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which of the following best describes HTML's primary role in a webpage?",
+  "options": [
+    "Defining colours, fonts, and layout (that's CSS)",
+    "Handling user interactivity and dynamic behaviour (that's JS)",
+    "Structuring content and giving it semantic meaning",
+    "Compiling into machine code for the browser"
+  ]
+}

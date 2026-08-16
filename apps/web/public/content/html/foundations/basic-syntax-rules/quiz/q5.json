@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which is a void element?", "options": ["<div>", "<span>", "<br>", "<p>"] }
+{
+  "qtype": "mcq",
+  "prompt": "Which rule describes valid HTML nesting?",
+  "options": [
+    "Children must be closed before their parent is closed",
+    "Parents must be closed before their children",
+    "Siblings can overlap each other",
+    "Nesting order does not matter"
+  ]
+}

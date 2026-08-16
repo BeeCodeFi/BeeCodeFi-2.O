@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Why are entity names case-sensitive, and what's a risk of getting the case wrong?", "options": ["They aren't case-sensitive", "Wrong case may not resolve correctly", "It causes the page to crash", "It only affects SEO"] }
+{
+  "qtype": "mcq",
+  "prompt": "If you write `&amp;` in HTML source, what appears on the rendered page?",
+  "options": [
+    "&amp; literally",
+    "A blank space",
+    "An ampersand &",
+    "An error symbol"
+  ]
+}

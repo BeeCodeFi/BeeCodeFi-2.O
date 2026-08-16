@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is a boolean attribute?", "options": ["An attribute that requires a value", "An attribute whose mere presence means true", "An attribute that only works with JavaScript", "An attribute that defines colors"] }
+{
+  "qtype": "mcq",
+  "prompt": "The trailing slash in void elements (`<br />` vs `<br>`) in HTML5 is:",
+  "options": [
+    "Required for validity",
+    "Forbidden by the spec",
+    "Optional and purely stylistic",
+    "Needed only for accessibility"
+  ]
+}

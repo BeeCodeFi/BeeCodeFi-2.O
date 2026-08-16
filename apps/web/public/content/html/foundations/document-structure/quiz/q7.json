@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "What is the purpose of the <head> element?", "options": ["Contains visible page content", "Contains metadata about the document", "Defines the page layout", "Creates hyperlinks"] }
+{
+  "qtype": "mcq",
+  "prompt": "What is the purpose of the `<title>` element inside `<head>`?",
+  "options": [
+    "Renders a large heading on the page",
+    "Sets the browser tab text and search-result title",
+    "Defines the page's main language",
+    "Links to a favicon"
+  ]
+}

@@ -1,1 +1,10 @@
-{ "qtype": "mcq", "prompt": "Which is the correct numeric character reference format?", "options": ["%3C;", "&#60;", "#60&", "\\u003C"] }
+{
+  "qtype": "mcq",
+  "prompt": "Can HTML comments be nested (`<!-- outer <!-- inner --> outer -->`)?",
+  "options": [
+    "Yes, any depth",
+    "Yes, up to three levels",
+    "No — nested comments break parsing",
+    "Only in HTML5"
+  ]
+}
