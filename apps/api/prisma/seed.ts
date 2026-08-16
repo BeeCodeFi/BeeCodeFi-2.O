@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const CONTENT_ROOT = "/content/html/getting-started";
+const CONTENT_ROOT = "/content/html/foundations";
 
 interface QuestionDef {
   externalId: string;
@@ -506,16 +506,36 @@ async function main() {
     update: { status: "published" },
   });
 
-  const module_ = await prisma.module.upsert({
-    where: { courseId_slug: { courseId: course.id, slug: "getting-started" } },
-    create: {
-      courseId: course.id,
-      slug: "getting-started",
-      title: "Getting Started",
-      orderIndex: 0,
-    },
-    update: {},
-  });
+  const HTML_MODULES = [
+    { slug: "foundations", title: "Foundations" },
+    { slug: "text-content", title: "Text Content" },
+    { slug: "media-and-embedded-content", title: "Media & Embedded Content" },
+    { slug: "structure-and-semantics", title: "Structure & Semantics" },
+    { slug: "tables", title: "Tables" },
+    { slug: "forms", title: "Forms" },
+    { slug: "attributes-and-metadata-deep-dive", title: "Attributes & Metadata Deep Dive" },
+    { slug: "accessibility-a11y", title: "Accessibility (A11y)" },
+    { slug: "html5-apis-and-advanced-features", title: "HTML5 APIs & Advanced Features" },
+    { slug: "best-practices-and-real-world-practice", title: "Best Practices & Real-World Practice" }
+  ];
+
+  const modulesMap = new Map();
+  for (let i = 0; i < HTML_MODULES.length; i++) {
+    const modData = HTML_MODULES[i];
+    const mod = await prisma.module.upsert({
+      where: { courseId_slug: { courseId: course.id, slug: modData.slug } },
+      create: {
+        courseId: course.id,
+        slug: modData.slug,
+        title: modData.title,
+        orderIndex: i,
+      },
+      update: { title: modData.title, orderIndex: i },
+    });
+    modulesMap.set(mod.slug, mod);
+  }
+
+  const module_ = modulesMap.get("foundations");
 
   for (const def of LESSONS) {
     const cdnPath = `${CONTENT_ROOT}/${def.slug}`;
@@ -580,7 +600,7 @@ async function main() {
         starterCode: def.task.starterCode,
         rubric: def.task.rubric,
         requiresUpload: def.task.requiresUpload ?? true,
-        githubPathTemplate: `lessons/getting-started/${def.slug}/`,
+        githubPathTemplate: `lessons/foundations/${def.slug}/`,
       },
       update: {
         title: def.task.title,

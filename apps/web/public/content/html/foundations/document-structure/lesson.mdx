@@ -1,0 +1,53 @@
+# 🏗️ Document Structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
+
+## 📄 The Doctype {#the-doctype}
+
+Every HTML document starts with `<span style="color: #f59e0b; font-family: monospace;">&lt;!DOCTYPE html&gt;</span>`. This tells the browser to render in **<span style="color: #3b82f6;">standards mode</span>** rather than "<span style="color: #ef4444;">quirks mode</span>" (a legacy compatibility mode that mimics old, non-standard browser behavior). It is *not* an HTML tag/element — it's a special instruction with no closing tag.
+
+```html
+<!DOCTYPE html>
+```
+
+## 🌳 The Root Element: `<html>` {#the-root-element}
+
+Everything else lives inside `<span style="color: #10b981; font-family: monospace;">&lt;html&gt;...&lt;/html&gt;</span>`. Best practice: include a <span style="color: #6366f1;">lang</span> attribute (covered fully in Topic 6), e.g. `&lt;html lang="en"&gt;`.
+
+## 🧠 `<head>` — Machine-Readable Metadata {#head-metadata}
+
+Contains information *about* the document, not displayed directly on the page: `<span style="color: #ec4899; font-family: monospace;">&lt;title&gt;</span>`, `<span style="color: #ec4899; font-family: monospace;">&lt;meta&gt;</span>` tags, links to CSS, favicons, etc. (Deep dive in Topic 31.)
+
+## 👁️ `<body>` — Visible Content {#body-visible-content}
+
+Contains everything the user actually sees/interacts with: text, images, forms, etc. There should be exactly **<span style="color: #ef4444;">one</span>** `<span style="color: #14b8a6; font-family: monospace;">&lt;body&gt;</span>` per document.
+
+## 🧱 Minimal Valid Structure {#minimal-valid-structure}
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <p>Hello world</p>
+</body>
+</html>
+```
+
+## ❌ Common Misconceptions {#common-misconceptions}
+
+- Thinking `<!DOCTYPE html>` is an HTML tag with a closing tag — it isn't.
+- Putting visible content inside `<head>` — browsers will often silently move it to `<body>` or ignore it; don't rely on that.
+- Forgetting `<!DOCTYPE html>` triggers **<span style="color: #ef4444;">quirks mode</span>**, causing inconsistent rendering/box-model behavior across browsers.
+
+**Summary in 5 lines:**
+
+- `<span style="color: #f59e0b; font-family: monospace;">&lt;!DOCTYPE html&gt;</span>` triggers standards mode rendering.
+- `<span style="color: #10b981; font-family: monospace;">&lt;html&gt;</span>` is the root element wrapping the whole document.
+- `<span style="color: #ec4899; font-family: monospace;">&lt;head&gt;</span>` holds metadata (not visible content).
+- `<span style="color: #14b8a6; font-family: monospace;">&lt;body&gt;</span>` holds all visible/interactive content — only one per page.
+- Skipping the doctype risks inconsistent, legacy "<span style="color: #ef4444;">quirks mode</span>" rendering.
+
+---
+
+**<span style="color: #6366f1;">Quick check</span>** — before moving on, answer the checkpoint question below.
