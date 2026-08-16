@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import type { ParsedSection } from "@/lib/lesson-sections";
 import { apiFetch } from "@/lib/api";
 import { CheckpointQuestion, type CheckpointPayload } from "./checkpoint-question";
@@ -148,7 +149,7 @@ export function LessonReader({
       {parsedSections.map((section) => (
         <section key={section.anchor} id={section.anchor} data-anchor={section.anchor} className="mb-8">
           <h2 className="mb-3 text-xl font-semibold">{section.heading}</h2>
-          <ReactMarkdown>{section.body}</ReactMarkdown>
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{section.body}</ReactMarkdown>
         </section>
       ))}
       {checkpoint && <CheckpointQuestion lessonId={lessonId} checkpoint={checkpoint} />}
