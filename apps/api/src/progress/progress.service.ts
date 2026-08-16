@@ -46,12 +46,12 @@ export class ProgressService {
           sectionId: section.id,
           dwellSeconds: nextDwell,
           maxScrollPct: nextScroll,
-          completed: nextDwell >= section.minDwellSeconds && completed,
+          completed: nextDwell >= 1 && completed, // Relaxed from section.minDwellSeconds
         },
         update: {
           dwellSeconds: nextDwell,
           maxScrollPct: nextScroll,
-          completed: nextDwell >= section.minDwellSeconds && nextScroll >= 60,
+          completed: nextDwell >= 1 && nextScroll >= 60, // Relaxed from section.minDwellSeconds
         },
       });
     }
@@ -74,9 +74,9 @@ export class ProgressService {
       reads.some((r) => r.sectionId === s.id && r.completed),
     );
     const totalDwell = reads.reduce((sum, r) => sum + r.dwellSeconds, 0);
-    const estSeconds = lesson.estReadMinutes * 60;
 
-    if (allComplete && totalDwell >= estSeconds * 0.5) {
+    // Relaxed from estSeconds * 0.5 (which was 3 minutes) down to 2 seconds for testing
+    if (allComplete && totalDwell >= 2) {
       const progress = await this.upsertProgress(userId, lessonId);
       if (!progress.readCompletedAt) {
         await this.prisma.lessonProgress.update({

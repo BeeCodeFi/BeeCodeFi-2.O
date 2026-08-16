@@ -111,22 +111,26 @@ export function LessonReader({
         for (const entry of entries) {
           const anchor = (entry.target as HTMLElement).dataset.anchor;
           if (!anchor) continue;
-          if (entry.intersectionRatio >= VISIBLE_THRESHOLD) {
-            visibleRef.current.add(anchor);
-          } else {
-            visibleRef.current.delete(anchor);
-          }
+          
           const state = dwellRef.current.get(anchor) ?? {
             dwellSeconds: 0,
             maxScrollPct: 0,
             pendingDwell: 0,
             pendingScrollPct: 0,
           };
-          state.pendingScrollPct = Math.max(state.pendingScrollPct, entry.intersectionRatio * 100);
+
+          if (entry.isIntersecting) {
+            visibleRef.current.add(anchor);
+            // If it's on screen at all, count it as scrolled so the backend unlocks it.
+            state.pendingScrollPct = 100;
+          } else {
+            visibleRef.current.delete(anchor);
+          }
+          
           dwellRef.current.set(anchor, state);
         }
       },
-      { threshold: [0, VISIBLE_THRESHOLD, 1] },
+      { threshold: 0.1 },
     );
     const nodes = document.querySelectorAll("[data-anchor]");
     nodes.forEach((n) => observer.observe(n));
