@@ -9,6 +9,11 @@ import { deriveLevel, LEVEL_BADGE_CLASSES, LEVEL_SHORT } from "@/lib/lesson-leve
 import type { CourseDetail, CourseSummary, ProgressSummaryResponse } from "@beecodefi/schemas";
 
 const COURSE_ICONS: Record<string, string> = { html: "</>", css: "🎨", js: "{ }" };
+const COURSE_GRADIENTS: Record<string, string> = {
+  html: "from-orange-500 to-red-500",
+  css:  "from-blue-500 to-cyan-500",
+  js:   "from-yellow-400 to-orange-400",
+};
 
 export default function CoursesPage() {
   const { data: courses } = useQuery({
@@ -29,22 +34,31 @@ export default function CoursesPage() {
   });
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-12">
-      <header className="mb-8 animate-fade-in-up">
-        <h1 className="text-2xl font-semibold">Courses</h1>
-        <p className="mt-1 text-text/60">Pick a track and start the loop — read, practice, quiz, build.</p>
+    <section className="mx-auto max-w-6xl px-6 py-14">
+
+      {/* Header */}
+      <header className="mb-10 animate-fade-in-up">
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary/70">
+          All tracks
+        </p>
+        <h1 className="text-4xl font-extrabold tracking-tight text-text/90">Courses</h1>
+        <p className="mt-2 max-w-lg text-base text-text/55">
+          Pick a track and start the loop — read, practice, quiz, build. Progress is always saved.
+        </p>
       </header>
 
+      {/* Skeleton */}
       {!details && (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[0, 1, 2].map((i) => (
-            <div key={i} className="skeleton h-96" />
+            <div key={i} className="skeleton h-96 rounded-2xl" />
           ))}
         </div>
       )}
 
+      {/* Course cards */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {details?.map((course) => {
+        {details?.map((course, ci) => {
           const lessons = course.modules.flatMap((m, moduleIndex) =>
             m.lessons.map((l) => ({ ...l, moduleSlug: m.slug, moduleIndex })),
           );
@@ -56,39 +70,55 @@ export default function CoursesPage() {
             : firstLesson
               ? `/learn/${course.slug}/${firstLesson.moduleSlug}/${firstLesson.slug}#read`
               : `/learn/${course.slug}`;
+          const gradient = COURSE_GRADIENTS[course.slug] ?? "from-primary to-accent";
 
           return (
-            <Card key={course.id} className="animate-fade-in-up flex flex-col shadow-card">
-              <div className="mb-3 flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent font-mono text-lg text-white shadow-soft">
+            <Card
+              key={course.id}
+              className="card-hover animate-card-rise group relative flex flex-col overflow-hidden shadow-card"
+              style={{ animationDelay: `${ci * 100}ms` } as React.CSSProperties}
+            >
+              {/* Top gradient banner */}
+              <div
+                className={`absolute left-0 top-0 h-1.5 w-full bg-gradient-to-r ${gradient}`}
+              />
+
+              {/* Icon + meta */}
+              <div className="mb-4 mt-1.5 flex items-center justify-between">
+                <span
+                  className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} font-mono text-lg font-bold text-white shadow-soft transition-transform duration-300 group-hover:scale-110 group-hover:shadow-card`}
+                >
                   {COURSE_ICONS[course.slug] ?? "▤"}
                 </span>
-                <div className="text-right text-xs text-text/50">
-                  <p>{lessons.length} lessons</p>
-                  <p>⏱ {totalMinutes} min</p>
+                <div className="text-right">
+                  <p className="text-sm font-semibold text-text/70">{lessons.length} lessons</p>
+                  <p className="text-xs text-text/40">⏱ {totalMinutes} min total</p>
                 </div>
               </div>
 
-              <h2 className="text-lg font-semibold">{course.title}</h2>
-              {course.description && <p className="mt-1 text-sm text-text/60">{course.description}</p>}
+              <h2 className="text-xl font-bold tracking-tight text-text/90">{course.title}</h2>
+              {course.description && (
+                <p className="mt-1.5 text-sm leading-relaxed text-text/55">{course.description}</p>
+              )}
 
-              <div className="my-3 h-48 space-y-1 overflow-y-auto rounded-lg border border-accent/10 bg-bg/40 p-2">
+              {/* Lesson list */}
+              <div className="my-4 h-52 space-y-0.5 overflow-y-auto rounded-xl border border-accent/10 bg-bg/50 p-2">
                 {lessons.map((lesson, i) => {
                   const level = deriveLevel(lesson.moduleIndex);
                   return (
                     <Link
                       key={lesson.id}
                       href={`/learn/${course.slug}/${lesson.moduleSlug}/${lesson.slug}#read`}
-                      className="flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-surface-hover"
+                      className="flex items-center justify-between rounded-lg px-2.5 py-2 text-sm transition-all duration-150 hover:bg-surface-hover"
                     >
-                      <span className="flex items-center gap-2 truncate">
-                        <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-[10px] text-text/60">
+                      <span className="flex items-center gap-2.5 truncate">
+                        <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-[10px] font-bold text-text/50">
                           {i + 1}
                         </span>
-                        <span className="truncate text-text/80">{lesson.title}</span>
+                        <span className="truncate text-sm text-text/75">{lesson.title}</span>
                       </span>
                       <span
-                        className={`ml-2 flex-shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold ${LEVEL_BADGE_CLASSES[level]}`}
+                        className={`ml-2 flex-shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold ${LEVEL_BADGE_CLASSES[level]}`}
                       >
                         {LEVEL_SHORT[level]}
                       </span>
@@ -97,11 +127,17 @@ export default function CoursesPage() {
                 })}
               </div>
 
-              <div className="mt-auto flex items-center justify-between pt-2">
+              {/* CTA */}
+              <div className="mt-auto flex items-center justify-between pt-1">
                 <Link href={startHref}>
-                  <Button>{resume ? "Continue →" : "Start Learning →"}</Button>
+                  <Button className="text-sm">
+                    {resume ? "Continue →" : "Start Learning →"}
+                  </Button>
                 </Link>
-                <Link href={`/learn/${course.slug}`} className="text-sm text-primary hover:underline">
+                <Link
+                  href={`/learn/${course.slug}`}
+                  className="text-sm font-medium text-primary transition-colors hover:text-primary-strong"
+                >
                   View all
                 </Link>
               </div>
