@@ -156,7 +156,9 @@ export function LessonReader({
           <ReactMarkdown rehypePlugins={[rehypeRaw]}>{section.body}</ReactMarkdown>
         </section>
       ))}
-      {checkpoint && <CheckpointQuestion lessonId={lessonId} checkpoint={checkpoint} />}
+      {checkpoint && (
+        <CheckpointQuestion lessonId={lessonId} checkpoint={checkpoint} onPassed={onReadProgress} />
+      )}
     </article>
   );
 }

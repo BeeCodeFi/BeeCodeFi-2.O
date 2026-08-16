@@ -93,7 +93,14 @@ export class ProgressService {
     // (`04 §Stage 1` anti-gaming) — grading it isn't load-bearing for the
     // loop, so any submitted answer counts. Full grading can be added once
     // checkpoint answer keys move into the content pipeline (Phase 3).
-    await this.upsertProgress(userId, lessonId);
+    const progress = await this.upsertProgress(userId, lessonId);
+    if (!progress.readCompletedAt) {
+      await this.prisma.lessonProgress.update({
+        where: { userId_lessonId: { userId, lessonId } },
+        data: { readCompletedAt: new Date() },
+      });
+    }
+    await this.maybeCompleteLesson(userId, lessonId);
     return { recorded: true };
   }
 

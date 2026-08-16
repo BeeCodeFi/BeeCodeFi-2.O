@@ -14,9 +14,11 @@ interface CheckpointPayload {
 export function CheckpointQuestion({
   lessonId,
   checkpoint,
+  onPassed,
 }: {
   lessonId: string;
   checkpoint: CheckpointPayload;
+  onPassed?: () => void;
 }) {
   const [answered, setAnswered] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
@@ -31,6 +33,7 @@ export function CheckpointQuestion({
         body: JSON.stringify({ lessonId, questionId: checkpoint.id, answer: option }),
       });
       setAnswered(true);
+      onPassed?.();
     } finally {
       setSubmitting(false);
     }
