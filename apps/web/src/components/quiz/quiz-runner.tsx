@@ -66,7 +66,7 @@ export function QuizRunner({ quizId, onPassed }: { quizId: string; onPassed?: ()
   }
 
   if (result) {
-    return <QuizResult result={result} onRetake={start} />;
+    return <QuizResult result={result} submittedAnswers={answers} onRetake={start} />;
   }
 
   const question = attempt.questions[index]!;

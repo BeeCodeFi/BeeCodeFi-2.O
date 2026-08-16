@@ -129,11 +129,17 @@ export class QuizService {
     return {
       score,
       passed,
-      results: results.map((r) => ({
-        questionId: r.questionId,
-        correct: r.isCorrect,
-        explanationCdnPath: r.explanationCdnPath,
-      })),
+      results: results.map((r) => {
+        const question = questionById.get(r.questionId);
+        const key = question?.answerKey as { correct: string | string[] } | undefined;
+        const correctAnswer = key?.correct;
+        return {
+          questionId: r.questionId,
+          correct: r.isCorrect,
+          correctAnswer: Array.isArray(correctAnswer) ? correctAnswer.join(", ") : (correctAnswer ?? null),
+          explanationCdnPath: r.explanationCdnPath,
+        };
+      }),
     };
   }
 
