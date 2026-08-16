@@ -8,6 +8,9 @@ export function Navbar() {
         🐝 BeeCodeFi
       </Link>
       <div className="flex items-center gap-4">
+        <Link href="/auth/login" className="text-sm font-medium text-text/80 hover:text-text">
+          Sign in
+        </Link>
         <ThemeToggle />
       </div>
     </header>

@@ -1,0 +1,1 @@
+{ "qtype": "fix_code", "prompt": "This snippet is broken — what's wrong? `<p>Hello world<p>`", "options": ["Missing DOCTYPE", "The closing tag should be </p>, not another <p>", "Text can't start with a capital letter", "Nothing is wrong"] }

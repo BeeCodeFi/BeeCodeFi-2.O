@@ -1,0 +1,72 @@
+# Basic Syntax Rules
+
+Every HTML page is built from the same small set of syntax rules. Learn these
+once and you can read (and write) any HTML you ever encounter.
+
+## What is an element? {#what-is-an-element}
+
+An **element** is a piece of content marked up with a **tag** so the browser
+knows what it is — a paragraph, a heading, a link. Most elements have an
+opening tag, some content, and a closing tag:
+
+```html
+<p>This is a paragraph.</p>
+```
+
+`p` is the **tag name**. `<p>` is the opening tag, `</p>` is the closing tag,
+and everything between them is the element's content.
+
+## Opening and closing tags {#opening-closing-tags}
+
+Tags come in pairs: `<tagname>` opens, `</tagname>` closes. Forgetting the
+closing tag is one of the most common beginner mistakes — the browser will
+often "fix" it silently, which hides the bug until something breaks later.
+
+```html
+<h1>Page title</h1>
+<p>A paragraph of text.</p>
+```
+
+## Attributes {#attributes}
+
+**Attributes** add extra information to an opening tag. They live inside the
+opening tag as `name="value"` pairs, always quoted:
+
+```html
+<a href="https://example.com" target="_blank">Visit example.com</a>
+```
+
+Here `href` and `target` are attributes of the `a` element. An element can
+have zero, one, or many attributes.
+
+## Nesting rules {#nesting-rules}
+
+Elements can contain other elements — this is **nesting**. Nested elements
+must close in the reverse order they opened, like matching parentheses:
+
+```html
+<div>
+  <p>Some <strong>bold</strong> text.</p>
+</div>
+```
+
+`<strong>` closes before `</p>`, and `</p>` closes before `</div>`. Crossing
+tags (`<p><strong>text</p></strong>`) produces invalid, unpredictable markup.
+
+## Void elements {#void-elements}
+
+Some elements never have content or a closing tag — they're **void
+elements**. `img`, `br`, `hr`, and `input` are the most common:
+
+```html
+<img src="cat.jpg" alt="A sleeping cat" />
+<br />
+<hr />
+```
+
+The trailing `/` is optional in HTML5 but many style guides keep it for
+clarity when scanning code.
+
+---
+
+**Quick check** — before moving on, answer the checkpoint question below.

@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "How many attributes can a single element have?", "options": ["Exactly one", "At most two", "Zero, one, or many", "It depends on the tag name's length"] }

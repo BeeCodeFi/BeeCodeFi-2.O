@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -72,6 +73,12 @@ export default function RegisterPage() {
           </Button>
         </form>
       </Card>
+      <p className="mt-4 text-sm text-text/60">
+        Already have an account?{" "}
+        <Link href="/auth/login" className="font-medium text-primary underline">
+          Log in
+        </Link>
+      </p>
     </section>
   );
 }

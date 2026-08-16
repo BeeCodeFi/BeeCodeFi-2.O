@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What happens if you forget a closing tag?", "options": ["The page fails to load at all", "The browser throws a fatal error", "The browser usually tries to recover silently, which can hide bugs", "HTML requires no closing tags at all"] }

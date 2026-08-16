@@ -1,0 +1,14 @@
+{
+  "q1": "The closing tag always adds a forward slash before the tag name: `</p>`.",
+  "q2": "`href` is an attribute — it lives inside the opening tag and configures the element (here, where the link goes).",
+  "q3": "`<img>` never has content or a closing tag — it's a void element. `p`, `div`, and `span` all wrap content and need `</tag>`.",
+  "q4": "The correct closing tag for `<h1>` is `</h1>`.",
+  "q5": "`br`, `hr`, `img`, and `input` are void elements; `div` is not — it wraps content and needs a closing tag.",
+  "q6": "Attribute values should always be wrapped in quotes, e.g. `href=\"page.html\"`.",
+  "q7": "The second `<p>` should be `</p>` — a closing tag, not another opening tag.",
+  "q8": "B is valid: `<strong>` opens after `<p>` and closes before `</p>` — tags close in reverse order of opening. A crosses the tags, which is invalid.",
+  "q9": "Correct order: `<div>`, `<p>`, `</p>`, `</div>` — the innermost element closes first.",
+  "q10": "An element can have zero, one, or many attributes — there's no fixed limit.",
+  "q11": "This is called a void element.",
+  "q12": "Browsers are lenient and try to auto-correct missing closing tags, which can silently hide real bugs in your markup."
+}

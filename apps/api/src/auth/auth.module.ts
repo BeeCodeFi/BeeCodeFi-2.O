@@ -3,7 +3,7 @@ import { PassportModule } from "@nestjs/passport";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
 import { SessionService } from "./session.service";
-import { SessionGuard } from "./session.guard";
+import { SessionGuard, OptionalSessionGuard } from "./session.guard";
 import { EmailVerificationService } from "./email-verification.service";
 import { MailService } from "./mail.service";
 import { GithubStrategy } from "./github.strategy";
@@ -15,10 +15,11 @@ import { GithubStrategy } from "./github.strategy";
     AuthService,
     SessionService,
     SessionGuard,
+    OptionalSessionGuard,
     EmailVerificationService,
     MailService,
     GithubStrategy,
   ],
-  exports: [SessionService, SessionGuard],
+  exports: [SessionService, SessionGuard, OptionalSessionGuard],
 })
 export class AuthModule {}

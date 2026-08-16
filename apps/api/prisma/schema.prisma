@@ -34,6 +34,12 @@ model User {
   authProviders UserAuthProvider[]
   settings      UserSettings?
 
+  lessonProgress  LessonProgress[]
+  sectionReads    SectionRead[]
+  editorSnapshots EditorSnapshot[]
+  quizAttempts    QuizAttempt[]
+  taskSubmissions TaskSubmission[]
+
   @@map("users")
 }
 
@@ -58,4 +64,243 @@ model UserSettings {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("user_settings")
+}
+
+// ---------------------------------------------------------------------------
+// Phase 1 — Content metadata (read-mostly; will be synced from the content
+// repo by CI once the pipeline lands in Phase 3). Bodies/question text/
+// starter code live as static files, referenced by *_cdn_path columns.
+// ---------------------------------------------------------------------------
+
+model Course {
+  id          String   @id @default(uuid()) @db.Uuid
+  slug        String   @unique
+  title       String
+  description String?
+  status      String   @default("draft")
+  version     Int      @default(1)
+  orderIndex  Int      @map("order_index")
+
+  modules Module[]
+
+  @@map("courses")
+}
+
+model Module {
+  id         String @id @default(uuid()) @db.Uuid
+  courseId   String @map("course_id") @db.Uuid
+  slug       String
+  title      String
+  orderIndex Int    @map("order_index")
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@unique([courseId, slug])
+  @@map("modules")
+}
+
+model Lesson {
+  id              String @id @default(uuid()) @db.Uuid
+  moduleId        String @map("module_id") @db.Uuid
+  slug            String
+  title           String
+  orderIndex      Int    @map("order_index")
+  contentVersion  Int    @default(1) @map("content_version")
+  cdnPath         String @map("cdn_path")
+  estReadMinutes  Int    @default(5) @map("est_read_minutes")
+
+  module          Module           @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  sections        LessonSection[]
+  quiz            Quiz?
+  task            PracticeTask?
+  progress        LessonProgress[]
+  editorSnapshots EditorSnapshot[]
+
+  @@unique([moduleId, slug])
+  @@map("lessons")
+}
+
+model LessonSection {
+  id              String @id @default(uuid()) @db.Uuid
+  lessonId        String @map("lesson_id") @db.Uuid
+  anchor          String
+  orderIndex      Int    @map("order_index")
+  minDwellSeconds Int    @default(10) @map("min_dwell_seconds")
+
+  lesson Lesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  reads  SectionRead[]
+
+  @@unique([lessonId, anchor])
+  @@map("lesson_sections")
+}
+
+model Quiz {
+  id              String  @id @default(uuid()) @db.Uuid
+  lessonId        String  @unique @map("lesson_id") @db.Uuid
+  questionsServed Int     @map("questions_served")
+  passThreshold   Decimal @default(0.8) @map("pass_threshold") @db.Decimal(4, 3)
+  maxAttempts     Int?    @map("max_attempts")
+
+  lesson    Lesson         @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  questions QuizQuestion[]
+  attempts  QuizAttempt[]
+
+  @@map("quizzes")
+}
+
+model QuizQuestion {
+  id                  String  @id @default(uuid()) @db.Uuid
+  quizId              String  @map("quiz_id") @db.Uuid
+  externalId          String  @unique @map("external_id")
+  qtype               String
+  difficulty          String
+  payloadCdnPath      String  @map("payload_cdn_path")
+  answerKey           Json    @map("answer_key")
+  explanationCdnPath  String? @map("explanation_cdn_path")
+  active              Boolean @default(true)
+
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  @@map("quiz_questions")
+}
+
+model PracticeTask {
+  id                  String  @id @default(uuid()) @db.Uuid
+  lessonId            String  @unique @map("lesson_id") @db.Uuid
+  title               String
+  briefCdnPath        String  @map("brief_cdn_path")
+  starterCodeCdnPath  String  @map("starter_code_cdn_path")
+  // Phase 1 has no content pipeline yet, so the starter snippet is kept
+  // in Postgres too (not just the static file) — it's what the editor's
+  // "meaningful edit" diff (`04 §Stage 2`) compares against server-side.
+  starterCode         Json    @map("starter_code")
+  rubric              Json
+  requiresUpload      Boolean @default(true) @map("requires_upload")
+  githubPathTemplate  String? @map("github_path_template")
+
+  lesson      Lesson            @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  submissions TaskSubmission[]
+
+  @@map("practice_tasks")
+}
+
+// ---------------------------------------------------------------------------
+// Phase 1 — Progress & learning trace (user-generated; hot tables)
+// ---------------------------------------------------------------------------
+
+model LessonProgress {
+  id                 String    @id @default(uuid()) @db.Uuid
+  userId             String    @map("user_id") @db.Uuid
+  lessonId           String    @map("lesson_id") @db.Uuid
+  readCompletedAt    DateTime? @map("read_completed_at")
+  editorPracticedAt  DateTime? @map("editor_practiced_at")
+  quizPassedAt       DateTime? @map("quiz_passed_at")
+  taskCompletedAt    DateTime? @map("task_completed_at")
+  completedAt        DateTime? @map("completed_at")
+  contentVersion     Int       @default(1) @map("content_version")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId, completedAt])
+  @@map("lesson_progress")
+}
+
+model SectionRead {
+  id           String   @id @default(uuid()) @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  sectionId    String   @map("section_id") @db.Uuid
+  dwellSeconds Int      @map("dwell_seconds")
+  maxScrollPct Decimal  @map("max_scroll_pct") @db.Decimal(5, 2)
+  completed    Boolean  @default(false)
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at")
+
+  user    User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  section LessonSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, sectionId])
+  @@map("section_reads")
+}
+
+model EditorSnapshot {
+  id       String   @id @default(uuid()) @db.Uuid
+  userId   String   @map("user_id") @db.Uuid
+  lessonId String   @map("lesson_id") @db.Uuid
+  code     Json
+  savedAt  DateTime @default(now()) @map("saved_at")
+  isManual Boolean  @default(false) @map("is_manual")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@index([userId, lessonId, savedAt])
+  @@map("editor_snapshots")
+}
+
+model QuizAttempt {
+  id           String    @id @default(uuid()) @db.Uuid
+  userId       String    @map("user_id") @db.Uuid
+  quizId       String    @map("quiz_id") @db.Uuid
+  attemptNo    Int       @map("attempt_no")
+  questionIds  String[]  @map("question_ids") @db.Uuid
+  startedAt    DateTime  @default(now()) @map("started_at")
+  submittedAt  DateTime? @map("submitted_at")
+  score        Decimal?  @db.Decimal(5, 4)
+  passed       Boolean?
+
+  user    User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quiz    Quiz                @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  answers QuizAttemptAnswer[]
+
+  @@unique([userId, quizId, attemptNo])
+  @@map("quiz_attempts")
+}
+
+model QuizAttemptAnswer {
+  id               String  @id @default(uuid()) @db.Uuid
+  attemptId        String  @map("attempt_id") @db.Uuid
+  questionId       String  @map("question_id") @db.Uuid
+  answer           Json
+  isCorrect        Boolean @map("is_correct")
+  timeTakenSeconds Int?    @map("time_taken_seconds")
+
+  attempt QuizAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+
+  @@unique([attemptId, questionId])
+  @@map("quiz_attempt_answers")
+}
+
+model TaskSubmission {
+  id              String   @id @default(uuid()) @db.Uuid
+  userId          String   @map("user_id") @db.Uuid
+  taskId          String   @map("task_id") @db.Uuid
+  method          String
+  status          String   @default("submitted")
+  autoCheckReport Json?    @map("auto_check_report")
+  submittedAt     DateTime @default(now()) @map("submitted_at")
+
+  user  User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task  PracticeTask     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  files SubmissionFile[]
+
+  @@map("task_submissions")
+}
+
+model SubmissionFile {
+  id           String @id @default(uuid()) @db.Uuid
+  submissionId String @map("submission_id") @db.Uuid
+  filename     String
+  mime         String
+  sizeBytes    Int    @map("size_bytes")
+  storageKey   String @map("storage_key")
+  // Phase 1 has no object storage yet — small files are inlined as base64.
+  // `storageKey` stays a stable opaque id so the API shape survives the
+  // later move to real object storage.
+  content      String @db.Text
+
+  submission TaskSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@map("submission_files")
 }
