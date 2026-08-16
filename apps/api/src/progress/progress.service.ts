@@ -169,7 +169,7 @@ export class ProgressService {
   async getCourseProgress(userId: string, courseSlug: string): Promise<CourseProgressResponse> {
     const course = await this.prisma.course.findUnique({
       where: { slug: courseSlug },
-      include: { modules: { include: { lessons: true }, orderBy: { orderIndex: "asc" } } },
+      include: { modules: { include: { lessons: { orderBy: { orderIndex: "asc" } } }, orderBy: { orderIndex: "asc" } } },
     });
     if (!course) {
       throw new NotFoundException({ error: { code: "COURSE_NOT_FOUND", message: "Course not found." } });

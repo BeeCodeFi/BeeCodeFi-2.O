@@ -382,6 +382,115 @@ const LESSONS: LessonDef[] = [
       },
     },
   },
+  {
+    slug: "language-and-internationalization",
+    title: "Language & Internationalization Basics",
+    orderIndex: 5,
+    estReadMinutes: 6,
+    sections: [
+      { anchor: "why-language-matters", orderIndex: 0, minDwellSeconds: 10 },
+      { anchor: "the-lang-attribute", orderIndex: 1, minDwellSeconds: 14 },
+      { anchor: "the-dir-attribute-and-rtl", orderIndex: 2, minDwellSeconds: 14 },
+      { anchor: "charset-and-unicode", orderIndex: 3, minDwellSeconds: 12 },
+      { anchor: "practical-i18n-tips", orderIndex: 4, minDwellSeconds: 12 },
+    ],
+    quizQuestionsServed: 8,
+    questions: [
+      {
+        externalId: "q1",
+        qtype: "mcq",
+        difficulty: "easy",
+        correct: "It tells browsers, screen readers, and search engines the human language of the page",
+      },
+      {
+        externalId: "q2",
+        qtype: "mcq",
+        difficulty: "easy",
+        correct: 'On the <html> element — e.g. <html lang="en">',
+      },
+      {
+        externalId: "q3",
+        qtype: "fill_blank",
+        difficulty: "easy",
+        correct: "lang",
+      },
+      {
+        externalId: "q4",
+        qtype: "mcq",
+        difficulty: "easy",
+        correct: 'dir="rtl"',
+      },
+      {
+        externalId: "q5",
+        qtype: "multi",
+        difficulty: "medium",
+        correct: [
+          "Screen readers choose the correct pronunciation engine",
+          "Browsers apply correct quotation marks for the locale",
+          "Search engines serve the page to the right language audience",
+          "Spell-checkers use the right dictionary",
+        ],
+      },
+      {
+        externalId: "q6",
+        qtype: "mcq",
+        difficulty: "medium",
+        correct: "Arabic, Hebrew, and Persian — they are written right-to-left",
+      },
+      {
+        externalId: "q7",
+        qtype: "fill_blank",
+        difficulty: "medium",
+        correct: "UTF-8",
+      },
+      {
+        externalId: "q8",
+        qtype: "fix_code",
+        difficulty: "medium",
+        correct: 'The <html> tag is missing the lang attribute — add lang="en" (or the correct language code)',
+      },
+      {
+        externalId: "q9",
+        qtype: "multi",
+        difficulty: "hard",
+        correct: [
+          "You can set lang on any element to override the page language for that section",
+          'Use <span lang="ar" dir="rtl"> to embed RTL text inside an LTR paragraph',
+          "The hreflang attribute on <link> tells search engines about alternate language versions",
+        ],
+      },
+      {
+        externalId: "q10",
+        qtype: "order_steps",
+        difficulty: "hard",
+        correct: [
+          'Add lang="en" to <html>',
+          'Add <meta charset="UTF-8"> inside <head>',
+          "Use dir=\"rtl\" on elements that contain right-to-left text",
+          "Override lang on individual elements for mixed-language content",
+        ],
+      },
+    ],
+    task: {
+      title: "Bilingual page with correct lang & dir",
+      starterCode: {
+        html:
+          '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="UTF-8" />\n    <title>Bilingual Page</title>\n  </head>\n  <body>\n    <!-- Add the correct lang attribute to <html> above -->\n    <h1>Hello, World!</h1>\n    <!-- Add an Arabic greeting below with correct lang and dir -->\n  </body>\n</html>\n',
+        css: "",
+        js: "",
+      },
+      rubric: {
+        requiredElements: [
+          "html[lang]",
+          "meta[charset=UTF-8]",
+          "h1",
+          "p",
+        ],
+        forbidden: [],
+        minLines: 12,
+      },
+    },
+  },
 ];
 
 async function main() {

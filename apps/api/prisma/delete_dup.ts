@@ -1,0 +1,1 @@
+import { PrismaClient } from "@prisma/client"; const prisma = new PrismaClient(); async function main() { await prisma.lesson.deleteMany({ where: { slug: "language-and-i18n" } }); console.log("Deleted old lesson"); } main().finally(() => prisma.$disconnect());
