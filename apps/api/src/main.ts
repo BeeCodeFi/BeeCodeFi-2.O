@@ -9,8 +9,11 @@ async function bootstrap() {
   const config = app.get(ConfigService);
 
   app.use(cookieParser());
+  // Origin headers never carry a trailing slash — strip one from WEB_URL so a
+  // stray slash in the env var doesn't silently break every CORS preflight.
+  const webUrl = config.get<string>("WEB_URL")?.replace(/\/+$/, "");
   app.enableCors({
-    origin: config.get<string>("WEB_URL"),
+    origin: webUrl,
     credentials: true,
   });
   app.setGlobalPrefix("api/v1", { exclude: ["health"] });
