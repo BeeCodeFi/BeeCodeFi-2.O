@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { parseLessonSections } from "@/lib/lesson-sections";
+import type { ParsedSection } from "@/lib/lesson-sections";
 import { apiFetch } from "@/lib/api";
 import { CheckpointQuestion, type CheckpointPayload } from "./checkpoint-question";
 import type { LessonSectionSummary } from "@beecodefi/schemas";
@@ -21,31 +21,28 @@ export function LessonReader({
   lessonId,
   cdnPath,
   sections,
+  parsedSections,
+  loading,
   onReadProgress,
 }: {
   lessonId: string;
   cdnPath: string;
   sections: LessonSectionSummary[];
+  parsedSections: ParsedSection[];
+  loading: boolean;
   onReadProgress?: () => void;
 }) {
-  const [markdown, setMarkdown] = useState<string | null>(null);
   const [checkpoint, setCheckpoint] = useState<CheckpointPayload | null>(null);
   const dwellRef = useRef<Map<string, DwellState>>(new Map());
   const visibleRef = useRef<Set<string>>(new Set());
   const sectionByAnchor = useMemo(() => new Map(sections.map((s) => [s.anchor, s])), [sections]);
 
   useEffect(() => {
-    fetch(`${cdnPath}/lesson.mdx`)
-      .then((r) => r.text())
-      .then(setMarkdown)
-      .catch(() => setMarkdown(""));
     fetch(`${cdnPath}/checkpoint.json`)
       .then((r) => r.json())
       .then(setCheckpoint)
       .catch(() => setCheckpoint(null));
   }, [cdnPath]);
-
-  const parsedSections = useMemo(() => (markdown ? parseLessonSections(markdown) : []), [markdown]);
 
   // Per-second dwell ticker — only counts while the tab is visible (`04 §Stage 1`).
   useEffect(() => {
@@ -135,8 +132,15 @@ export function LessonReader({
     return () => observer.disconnect();
   }, [parsedSections]);
 
-  if (markdown === null) {
-    return <p className="text-text/60">Loading lesson…</p>;
+  if (loading) {
+    return (
+      <div className="space-y-3">
+        <div className="skeleton h-6 w-1/2" />
+        <div className="skeleton h-4" />
+        <div className="skeleton h-4 w-5/6" />
+        <div className="skeleton h-24" />
+      </div>
+    );
   }
 
   return (

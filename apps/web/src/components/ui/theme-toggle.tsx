@@ -1,14 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { applyTheme, loadStoredTheme, storeTheme, type Theme } from "@/lib/theme";
-
-const OPTIONS: { value: Theme; label: string }[] = [
-  { value: "system", label: "System" },
-  { value: "light", label: "Light" },
-  { value: "dark", label: "Dark" },
-  { value: "bee", label: "Bee" },
-];
+import { applyTheme, loadStoredTheme, resolveTheme, storeTheme, type Theme } from "@/lib/theme";
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("system");
@@ -19,36 +12,42 @@ export function ThemeToggle() {
     applyTheme(stored);
   }, []);
 
-  function handleChange(next: Theme) {
+  function toggle() {
+    const next: Theme = resolveTheme(theme) === "dark" ? "light" : "dark";
     setTheme(next);
     storeTheme(next);
     applyTheme(next);
   }
 
+  const isDark = resolveTheme(theme) === "dark";
+
   return (
-    <div className="relative">
-      <select
-        aria-label="Theme"
-        value={theme}
-        onChange={(e) => handleChange(e.target.value as Theme)}
-        className="appearance-none rounded-lg border border-accent/25 bg-surface px-3 py-1.5 pr-7 text-sm text-text transition-colors hover:border-accent/50 focus-visible:border-primary"
-      >
-        {OPTIONS.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
-      <svg
-        aria-hidden
-        viewBox="0 0 20 20"
-        className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-text/50"
-      >
-        <path
-          fill="currentColor"
-          d="M5.5 7.5 10 12l4.5-4.5-1-1L10 10l-3.5-3.5-1 1z"
-        />
-      </svg>
-    </div>
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      className="flex h-9 w-9 items-center justify-center rounded-lg border border-accent/20 bg-surface text-text/70 transition-colors duration-150 hover:border-accent/40 hover:text-text"
+    >
+      {isDark ? (
+        <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+          <path
+            d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+          <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+          <path
+            d="M21 12.5A8.5 8.5 0 1 1 11.5 3a7 7 0 0 0 9.5 9.5z"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </button>
   );
 }

@@ -1,8 +1,8 @@
-export type Theme = "light" | "dark" | "bee" | "system";
+export type Theme = "light" | "dark" | "system";
 
 const STORAGE_KEY = "bcf-theme";
 
-export function resolveTheme(theme: Theme): "light" | "dark" | "bee" {
+export function resolveTheme(theme: Theme): "light" | "dark" {
   if (theme !== "system") return theme;
   return typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"

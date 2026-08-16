@@ -34,7 +34,7 @@ export function LoopBar({ stages = DEFAULT_STAGES }: { stages?: LoopStage[] }) {
   return (
     <nav
       aria-label="Lesson progress"
-      className="sticky top-[57px] z-30 flex items-center justify-center gap-1.5 border-b border-accent/15 bg-surface/85 py-3 shadow-soft backdrop-blur-md sm:gap-3"
+      className="sticky top-[97px] z-20 flex items-center justify-center gap-1.5 border-b border-accent/15 bg-surface/85 py-3 shadow-soft backdrop-blur-md sm:gap-3"
     >
       {stages.map((stage, i) => {
         const badge = (

@@ -49,6 +49,7 @@ export class ContentService {
             slug: l.slug,
             title: l.title,
             orderIndex: l.orderIndex,
+            estReadMinutes: l.estReadMinutes,
             stages: await this.progress.getStageStatesForLesson(userId, l.id),
           })),
         ),

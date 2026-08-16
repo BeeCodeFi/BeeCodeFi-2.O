@@ -27,6 +27,7 @@ export const lessonSummarySchema = z.object({
   slug: z.string(),
   title: z.string(),
   orderIndex: z.number().int(),
+  estReadMinutes: z.number().int(),
   stages: lessonStageStatesSchema.nullable(),
 });
 export type LessonSummary = z.infer<typeof lessonSummarySchema>;
