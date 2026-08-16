@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lint-typecheck-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm -r lint
+
+      - run: pnpm --filter @beecodefi/api exec prisma generate
+
+      - run: pnpm -r typecheck
+
+      - run: pnpm -r test
+
+  migration-check:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: beecodefi
+          POSTGRES_PASSWORD: beecodefi
+          POSTGRES_DB: beecodefi
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql://beecodefi:beecodefi@localhost:5432/beecodefi
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Enable citext extension
+        run: |
+          sudo apt-get update && sudo apt-get install -y postgresql-client
+          PGPASSWORD=beecodefi psql -h localhost -U beecodefi -d beecodefi -c "CREATE EXTENSION IF NOT EXISTS citext;"
+
+      # Fails the job if a migration can't apply cleanly against a fresh database.
+      - run: pnpm --filter @beecodefi/api exec prisma migrate deploy
