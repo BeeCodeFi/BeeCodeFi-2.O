@@ -144,7 +144,7 @@ export function LessonReader({
   }
 
   return (
-    <article className="prose-lesson mx-auto max-w-2xl leading-[1.75]">
+    <article className="prose-lesson max-w-3xl leading-[1.75]">
       {parsedSections.map((section) => (
         <section key={section.anchor} id={section.anchor} data-anchor={section.anchor} className="mb-8">
           <h2 className="mb-3 text-xl font-semibold">{section.heading}</h2>
