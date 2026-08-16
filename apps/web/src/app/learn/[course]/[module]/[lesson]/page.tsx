@@ -19,10 +19,10 @@ import { SubmissionPanel } from "@/components/task/submission-panel";
 import type { CourseDetail, CourseProgressResponse, LessonDetail } from "@beecodefi/schemas";
 
 const STAGE_META: Array<{ key: LoopStage["key"]; label: string; icon: string }> = [
-  { key: "read", label: "Read", icon: "📖" },
-  { key: "practice", label: "Practice", icon: "⌨️" },
-  { key: "quiz", label: "Quiz", icon: "🧠" },
-  { key: "build", label: "Build & Ship", icon: "🚀" },
+  { key: "read",     label: "Read",       icon: "📖" },
+  { key: "practice", label: "Practice",   icon: "⌨️" },
+  { key: "quiz",     label: "Quiz",       icon: "🧠" },
+  { key: "build",    label: "Build & Ship", icon: "🚀" },
 ];
 
 export default function LessonLoopPage({
@@ -61,12 +61,17 @@ export default function LessonLoopPage({
     queryClient.invalidateQueries({ queryKey: ["course-progress", params.course] });
   }
 
+  /* ── Loading skeleton ── */
   if (!course || !lesson) {
     return (
-      <section className="mx-auto max-w-3xl space-y-4 px-6 py-12">
-        <div className="skeleton h-4 w-40" />
-        <div className="skeleton h-8 w-2/3" />
-        <div className="skeleton h-40" />
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <div className="space-y-5">
+          <div className="skeleton h-4 w-28 rounded-lg" />
+          <div className="skeleton h-9 w-2/3 rounded-xl" />
+          <div className="skeleton h-5 w-1/3 rounded-lg" />
+          <div className="skeleton h-64 rounded-2xl" />
+          <div className="skeleton h-48 rounded-2xl" />
+        </div>
       </section>
     );
   }
@@ -99,22 +104,26 @@ export default function LessonLoopPage({
 
   return (
     <>
-      <div className="sticky top-[57px] z-30 flex items-center justify-between border-b border-accent/15 bg-surface/85 px-6 py-2.5 text-sm backdrop-blur-md">
+      {/* ── Breadcrumb / lesson tracker bar ── */}
+      <div className="animate-fade-in-down sticky top-[57px] z-30 flex items-center justify-between border-b border-accent/15 bg-surface/90 px-6 py-3 text-sm backdrop-blur-md">
         <Link
           href={`/learn/${params.course}`}
-          className="flex items-center gap-1.5 text-text/60 transition-colors hover:text-primary"
+          className="flex items-center gap-1.5 font-medium text-text/55 transition-colors duration-200 hover:text-primary"
         >
-          ← All Courses
+          ← Course
         </Link>
-        <span className="hidden font-medium text-text/70 sm:block">
-          {currentIndex + 1}/{allLessons.length} · {lesson.title}
+        <span className="hidden max-w-xs truncate font-semibold text-text/75 sm:block">
+          <span className="text-text/40">{currentIndex + 1}/{allLessons.length} · </span>
+          {lesson.title}
         </span>
-        <span className="w-16" />
+        <span className="w-20" />
       </div>
 
       <LoopBar stages={loopStages} />
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-8 lg:grid-cols-[240px_1fr_200px]">
+      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-10 lg:grid-cols-[240px_1fr_200px]">
+
+        {/* ── Left sidebar ── */}
         <LessonSidebar
           courseSlug={params.course}
           courseTitle={course.title}
@@ -123,20 +132,29 @@ export default function LessonLoopPage({
           percentComplete={courseProgress?.percentComplete ?? 0}
         />
 
-        <div className="min-w-0 space-y-10">
+        {/* ── Main content ── */}
+        <div className="min-w-0 space-y-12">
+
+          {/* Lesson header */}
           <header className="animate-fade-in-up">
-            <h1 className="text-2xl font-semibold">{lesson.title}</h1>
-            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-              <span className={`rounded-full px-2.5 py-1 font-semibold ${LEVEL_BADGE_CLASSES[level]}`}>
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-text/90">
+              {lesson.title}
+            </h1>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className={`rounded-full px-3 py-1 text-xs font-bold ${LEVEL_BADGE_CLASSES[level]}`}>
                 {level}
               </span>
-              <span className="flex items-center gap-1 rounded-full bg-accent/10 px-2.5 py-1 font-medium text-text/70">
-                ⏱ {lesson.estReadMinutes} min
+              <span className="flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-text/65">
+                ⏱ {lesson.estReadMinutes} min read
+              </span>
+              <span className="flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-text/65">
+                📝 Lesson {currentIndex + 1} of {allLessons.length}
               </span>
             </div>
           </header>
 
-          <div id="read">
+          {/* Read stage */}
+          <div id="read" className="animate-fade-in-up" style={{ animationDelay: "80ms" }}>
             <LessonReader
               lessonId={lesson.id}
               cdnPath={lesson.cdnPath}
@@ -147,12 +165,19 @@ export default function LessonLoopPage({
             />
           </div>
 
+          {/* Sign-in gate */}
           {!signedIn && (
-            <Card>
-              <p className="text-sm">Sign in to unlock Practice, Quiz, and Build & Ship for this lesson.</p>
+            <Card className="animate-scale-in border-accent/20 bg-gradient-to-br from-primary/5 to-transparent text-center">
+              <p className="text-sm font-medium text-text/65">
+                🔐 Sign in to unlock Practice, Quiz, and Build & Ship for this lesson.
+              </p>
+              <Link href="/auth/login" className="mt-3 inline-block">
+                <Button variant="ghost" className="text-sm">Sign in →</Button>
+              </Link>
             </Card>
           )}
 
+          {/* Practice / Quiz / Build stages */}
           {signedIn && (
             <>
               <StageSection id="practice" icon="⌨️" title="Practice" state={stages.practice}>
@@ -161,7 +186,7 @@ export default function LessonLoopPage({
 
               <StageSection id="quiz" icon="🧠" title="Quiz" state={stages.quiz}>
                 {lesson.quiz && (
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <QuizRunner quizId={lesson.quiz.id} onPassed={refresh} />
                     {stages.quiz === "done" && <PracticePool quizId={lesson.quiz.id} />}
                   </div>
@@ -177,16 +202,21 @@ export default function LessonLoopPage({
                 )}
               </StageSection>
 
+              {/* Lesson complete card */}
               {lessonComplete && (
-                <Card className="animate-fade-in-up border-success/40 bg-gradient-to-br from-success/10 to-transparent text-center shadow-card">
-                  <p className="mb-3 text-lg font-medium">🐝 Lesson complete!</p>
+                <Card className="animate-bounce-in border-success/40 bg-gradient-to-br from-success/8 to-transparent text-center shadow-card">
+                  <div className="mb-2 text-4xl">🐝</div>
+                  <p className="mb-1 text-xl font-bold text-text/90">Lesson complete!</p>
+                  <p className="mb-5 text-sm text-text/50">
+                    Great work — keep the momentum going.
+                  </p>
                   {nextLesson ? (
                     <Link href={`/learn/${params.course}/${nextLesson.moduleSlug}/${nextLesson.slug}#read`}>
-                      <Button>Next lesson: {nextLesson.title} →</Button>
+                      <Button className="px-6">Next: {nextLesson.title} →</Button>
                     </Link>
                   ) : (
                     <Link href={`/learn/${params.course}`}>
-                      <Button variant="secondary">Back to course →</Button>
+                      <Button variant="secondary" className="px-6">Back to course →</Button>
                     </Link>
                   )}
                 </Card>
@@ -195,6 +225,7 @@ export default function LessonLoopPage({
           )}
         </div>
 
+        {/* ── Right TOC ── */}
         <div className="hidden lg:block">
           <TableOfContents sections={parsedSections} />
         </div>
@@ -203,12 +234,9 @@ export default function LessonLoopPage({
   );
 }
 
+/* ── Stage section wrapper ── */
 function StageSection({
-  id,
-  icon,
-  title,
-  state,
-  children,
+  id, icon, title, state, children,
 }: {
   id: string;
   icon: string;
@@ -217,20 +245,29 @@ function StageSection({
   children: React.ReactNode;
 }) {
   return (
-    <div id={id} className="animate-fade-in-up">
-      <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold">
-        {icon} {title}
+    <div id={id} className="animate-fade-in-up space-y-4">
+      <div className="flex items-center gap-3">
+        <span className="text-xl">{icon}</span>
+        <h2 className="text-xl font-bold tracking-tight text-text/85">{title}</h2>
         {state === "done" && (
-          <span className="rounded-full bg-success/15 px-2 py-0.5 text-xs font-medium text-success">
+          <span className="rounded-full bg-success/15 px-2.5 py-0.5 text-xs font-bold text-success">
             ✓ done
           </span>
         )}
-      </h2>
+        {state === "in_progress" && (
+          <span className="animate-ping-soft rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-bold text-primary">
+            in progress
+          </span>
+        )}
+      </div>
+
       {state === "locked" ? (
-        <Card className="border-dashed bg-transparent shadow-none">
-          <p className="flex items-center gap-2 text-sm text-text/50">
-            <span>🔒</span>
-            {title === "Quiz" ? "Finish Read to unlock the quiz." : "Pass the quiz to unlock Build & Ship."}
+        <Card className="border-dashed border-accent/20 bg-transparent shadow-none">
+          <p className="flex items-center gap-2.5 text-sm text-text/45">
+            <span className="text-base">🔒</span>
+            {title === "Quiz"
+              ? "Complete the Read stage to unlock the quiz."
+              : "Pass the quiz to unlock Build & Ship."}
           </p>
         </Card>
       ) : (
