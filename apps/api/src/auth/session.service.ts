@@ -22,19 +22,30 @@ export class SessionService {
     return secret;
   }
 
+  // Web and API live on different domains (vercel.app / onrender.com), so
+  // this is a cross-site request from the browser's point of view. Only
+  // SameSite=None is sent on cross-site fetches, and browsers require
+  // Secure whenever SameSite=None is used.
+  private get crossSiteCookieOptions() {
+    const isProd = this.config.get<string>("NODE_ENV") === "production";
+    return {
+      secure: isProd,
+      sameSite: isProd ? ("none" as const) : ("lax" as const),
+    };
+  }
+
   issue(res: Response, payload: SessionPayload) {
     const token = jwt.sign(payload, this.secret, { expiresIn: SESSION_TTL_SECONDS });
     res.cookie(SESSION_COOKIE, token, {
       httpOnly: true,
-      secure: this.config.get<string>("NODE_ENV") === "production",
-      sameSite: "lax",
+      ...this.crossSiteCookieOptions,
       maxAge: SESSION_TTL_SECONDS * 1000,
       path: "/",
     });
   }
 
   clear(res: Response) {
-    res.clearCookie(SESSION_COOKIE, { path: "/" });
+    res.clearCookie(SESSION_COOKIE, { path: "/", ...this.crossSiteCookieOptions });
   }
 
   verify(token: string | undefined): SessionPayload | null {
