@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "True or false: adding the viewport meta tag by itself makes a page fully responsive.", "options": ["True", "False"] }
+{ "qtype": "mcq", "prompt": "What visibly goes wrong on mobile if you omit the viewport meta tag?", "options": ["The page fails to load", "The site looks zoomed out with tiny text", "Colors disappear", "JavaScript stops working"] }

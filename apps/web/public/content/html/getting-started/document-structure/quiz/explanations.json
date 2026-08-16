@@ -1,12 +1,12 @@
 {
-  "q1": "`<!DOCTYPE html>` must be the first line of the file — it puts the browser into standards mode before anything else is parsed.",
-  "q2": "The doctype's job is to trigger standards mode rendering; without it, older browsers can fall back to quirks mode and render inconsistently.",
-  "q3": "The `lang` attribute on `<html>` declares the page's language, e.g. `lang=\"en\"`.",
-  "q4": "`<head>` holds metadata like `title`, `meta charset`, and stylesheet `link` tags — visible content like body text and images belongs in `<body>`.",
-  "q5": "A document should have exactly one `<body>` element, holding all of the visible content.",
-  "q6": "`UTF-8` is the standard character encoding declared via `<meta charset=\"UTF-8\">`.",
-  "q7": "Visible content like `<h1>` doesn't belong inside `<head>` — almost nothing in `<head>` renders on the page, so it should move into `<body>`.",
-  "q8": "Missing `lang` can cause screen readers to mispronounce text, confuse translation tools, and hurt how search engines target the page by language — but it does not stop the page from rendering.",
-  "q9": "The correct order is `<!DOCTYPE html>`, then `<html>`, then `<head>`, then `<body>` — the doctype comes first, followed by the root element, then head, then body inside it.",
-  "q10": "Browsers are lenient with invalid structure like duplicate `<body>` tags — they typically try to recover and merge the content rather than failing, which hides the underlying mistake."
+  "q1": "False. <!DOCTYPE html> is not an HTML element and does not require a closing tag. It's a special instruction to the browser.",
+  "q2": "The browser renders in quirks mode. Without the doctype, browsers use legacy compatibility mode that can cause inconsistent rendering.",
+  "q3": "<head>. The head element contains machine-readable metadata like title, meta tags, and links to CSS, which are not displayed directly on the page.",
+  "q4": "One. A valid HTML document should have exactly one <body> element that contains all the visible content.",
+  "q5": "It causes inconsistent rendering and box-model behavior. Standards mode ensures consistent rendering across browsers, while quirks mode mimics old browser behavior.",
+  "q6": "html → head → body. The correct order is: <!DOCTYPE html>, then <html> as the root, containing <head> first, then <body>.",
+  "q7": "Contains metadata about the document. The <head> element holds information like title, meta tags, and links to external resources, not visible content.",
+  "q8": "Visible and interactive content. The <body> element contains everything the user sees and interacts with: text, images, forms, etc.",
+  "q9": "Browsers may silently move it to <body> or ignore it. Putting visible content in <head> is invalid, and browsers may attempt to fix it, but you shouldn't rely on this.",
+  "q10": "To tell the browser to render in standards mode. The doctype instruction switches the browser from legacy quirks mode to modern standards mode."
 }

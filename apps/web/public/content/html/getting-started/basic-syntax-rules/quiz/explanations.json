@@ -1,14 +1,12 @@
 {
-  "q1": "The closing tag always adds a forward slash before the tag name: `</p>`.",
-  "q2": "`href` is an attribute — it lives inside the opening tag and configures the element (here, where the link goes).",
-  "q3": "`<img>` never has content or a closing tag — it's a void element. `p`, `div`, and `span` all wrap content and need `</tag>`.",
-  "q4": "The correct closing tag for `<h1>` is `</h1>`.",
-  "q5": "`br`, `hr`, `img`, and `input` are void elements; `div` is not — it wraps content and needs a closing tag.",
-  "q6": "Attribute values should always be wrapped in quotes, e.g. `href=\"page.html\"`.",
-  "q7": "The second `<p>` should be `</p>` — a closing tag, not another opening tag.",
-  "q8": "B is valid: `<strong>` opens after `<p>` and closes before `</p>` — tags close in reverse order of opening. A crosses the tags, which is invalid.",
-  "q9": "Correct order: `<div>`, `<p>`, `</p>`, `</div>` — the innermost element closes first.",
-  "q10": "An element can have zero, one, or many attributes — there's no fixed limit.",
-  "q11": "This is called a void element.",
-  "q12": "Browsers are lenient and try to auto-correct missing closing tags, which can silently hide real bugs in your markup."
+  "q1": "False. <img> is a void element and does not require a closing tag. Void elements like <img>, <br>, <input> have no content and no closing tag.",
+  "q2": "disabled. Boolean attributes like disabled, required, and checked don't need a value — their mere presence means true.",
+  "q3": "Crossed. The tags are crossed (improperly nested). Proper nesting means closing tags in the reverse order they were opened, like balanced parentheses.",
+  "q4": "Element = opening tag + content + closing tag; tag = just the markers. For example, in <p>Hello</p>, the whole thing is an element, while <p> and </p> are tags.",
+  "q5": "<br>. Void elements like <br>, <img>, <input>, <hr> have no content and no closing tag.",
+  "q6": "The trailing slash is optional and purely stylistic. In HTML, both <br> and <br /> are valid. The trailing slash is optional and only matters in strict XHTML.",
+  "q7": "False. Attribute values can use either double or single quotes. Both are valid — the convention is to be consistent, usually with double quotes.",
+  "q8": "Browsers may fix it silently but it's invalid and unpredictable. Improper nesting (crossed tags) is invalid HTML, and browsers may attempt to fix it, but the results can be unpredictable.",
+  "q9": "<div>. <div> is not a void element — it requires both opening and closing tags. Void elements include <img>, <br>, <input>, <hr>, <meta>, <link>.",
+  "q10": "An attribute whose mere presence means true. Boolean attributes like disabled, required, and checked don't need a value — just including them sets them to true."
 }

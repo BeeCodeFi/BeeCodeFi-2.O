@@ -1,1 +1,1 @@
-{ "qtype": "fill_blank", "prompt": "Fill in the blank: `<meta name=\"viewport\" content=\"width=device-width, initial-____=1\">`", "placeholder": "the missing word in content" }
+{ "qtype": "mcq", "prompt": "The element that sets the browser tab's text is:", "options": ["<header>", "<title>", "<meta>", "<heading>"] }

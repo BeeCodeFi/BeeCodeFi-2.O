@@ -1,1 +1,1 @@
-{ "qtype": "fix_code", "prompt": "This snippet is broken — what's wrong? `<head><h1>Welcome</h1></head><body></body>`", "options": ["Nothing is wrong", "The visible <h1> shouldn't be inside <head> — it belongs in <body>", "<head> must come after <body>", "<h1> is a void element"] }
+{ "qtype": "mcq", "prompt": "What is the purpose of the <head> element?", "options": ["Contains visible page content", "Contains metadata about the document", "Defines the page layout", "Creates hyperlinks"] }

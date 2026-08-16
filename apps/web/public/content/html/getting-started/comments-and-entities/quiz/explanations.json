@@ -1,12 +1,12 @@
 {
-  "q1": "An HTML comment always starts with `<!--` and ends with `-->`; everything between is ignored when the page renders.",
-  "q2": "`<`, `>`, and `&` are reserved by the HTML parser for tags and entities; `@` has no special meaning in HTML markup.",
-  "q3": "`&nbsp;` renders as a space character that doesn't collapse and doesn't allow a line break at that position — a non-breaking space.",
-  "q4": "`&amp;` is the named entity for a literal ampersand.",
-  "q5": "`&lt;`, `&gt;`, `&amp;`, and `&copy;` are real named entities; `&nbsp2;` is not a recognized entity name.",
-  "q6": "HTML comments can't be nested — the parser closes the comment at the first `-->` it finds, so the text after that point is treated as regular markup.",
-  "q7": "A valid comment wraps the content between the opening `<!--` and the closing `-->`, in that order.",
-  "q8": "Comments are visible in page source (not hidden) and cannot be nested; a raw `&` can be misread as starting an entity, regular whitespace collapses to one space, and `&nbsp;` blocks a line break — all true.",
-  "q9": "`&nbsp;` does not collapse the way a regular space does, and it also blocks a line break at that position.",
-  "q10": "Raw `<` and `>` in text content should be escaped as `&lt;` and `&gt;` so the parser doesn't try to interpret them as the start of a tag."
+  "q1": "False. HTML comments are not rendered by the browser but are fully visible in the page's source code. Anyone can view them by selecting 'View Source.'",
+  "q2": "<, >, &. These characters must be escaped because they have special meaning in HTML markup — < and > as tag delimiters, & as the start of character references.",
+  "q3": "Copyright symbol. The entity &copy; renders as the copyright symbol (©).",
+  "q4": "The browser may interpret it as markup. When you type < literally, the browser may think it's the start of an HTML tag, which can break your page layout.",
+  "q5": "Wrong case may not resolve correctly. Entity names are case-sensitive, so &Amp; is not the same as &amp; and may not render as intended.",
+  "q6": "&#60;. The correct numeric character reference format starts with &# followed by the number and ends with ;.",
+  "q7": "False. HTML comments cannot be nested. Attempting to nest comments will result in the first closing --> ending the entire comment block.",
+  "q8": "&nbsp;. The entity &nbsp; represents a non-breaking space, which prevents browsers from collapsing multiple spaces into one.",
+  "q9": "&amp;. The correct entity for the ampersand character is &amp;. This is necessary because & itself starts character references.",
+  "q10": "They are visible in page source. HTML comments are not rendered on the page but are fully visible to anyone who views the page source, making them unsuitable for sensitive information."
 }

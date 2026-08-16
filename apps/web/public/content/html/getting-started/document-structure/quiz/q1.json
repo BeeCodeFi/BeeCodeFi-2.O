@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "What must be the very first line of an HTML document?", "options": ["<!DOCTYPE html>", "<html>", "<head>", "<title>"] }
+{ "qtype": "mcq", "prompt": "True or false: <!DOCTYPE html> is an HTML element and requires a closing tag.", "options": ["True", "False"] }

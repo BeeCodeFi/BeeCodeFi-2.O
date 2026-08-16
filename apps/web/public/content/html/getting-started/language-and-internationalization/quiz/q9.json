@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What happens if you use full language names instead of BCP 47 codes?", "options": ["It works correctly", "It may not work as expected", "It's the recommended approach", "It causes JavaScript errors"] }

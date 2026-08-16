@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "Which of these is the correct closing tag for `<p>`?", "options": ["<p>", "</p>", "<end p>", "<p/>"] }
+{ "qtype": "mcq", "prompt": "True or false: <img> requires a closing tag </img>.", "options": ["True", "False"] }

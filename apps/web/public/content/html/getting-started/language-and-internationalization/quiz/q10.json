@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "How does RTL text direction affect layout beyond just text flow?", "options": ["It only affects text", "It can flip margins, padding, and flex/grid direction", "It changes the page colors", "It has no effect on layout"] }

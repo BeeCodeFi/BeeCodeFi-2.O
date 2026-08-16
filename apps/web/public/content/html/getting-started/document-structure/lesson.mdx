@@ -1,101 +1,53 @@
-# Document Structure
+# Document Structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
 
-Every HTML page — no matter how simple or complex — starts from the same
-skeleton: a doctype, a root `<html>` element, a `<head>`, and a `<body>`.
-Learn this skeleton once and you'll recognize it in every page you ever open.
+## The Doctype {#the-doctype}
 
-## The doctype {#the-doctype}
+Every HTML document starts with `<!DOCTYPE html>`. This tells the browser to render in **standards mode** rather than "quirks mode" (a legacy compatibility mode that mimics old, non-standard browser behavior). It is *not* an HTML tag/element — it's a special instruction with no closing tag.
 
-The very first line of any HTML document should be `<!DOCTYPE html>`. It
-isn't a tag in the usual sense — it's a signal to the browser about which
-rules to use when reading the rest of the file. With the doctype present,
-the browser renders your page in **standards mode**, following the modern
-HTML and CSS specifications consistently.
+```html
+<!DOCTYPE html>
+```
 
-Leave it out, or put something before it, and older browsers can drop into
-**quirks mode** instead — a legacy rendering mode that mimics the loose,
-inconsistent behavior of very old browsers. Layout, box sizing, and even
-simple things like element spacing can shift in quirks mode, and the bugs it
-causes are easy to misdiagnose because nothing looks obviously "wrong" at
-first glance. A beginner mistake worth naming directly: forgetting
-`<!DOCTYPE html>` entirely, then spending an hour debugging a layout issue
-that quirks mode caused.
+## The Root Element: `<html>` {#the-root-element}
 
-## The html element and lang {#html-element-and-lang}
+Everything else lives inside `<html>...</html>`. Best practice: include a `lang` attribute (covered fully in Topic 6), e.g. `<html lang="en">`.
 
-Right after the doctype comes the root element, `<html>`, which wraps
-everything else on the page. Every other element — `<head>`, `<body>`, and
-everything inside them — nests inside this one `<html>` tag.
+## `<head>` — Machine-Readable Metadata {#head-metadata}
 
-The `<html>` tag should carry a `lang` attribute, such as `lang="en"` for
-English. This single attribute does real work: screen readers use it to
-choose the correct pronunciation rules, browser translation tools use it to
-decide whether (and how) to offer a translation, and search engines use it
-to serve the right language version of a page to the right audience.
-Skipping `lang` doesn't break rendering, but it quietly degrades
-accessibility and discoverability — an easy detail to overlook since the
-page still "looks" fine without it.
+Contains information *about* the document, not displayed directly on the page: `<title>`, `<meta>` tags, links to CSS, favicons, etc. (Deep dive in Topic 31.)
 
-## The head element {#head-element}
+## `<body>` — Visible Content {#body-visible-content}
 
-`<head>` holds a page's metadata — information about the page rather than
-content the page displays. Typical residents of `<head>` include the
-`<title>` (shown in the browser tab), `<meta charset="UTF-8">` (declares the
-page's character encoding), other `<meta>` tags, and `<link>` tags that pull
-in an external CSS stylesheet.
+Contains everything the user actually sees/interacts with: text, images, forms, etc. There should be exactly **one** `<body>` per document.
 
-Almost nothing inside `<head>` renders directly on the page. This trips up
-beginners in a very specific way: placing visible text, an `<img>`, or a
-`<script>` meant to build page content directly inside `<head>` and then
-being confused when nothing shows up (or when a script errors out because
-the elements it expects haven't been parsed yet). Scripts *can* legitimately
-live in `<head>`, but only when they're written to account for that timing,
-which is a topic for a later lesson — as a beginner default, keep visible
-content and most scripts out of `<head>`.
-
-## The body element {#body-element}
-
-`<body>` is where the visible page lives — every heading, paragraph, image,
-button, and link a visitor actually sees goes inside `<body>`. A document
-should have exactly one `<body>` element; it comes right after `<head>` and
-closes at the very end of the page.
-
-Here's the full minimal boilerplate assembled from every piece above:
+## Minimal Valid Structure {#minimal-valid-structure}
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>My Page</title>
-  </head>
-  <body>
-    <!-- visible content goes here -->
-  </body>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <p>Hello world</p>
+</body>
 </html>
 ```
 
-## Why structure matters {#why-structure-matters}
+## Common Misconceptions {#common-misconceptions}
 
-Browsers are remarkably forgiving. Leave out a tag, nest things oddly, or
-duplicate an element that should appear once, and the browser will often
-silently guess what you meant and render *something* anyway. That leniency
-is convenient in the moment, but it means broken structure frequently goes
-unnoticed — the bug doesn't announce itself, it just shows up later as a
-weird styling glitch, an accessibility complaint, or a tool (like a
-validator, a bundler, or a screen reader) that trips over markup a human
-eye read as "fine."
-
-Sticking to the standard doctype–html–head–body shape isn't about pleasing
-a strict grammar checker; it's about giving every browser, assistive
-technology, and piece of tooling the same predictable starting point to
-work from.
+- Thinking `<!DOCTYPE html>` is an HTML tag with a closing tag — it isn't.
+- Putting visible content inside `<head>` — browsers will often silently move it to `<body>` or ignore it; don't rely on that.
+- Forgetting `<!DOCTYPE html>` triggers **quirks mode**, causing inconsistent rendering/box-model behavior across browsers.
 
 **Summary in 5 lines:**
-1. `<!DOCTYPE html>` is the first line, always — it turns on standards mode.
-2. `<html lang="...">` is the root element and its `lang` attribute matters for accessibility, translation, and SEO.
-3. `<head>` holds metadata (title, charset, CSS links) — not visible content.
-4. `<body>` holds everything a visitor actually sees, and there's only one per page.
-5. Following this structure exactly avoids silent, hard-to-diagnose rendering bugs.
 
-*Sources: MDN Web Docs.*
+- `<!DOCTYPE html>` triggers standards mode rendering.
+- `<html>` is the root element wrapping the whole document.
+- `<head>` holds metadata (not visible content).
+- `<body>` holds all visible/interactive content — only one per page.
+- Skipping the doctype risks inconsistent, legacy "quirks mode" rendering.
+
+---
+
+**Quick check** — before moving on, answer the checkpoint question below.

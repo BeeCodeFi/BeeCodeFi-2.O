@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "Which of these is NOT one of the characters the HTML parser treats as reserved syntax that may need escaping?", "options": ["<", ">", "&", "@"] }
+{ "qtype": "mcq", "prompt": "Which characters *must* generally be escaped as entities when used as literal content?", "options": ["a, b, c", "<, >, &", "Numbers only", "Spaces only"] }

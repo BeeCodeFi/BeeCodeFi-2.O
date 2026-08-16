@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "In `<a href=\"page.html\">`, what is `href`?", "options": ["A tag name", "An attribute", "A void element", "A comment"] }
+{ "qtype": "mcq", "prompt": "Which of these is a boolean attribute?", "options": ["href", "class", "disabled", "src"] }

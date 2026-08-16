@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "What does a `<meta name=\"description\">` tag primarily influence?", "options": ["The page's search engine ranking position", "The snippet text shown under the title in search results", "The browser tab icon", "The character encoding of the page"] }
+{ "qtype": "mcq", "prompt": "Which is NOT required for a technically valid HTML document?", "options": ["<!DOCTYPE html>", "<title>", "<meta name=\"description\">", "<html>"] }

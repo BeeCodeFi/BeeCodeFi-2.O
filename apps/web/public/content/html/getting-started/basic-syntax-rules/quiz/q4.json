@@ -1,1 +1,1 @@
-{ "qtype": "fill_blank", "prompt": "Fill in the missing closing tag: `<h1>Welcome____`", "placeholder": "type the closing tag, e.g. </h1>" }
+{ "qtype": "mcq", "prompt": "What is the difference between an element and a tag?", "options": ["They are the same thing", "Element = opening tag + content + closing tag; tag = just the markers", "Tag = opening tag + content + closing tag; element = just the markers", "Neither has a specific meaning"] }

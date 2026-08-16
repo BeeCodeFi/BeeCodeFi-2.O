@@ -1,1 +1,1 @@
-{ "qtype": "multi", "prompt": "Which of these are valid named HTML entities? (select all that apply)", "options": ["&lt;", "&gt;", "&amp;", "&nbsp2;", "&copy;"] }
+{ "qtype": "mcq", "prompt": "Why are entity names case-sensitive, and what's a risk of getting the case wrong?", "options": ["They aren't case-sensitive", "Wrong case may not resolve correctly", "It causes the page to crash", "It only affects SEO"] }

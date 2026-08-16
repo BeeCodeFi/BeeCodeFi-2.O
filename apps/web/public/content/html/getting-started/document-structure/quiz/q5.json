@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "How many <body> elements should a valid HTML document have?", "options": ["Zero", "Exactly one", "Two — one for header and one for footer", "As many as needed"] }
+{ "qtype": "mcq", "prompt": "Why does standards mode vs quirks mode matter for a developer?", "options": ["It only affects loading speed", "It causes inconsistent rendering and box-model behavior", "It changes the page colors", "It enables JavaScript"] }

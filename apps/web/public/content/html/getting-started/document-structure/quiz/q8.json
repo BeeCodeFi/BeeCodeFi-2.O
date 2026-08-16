@@ -1,1 +1,1 @@
-{ "qtype": "multi", "prompt": "Which of these are real consequences of leaving out the lang attribute on <html>? (select all that apply)", "options": ["Screen readers may mispronounce the content", "Translation tools may guess the wrong source language", "The page fails to render entirely", "Search engines may serve the page to the wrong audience"] }
+{ "qtype": "mcq", "prompt": "What does the <body> element contain?", "options": ["Metadata about the document", "Visible and interactive content", "CSS stylesheets", "JavaScript code only"] }

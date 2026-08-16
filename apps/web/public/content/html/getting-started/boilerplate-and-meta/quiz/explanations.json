@@ -1,12 +1,12 @@
 {
-  "q1": "`<meta charset=\"UTF-8\">` declares the character encoding the browser should use to interpret the page's text.",
-  "q2": "Without a correct charset declaration, the browser guesses the encoding, and accented characters, curly quotes, or emoji often render as garbled symbols.",
-  "q3": "The attribute is `initial-scale`, which sets the starting zoom level (usually `1`, meaning 100%).",
-  "q4": "False — the viewport tag only stops the browser from forcing a zoomed-out desktop-width view. Actual responsiveness still requires responsive CSS.",
-  "q5": "The viewport tag sets the page width to the device width and sets the initial zoom, and that combination prevents the forced zoomed-out desktop view — but it does not by itself guarantee a responsive layout, which depends on your CSS.",
-  "q6": "The description meta tag mainly shapes the snippet text search engines show under the page title in results; it is not itself a ranking factor.",
-  "q7": "A good description is a genuine plain-language summary, and search engines may substitute their own snippet text; it does not directly affect ranking, and it does have visible effects on how results look.",
-  "q8": "The correct value is `icon`, e.g. `<link rel=\"icon\" href=\"/favicon.ico\">`.",
-  "q9": "The head is missing `<meta charset=\"UTF-8\">`, which is the tag responsible for correct text rendering; nothing else in that head affects character rendering.",
-  "q10": "The conventional order is charset first (so the browser can read the rest of the head correctly), then viewport, then title, then description and other metadata."
+  "q1": "False. The viewport meta tag is critical for responsive design. Without it, mobile browsers render pages at a fake desktop width and scale them down, making text tiny.",
+  "q2": "<meta charset=\"UTF-8\">. This meta tag declares the character encoding for the document, telling the browser how to interpret the text.",
+  "q3": "<title>. The <title> element sets the browser tab text, bookmark name, and default search-result title.",
+  "q4": "The site looks zoomed out with tiny text. Without the viewport meta tag, mobile browsers render at a fake desktop width (usually 980px) and scale it down.",
+  "q5": "To avoid encoding issues and re-parsing. Browsers may re-parse the page if charset is declared too late, potentially causing display issues with non-ASCII characters.",
+  "q6": "<meta name=\"description\">. This is not required for valid HTML, though it's recommended for SEO. <!DOCTYPE html>, <title>, and <html> are required.",
+  "q7": "To enable correct mobile rendering. The viewport meta tag prevents mobile browsers from using the fake desktop width and ensures proper scaling.",
+  "q8": "Virtually all characters and emoji from all languages. UTF-8 is a universal character encoding that covers almost all characters and symbols used worldwide.",
+  "q9": "<title> sets browser tab text, <h1> is visible on-page heading. They serve different purposes and both should typically exist on a page.",
+  "q10": "Matches CSS viewport width to the device width. This tells the browser to use the actual device width rather than a fake desktop width for rendering."
 }

@@ -1,1 +1,1 @@
-{ "qtype": "fill_blank", "prompt": "Fill in the entity that displays a literal ampersand: `Terms ____ Conditions` should render as `Terms & Conditions`.", "placeholder": "e.g. &amp;" }
+{ "qtype": "mcq", "prompt": "Why can't you just type < directly into visible page text if you want the browser to display it literally?", "options": ["It's not allowed", "The browser may interpret it as markup", "It causes a JavaScript error", "It automatically converts to &lt;"] }

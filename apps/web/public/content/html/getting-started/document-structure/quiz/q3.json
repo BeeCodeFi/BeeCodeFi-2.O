@@ -1,1 +1,1 @@
-{ "qtype": "fill_blank", "prompt": "Fill in the blank: `<html ____=\"en\">` tells the browser (and screen readers) what language the page is in.", "placeholder": "attribute name" }
+{ "qtype": "mcq", "prompt": "The element that contains machine-readable metadata not shown directly on the page is:", "options": ["<body>", "<head>", "<html>", "<title>"] }

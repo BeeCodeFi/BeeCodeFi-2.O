@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "Which of these is a void element (no closing tag)?", "options": ["<p>", "<div>", "<img>", "<span>"] }
+{ "qtype": "mcq", "prompt": "<p>Hello <strong>world</p></strong> is invalid because the tags are:", "options": ["Nested correctly", "Crossed", "Boolean", "Void"] }

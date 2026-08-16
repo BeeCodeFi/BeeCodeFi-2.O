@@ -1,1 +1,1 @@
-{ "id": "checkpoint-1", "prompt": "Which meta tag should appear first inside `<head>` so the browser reads the rest of the page's text correctly?", "options": ["<meta charset=\"UTF-8\" />", "<meta name=\"viewport\" content=\"width=device-width\" />", "<meta name=\"description\" content=\"...\" />", "<link rel=\"icon\" href=\"favicon.ico\" />"] }
+{ "id": "checkpoint-1", "prompt": "True or false: The viewport meta tag is purely optional and has no effect on mobile rendering.", "options": ["True", "False"] }

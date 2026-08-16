@@ -1,0 +1,12 @@
+{
+  "q1": "False. The lang attribute has significant accessibility impact — screen readers use it to select correct pronunciation rules, and it also affects SEO and browser language features.",
+  "q2": "en-US. BCP 47 language tags use the format language-code-region-code, so en-US is the correct format for US English.",
+  "q3": "rtl. The dir attribute with value 'rtl' declares right-to-left text direction, which is needed for languages like Arabic and Hebrew.",
+  "q4": "When part of a page is in a different language. You can set lang on specific elements (like <span>) when a section of content is in a different language than the rest of the page.",
+  "q5": "To select correct pronunciation rules. Screen readers use the lang attribute to choose the right pronunciation and intonation for reading content aloud.",
+  "q6": "Arabic, Hebrew. These are RTL (right-to-left) languages that require dir=\"rtl\" for correct text direction and layout.",
+  "q7": "A standard for language identifiers. BCP 47 is the standard that defines the format for language tags like en, fr, hi, etc.",
+  "q8": "ltr. Left-to-right (ltr) is the default text direction for most languages including English, Hindi, and others.",
+  "q9": "It may not work as expected. Browsers and tools expect BCP 47 codes (like 'en') rather than full language names (like 'English').",
+  "q10": "It can flip margins, padding, and flex/grid direction. RTL affects more than just text flow — it can affect the entire layout including spacing and directional properties."
+}

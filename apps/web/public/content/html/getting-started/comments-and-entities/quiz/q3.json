@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "What does the entity `&nbsp;` produce?", "options": ["A non-breaking space", "A line break", "A copyright symbol", "An ampersand"] }
+{ "qtype": "mcq", "prompt": "The entity &amp;copy; renders as which symbol?", "options": ["Registered trademark", "Copyright symbol", "Trademark", "Degree symbol"] }

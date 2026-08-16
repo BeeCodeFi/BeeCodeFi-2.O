@@ -1,1 +1,1 @@
-{ "qtype": "order_steps", "prompt": "Put these three pieces in the correct order to write a valid HTML comment containing the word Hello.", "options": ["<!--", "Hello", "-->"] }
+{ "qtype": "mcq", "prompt": "True or false: Comments can be safely nested inside other comments.", "options": ["True", "False"] }

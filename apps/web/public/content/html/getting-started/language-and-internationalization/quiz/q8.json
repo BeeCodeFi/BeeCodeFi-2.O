@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What is the default text direction for most languages including English?", "options": ["rtl", "ltr", "auto", "vertical"] }

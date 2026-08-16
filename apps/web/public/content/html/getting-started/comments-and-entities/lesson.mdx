@@ -1,113 +1,55 @@
-# Comments & HTML Entities
+# Comments & HTML Entities/Special Characters
 
-HTML gives you two small but essential tools for writing cleaner markup:
-**comments**, which let you leave notes in your code that browsers ignore,
-and **entities**, which let you display characters that would otherwise
-confuse the HTML parser. Both come up constantly once you start writing real
-pages, so it's worth understanding exactly how each one works.
-
-## HTML comments {#html-comments}
-
-A comment starts with `<!--` and ends with `-->`. Anything between those
-markers is ignored by the browser when it renders the page:
+## HTML Comments {#html-comments}
 
 ```html
-<!-- TODO: replace this placeholder image before launch -->
-<img src="placeholder.jpg" alt="Product photo" />
+<!-- This is a comment, not shown to the user -->
 ```
 
-Comments are invisible in the rendered page, but they are **not** invisible
-in general — anyone can open "View Page Source" or the browser's developer
-tools and read every comment you left in the HTML. A common beginner
-misconception is treating comments as a way to hide something (an old API
-key, an internal note, a disabled login form) from users. They don't hide
-anything from a determined viewer; they only hide it from the rendered
-output. Never put secrets or sensitive information in a comment.
+- Not rendered by the browser, but visible in page source — never put sensitive info in comments.
+- Cannot be nested.
+- Useful for notes to your future self, temporarily disabling code, or marking sections (`<!-- Header -->`, `<!-- End Header -->`).
 
-One more rule worth knowing: comments can't be nested. Once the parser sees
-`<!--`, it looks for the next `-->` and closes the comment there, so putting
-one comment inside another produces broken, unpredictable markup.
+## Why Entities Exist {#why-entities-exist}
 
-## Why entities exist {#why-entities-exist}
+Certain characters are **reserved** in HTML because the parser uses them for markup itself — most importantly `<` and `>` (tag delimiters) and `&` (starts an entity/character reference). If you type these literally as content, the browser may misinterpret them as markup. Character references let you safely represent them, along with characters not on a standard keyboard (©, emoji-adjacent symbols, non-breaking spaces).
 
-The HTML parser uses a handful of characters as syntax, not content. `<` and
-`>` mark the start and end of tags, and `&` starts a character reference (the
-very thing this section explains). If you type one of these characters
-directly into your text and mean it literally, the parser can misread your
-markup — a stray `<` may be interpreted as the start of a tag that doesn't
-exist, and the rest of your text can vanish or render strangely.
+## The Anatomy of a Character Reference {#character-reference-anatomy}
 
-**Entities** (also called character references) solve this. An entity is a
-short, parser-safe stand-in for a character that would otherwise be
-misinterpreted. Writing `&lt;` tells the browser "display a literal
-less-than sign here," without ever confusing it with a real tag.
+Format: `&name;` (named) or `&#number;` / `&#xHEX;` (numeric), always starting with `&` and ending with `;`.
 
-## Common named entities {#common-entities}
+| Character | Entity Name | Numeric |
+|---|---|---|
+| `<` | `&lt;` | `&#60;` |
+| `>` | `&gt;` | `&#62;` |
+| `&` | `&amp;` | `&#38;` |
+| `"` | `&quot;` | `&#34;` |
+| `'` | `&apos;` | `&#39;` |
+| (non-breaking space) | `&nbsp;` | `&#160;` |
+| © | `&copy;` | `&#169;` |
 
-A handful of entities cover almost everything you'll need day to day:
+## The Three "Always Escape These" Characters {#always-escape}
 
-- `&lt;` and `&gt;` — display a literal `<` and `>`
-- `&amp;` — display a literal `&` (needed because `&` itself starts an entity)
-- `&quot;` — display a literal double quote
-- `&nbsp;` — a non-breaking space (covered in the next section)
-- `&copy;` — the copyright symbol, ©
+`<`, `>`, and `&` are the ones that *must* be escaped when they appear as literal content (not markup), since they have structural meaning to the parser.
 
-You can also use **numeric character references**, which encode any Unicode
-character by its code point: `&#169;` produces the same © as `&copy;`.
-Numeric references are handy for characters that don't have a short named
-entity.
+## Case Sensitivity {#case-sensitivity}
 
-## Escaping reserved characters {#escaping-reserved-characters}
+Named references are case-sensitive — `&Amp;` is not the same as `&amp;` and may not resolve correctly.
 
-Inside ordinary text content, a raw `<` or `&` should generally be escaped —
-typing them literally can silently break rendering or cause part of your
-text to disappear, because the parser tries to interpret them as markup.
-This is the second common misconception worth calling out: forgetting to
-escape `&` in something like "Terms & Conditions" often still displays fine
-in modern browsers, which makes beginners assume it's always safe — but it
-isn't guaranteed, and validators will flag it as an error.
+## Common Misconceptions {#common-misconceptions}
 
-```html
-<p>Use &lt;strong&gt; to bold text, and save 10% &amp; more.</p>
-```
-
-Attribute values follow a similar guideline: escaping quotes and `&` inside
-`href` or other attribute values is good practice, especially when the value
-contains a query string like `?a=1&b=2` (write `&amp;` between parameters).
-
-The one place entities behave differently is inside `<script>` and `<style>`
-elements. Their contents are treated as raw script or CSS text rather than
-parsed as HTML markup, so writing `&amp;` there would show up literally as
-the six characters `&amp;` instead of being converted to `&`. Entities are
-an HTML-parsing feature, not something JavaScript or CSS understands.
-
-## Whitespace entities {#whitespace-entities}
-
-By default, HTML collapses whitespace: however many spaces, tabs, or line
-breaks you type between words, the browser renders them as a single space.
-This is why lining up text with extra spacebar presses in your source code
-never affects the rendered page.
-
-`&nbsp;` is different — it's a **non-breaking space** that renders as a
-real space character but does not collapse and does not allow a line break
-at that position. It's useful for small formatting needs, like keeping a
-number and its unit together (`10&nbsp;km`) so they don't get split across
-two lines.
-
-```html
-<p>Space Space Space</p>
-<p>Space&nbsp;&nbsp;&nbsp;Space</p>
-```
-
-The first line renders with single spaces despite the extra spaces in the
-source; the second line actually preserves the extra gaps because `&nbsp;`
-isn't collapsed like a regular space.
+- Forgetting entities are **case-sensitive**.
+- Using multiple literal spaces expecting them to render — browsers collapse whitespace to a single space; `&nbsp;` is needed to force extra space (more in Topic 13).
+- Assuming comments are hidden from users entirely — they're invisible on the rendered page but fully visible in "View Source."
 
 **Summary in 5 lines:**
-1. Comments (`<!-- -->`) are ignored by the browser but fully visible in page source — never hide secrets in them.
-2. Comments cannot be nested.
-3. `<`, `>`, and `&` are reserved for HTML syntax, so literal uses of them in text should be escaped as entities.
-4. Key entities: `&lt;`, `&gt;`, `&amp;`, `&quot;`, `&nbsp;`, `&copy;`, and numeric references like `&#169;`.
-5. `&nbsp;` is a non-breaking, non-collapsing space; regular spaces always collapse to one in rendered output.
 
-*Sources: MDN Web Docs.*
+- Comments (`<!-- -->`) aren't rendered but are visible in source — don't hide secrets there.
+- Reserved characters (`<`, `>`, `&`) must be escaped via character references.
+- References come in named (`&lt;`) or numeric (`&#60;` / `&#x3C;`) form.
+- Entity names are case-sensitive.
+- `&nbsp;` forces a non-breaking space where normal whitespace would collapse.
+
+---
+
+**Quick check** — before moving on, answer the checkpoint question below.

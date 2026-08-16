@@ -1,1 +1,1 @@
-{ "qtype": "fix_code", "prompt": "Which nesting is valid? A: `<p><strong>text</p></strong>`  B: `<p><strong>text</strong></p>`", "options": ["A", "B", "Both", "Neither"] }
+{ "qtype": "mcq", "prompt": "What happens if you improperly nest HTML elements (cross tags)?", "options": ["The page won't load", "Browsers may fix it silently but it's invalid and unpredictable", "It always works correctly", "It causes a JavaScript error"] }

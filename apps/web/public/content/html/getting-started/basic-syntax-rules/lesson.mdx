@@ -1,71 +1,53 @@
-# Basic Syntax Rules
+# Basic Syntax Rules (elements, tags, attributes, nesting, void elements)
 
-Every HTML page is built from the same small set of syntax rules. Learn these
-once and you can read (and write) any HTML you ever encounter.
+## Elements vs. Tags {#elements-vs-tags}
 
-## What is an element? {#what-is-an-element}
-
-An **element** is a piece of content marked up with a **tag** so the browser
-knows what it is — a paragraph, a heading, a link. Most elements have an
-opening tag, some content, and a closing tag:
-
-```html
-<p>This is a paragraph.</p>
-```
-
-`p` is the **tag name**. `<p>` is the opening tag, `</p>` is the closing tag,
-and everything between them is the element's content.
-
-## Opening and closing tags {#opening-closing-tags}
-
-Tags come in pairs: `<tagname>` opens, `</tagname>` closes. Forgetting the
-closing tag is one of the most common beginner mistakes — the browser will
-often "fix" it silently, which hides the bug until something breaks later.
-
-```html
-<h1>Page title</h1>
-<p>A paragraph of text.</p>
-```
+An **element** = opening tag + content + closing tag (e.g., `<p>Hello</p>`). A **tag** is just the `<p>` or `</p>` part. People often use "tag" loosely to mean "element" — understand both terms.
 
 ## Attributes {#attributes}
 
-**Attributes** add extra information to an opening tag. They live inside the
-opening tag as `name="value"` pairs, always quoted:
+Provide additional information about an element, written inside the opening tag as `name="value"`:
 
 ```html
-<a href="https://example.com" target="_blank">Visit example.com</a>
+<a href="https://example.com" target="_blank">Link</a>
 ```
 
-Here `href` and `target` are attributes of the `a` element. An element can
-have zero, one, or many attributes.
+- Double or single quotes are both valid; be consistent (convention: double quotes).
+- Some attributes are **boolean** — their mere presence means "true" (e.g., `disabled`, `required`, `checked`); no value needed: `<input disabled>`.
 
-## Nesting rules {#nesting-rules}
+## Nesting {#nesting}
 
-Elements can contain other elements — this is **nesting**. Nested elements
-must close in the reverse order they opened, like matching parentheses:
+Elements can contain other elements, but must nest properly — like parentheses:
 
 ```html
-<div>
-  <p>Some <strong>bold</strong> text.</p>
-</div>
+<!-- Correct -->
+<p>This is <strong>important</strong> text.</p>
+
+<!-- Incorrect (crossed tags) -->
+<p>This is <strong>important</p></strong>
 ```
 
-`<strong>` closes before `</p>`, and `</p>` closes before `</div>`. Crossing
-tags (`<p><strong>text</p></strong>`) produces invalid, unpredictable markup.
+## Void (Self-Closing / Empty) Elements {#void-elements}
 
-## Void elements {#void-elements}
+Some elements have no content and no closing tag, e.g. `<img>`, `<br>`, `<hr>`, `<input>`, `<meta>`, `<link>`. In HTML syntax you can write `<br>` or `<br />` — both are valid; the trailing slash is optional and purely stylistic in HTML (it matters in strict XHTML).
 
-Some elements never have content or a closing tag — they're **void
-elements**. `img`, `br`, `hr`, and `input` are the most common:
+## Block vs. Inline (preview) {#block-vs-inline}
 
-```html
-<img src="cat.jpg" alt="A sleeping cat" />
-<br />
-<hr />
-```
+Some elements naturally start on a new line and take full width (block, e.g. `<p>`, `<div>`), others flow inline with surrounding text (e.g. `<span>`, `<a>`). This is really a CSS `display` concept, but default browser stylesheets set it per element.
 
-The trailing `/` is optional in HTML5 but many style guides keep it for
-clarity when scanning code.
+## Common Misconceptions {#common-misconceptions}
+
+- Thinking every element needs a closing tag — void elements don't.
+- Improper nesting ("crossing" tags) — browsers often "fix" this silently, but it's invalid and unpredictable.
+- Confusing "tag" and "element" in technical contexts (matters less day-to-day, matters in interviews/specs).
+
+**Summary in 5 lines:**
+
+- Element = opening tag + content + closing tag; tag = just the markers.
+- Attributes add info via `name="value"` in the opening tag; some are boolean (presence = true).
+- Nesting must not cross — like balanced parentheses.
+- Void elements (`<img>`, `<br>`, `<input>`, etc.) have no closing tag.
+- Block vs inline default behavior comes from the browser's default stylesheet.
 
 ---
 
