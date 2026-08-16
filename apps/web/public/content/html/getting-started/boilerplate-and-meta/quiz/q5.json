@@ -1,0 +1,1 @@
+{ "qtype": "multi", "prompt": "Which of these are things the viewport meta tag actually does? (select all that apply)", "options": ["Sets the page width to match the device's screen width", "Sets the initial zoom level", "Guarantees the layout adapts to small screens", "Prevents mobile browsers from forcing a zoomed-out desktop view"] }

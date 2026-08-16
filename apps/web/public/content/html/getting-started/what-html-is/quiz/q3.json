@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "After the browser's DNS lookup finds the server, what does the browser send next?", "options": ["A CSS stylesheet", "An HTTP request", "A completed DOM tree", "A JavaScript file"] }

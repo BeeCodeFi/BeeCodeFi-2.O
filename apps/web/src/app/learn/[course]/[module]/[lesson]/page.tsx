@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/lib/api";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { LoopBar, type LoopStage, type LoopStageState } from "@/components/lesson/loop-bar";
 import { LessonReader } from "@/components/lesson/lesson-reader";
 import { PracticePanel } from "@/components/editor/practice-panel";
@@ -48,8 +50,10 @@ export default function LessonLoopPage({
 
   if (!course || !lesson) {
     return (
-      <section className="mx-auto max-w-3xl px-6 py-12">
-        <p className="text-text/60">Loading lesson…</p>
+      <section className="mx-auto max-w-3xl space-y-4 px-6 py-12">
+        <div className="skeleton h-4 w-40" />
+        <div className="skeleton h-8 w-2/3" />
+        <div className="skeleton h-40" />
       </section>
     );
   }
@@ -60,13 +64,23 @@ export default function LessonLoopPage({
     state: stages[meta.key] as LoopStageState,
   }));
   const signedIn = lesson.stages !== null;
+  const allLessons = course.modules.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleSlug: m.slug })));
+  const currentIndex = allLessons.findIndex((l) => l.id === lesson.id);
+  const nextLesson = currentIndex >= 0 ? allLessons[currentIndex + 1] : undefined;
+  const lessonComplete = Object.values(stages).every((s) => s === "done");
 
   return (
     <>
       <LoopBar stages={loopStages} />
       <section className="mx-auto max-w-3xl space-y-10 px-6 py-10">
-        <header>
-          <p className="text-sm text-text/50">
+        <header className="animate-fade-in-up">
+          <Link
+            href={`/learn/${params.course}`}
+            className="inline-flex items-center gap-1 text-sm text-primary transition-colors hover:text-primary-strong hover:underline"
+          >
+            ← Back to {course.title}
+          </Link>
+          <p className="mt-2 text-sm text-text/50">
             {course.title} / {lesson.moduleSlug}
           </p>
           <h1 className="text-2xl font-semibold">{lesson.title}</h1>
@@ -112,6 +126,21 @@ export default function LessonLoopPage({
                 </div>
               )}
             </StageSection>
+
+            {lessonComplete && (
+              <Card className="animate-fade-in-up border-success/40 bg-gradient-to-br from-success/10 to-transparent text-center shadow-card">
+                <p className="mb-3 text-lg font-medium">🐝 Lesson complete!</p>
+                {nextLesson ? (
+                  <Link href={`/learn/${params.course}/${nextLesson.moduleSlug}/${nextLesson.slug}#read`}>
+                    <Button>Next lesson: {nextLesson.title} →</Button>
+                  </Link>
+                ) : (
+                  <Link href={`/learn/${params.course}`}>
+                    <Button variant="secondary">Back to course →</Button>
+                  </Link>
+                )}
+              </Card>
+            )}
           </>
         )}
       </section>
@@ -133,14 +162,19 @@ function StageSection({
   children: React.ReactNode;
 }) {
   return (
-    <div id={id}>
-      <h2 className="mb-3 text-lg font-semibold">
+    <div id={id} className="animate-fade-in-up">
+      <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold">
         {icon} {title}
-        {state === "done" && <span className="ml-2 text-sm text-success">✓ done</span>}
+        {state === "done" && (
+          <span className="rounded-full bg-success/15 px-2 py-0.5 text-xs font-medium text-success">
+            ✓ done
+          </span>
+        )}
       </h2>
       {state === "locked" ? (
-        <Card>
-          <p className="text-sm text-text/60">
+        <Card className="border-dashed bg-transparent shadow-none">
+          <p className="flex items-center gap-2 text-sm text-text/50">
+            <span>🔒</span>
             {title === "Quiz" ? "Finish Read to unlock the quiz." : "Pass the quiz to unlock Build & Ship."}
           </p>
         </Card>

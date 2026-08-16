@@ -1,0 +1,1 @@
+{ "qtype": "fix_code", "prompt": "This comment is broken — what's wrong? `<!-- outer <!-- inner --> comment -->`", "options": ["Comments can't contain spaces", "Comments can't be nested", "Comments must start with <!--->", "Nothing is wrong"] }

@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "How many <body> elements should a valid HTML document have?", "options": ["Zero", "Exactly one", "Two — one for header and one for footer", "As many as needed"] }

@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What is the job of DNS when you visit a website?", "options": ["It translates a domain name into an IP address", "It stores the page's CSS styles", "It compresses images before sending them", "It runs the site's JavaScript"] }

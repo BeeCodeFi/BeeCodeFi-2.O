@@ -1,0 +1,12 @@
+{
+  "q1": "`<!DOCTYPE html>` must be the first line of the file — it puts the browser into standards mode before anything else is parsed.",
+  "q2": "The doctype's job is to trigger standards mode rendering; without it, older browsers can fall back to quirks mode and render inconsistently.",
+  "q3": "The `lang` attribute on `<html>` declares the page's language, e.g. `lang=\"en\"`.",
+  "q4": "`<head>` holds metadata like `title`, `meta charset`, and stylesheet `link` tags — visible content like body text and images belongs in `<body>`.",
+  "q5": "A document should have exactly one `<body>` element, holding all of the visible content.",
+  "q6": "`UTF-8` is the standard character encoding declared via `<meta charset=\"UTF-8\">`.",
+  "q7": "Visible content like `<h1>` doesn't belong inside `<head>` — almost nothing in `<head>` renders on the page, so it should move into `<body>`.",
+  "q8": "Missing `lang` can cause screen readers to mispronounce text, confuse translation tools, and hurt how search engines target the page by language — but it does not stop the page from rendering.",
+  "q9": "The correct order is `<!DOCTYPE html>`, then `<html>`, then `<head>`, then `<body>` — the doctype comes first, followed by the root element, then head, then body inside it.",
+  "q10": "Browsers are lenient with invalid structure like duplicate `<body>` tags — they typically try to recover and merge the content rather than failing, which hides the underlying mistake."
+}

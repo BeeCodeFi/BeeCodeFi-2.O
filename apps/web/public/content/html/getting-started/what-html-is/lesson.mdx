@@ -1,0 +1,106 @@
+# What HTML Is & How the Web Works
+
+Before writing a single tag, it helps to know what HTML actually is and what
+happens between typing a web address and seeing a page on screen. This lesson
+is a quick tour of the whole picture — later lessons zoom into each piece.
+
+## What HTML is {#what-is-html}
+
+HTML stands for **HyperText Markup Language**. It's a **markup language**,
+not a programming language: it has no variables, loops, or logic. Its job is
+to describe the *structure and meaning* of content — this text is a heading,
+this text is a paragraph, this is a list — not how it looks or how it behaves.
+
+This is one of the most common beginner misconceptions: **HTML is not a
+programming language**, and it doesn't "do" things on its own. Appearance is
+handled by CSS, and behavior is handled by JavaScript. HTML's only job is
+structure and meaning. A minimal HTML document looks like this:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Page</title>
+  </head>
+  <body>
+    <h1>Hello, Web</h1>
+  </body>
+</html>
+```
+
+Every part of that file is marking something up: `<title>` labels the page's
+name, `<h1>` labels a top-level heading.
+
+## How a browser requests a page {#client-server-and-requests}
+
+When you type a web address into a browser, several things happen before any
+HTML shows up. First, the browser needs to find the computer that hosts the
+site. It looks up the address's **domain name** using DNS (the Domain Name
+System), which works like a phone book — translating a human-readable name
+into a numeric IP address a computer can connect to.
+
+Once the browser has that address, it opens a connection to the **server**
+and sends an **HTTP request** asking for a specific page. The server looks up
+or generates that page and sends back an **HTTP response**, which usually
+contains an HTML document as plain text. This request-and-response pattern —
+browser as **client**, remote computer as **server** — is the basic shape of
+almost everything on the web.
+
+## How browsers render HTML {#how-browsers-render-html}
+
+Receiving the HTML text is only the start. The browser **parses** it —
+reading it from top to bottom — and builds an internal tree structure out of
+the elements it finds. While parsing, whenever it encounters a reference to
+another file (a CSS stylesheet, an image, a JavaScript file), it fires off
+additional requests to fetch those resources too, often while still reading
+the rest of the HTML.
+
+Once the browser has enough information about structure (from HTML) and
+style (from CSS), it calculates where everything goes and **paints** pixels
+onto the screen. Loading a page isn't one single step — it's a pipeline of
+fetching, parsing, requesting more resources, and painting, and browsers
+overlap these steps for speed rather than doing them strictly one after
+another.
+
+## The DOM {#the-dom}
+
+As the browser parses HTML, it doesn't just keep the raw text around — it
+builds a live, in-memory tree of objects representing every element, called
+the **DOM** (Document Object Model). The DOM is what the browser actually
+uses to render the page, and it's also what JavaScript reads and changes
+while a page is running.
+
+Here's the second common misconception worth flagging now: **the DOM is not
+the same thing as the HTML source you wrote.** The source is a static file;
+the DOM is a live structure the browser builds from it and can then modify —
+adding, removing, or rearranging pieces — without ever touching the original
+file. If you inspect a page after some JavaScript has run, you may see DOM
+content that doesn't match the HTML you'd get by viewing the page's source.
+This lesson only previews the idea; working with the DOM in JavaScript is
+covered in a later course.
+
+## URLs and links {#urls-and-links-preview}
+
+A **URL** (Uniform Resource Locator) is the address that identifies a
+resource on the web, and it's built from a few recognizable parts: a
+**scheme** (`https://`, telling the browser which protocol to use), a
+**domain** (`example.com`, identifying the server), and usually a **path**
+(`/about`, identifying a specific resource on that server). There can be
+more — query strings, fragments — but scheme, domain, and path cover the
+core of most URLs you'll encounter.
+
+Pages become a "web" because they link to one another. The `<a href="...">`
+element — the **anchor** element — is how HTML expresses a link: its `href`
+attribute holds the URL the browser should navigate to when the link is
+clicked. Anchors and URLs are covered in depth in a later lesson; for now,
+just recognize that every clickable link you've ever used is an `<a>` element
+pointing at a URL.
+
+**Summary in 5 lines:**
+1. HTML is a markup language for structure and meaning, not a programming language.
+2. Loading a page starts with a URL, a DNS lookup, and an HTTP request/response.
+3. The browser parses HTML top-to-bottom, fetches linked resources, then paints the page.
+4. The DOM is the browser's live in-memory tree built from — but distinct from — your HTML source.
+5. URLs (scheme, domain, path) and `<a href>` links are what connect pages into "the web."
+
+*Sources: MDN — Web Docs.*

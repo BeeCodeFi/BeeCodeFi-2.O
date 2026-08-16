@@ -1,0 +1,1 @@
+{ "qtype": "fix_code", "prompt": "What's wrong with this line? `<p>5 < 10 and 10 > 5</p>`", "options": ["Nothing — browsers always render raw < and > correctly", "The < and > should be escaped as &lt; and &gt;", "The <p> tag doesn't support numbers", "Comments are missing"] }

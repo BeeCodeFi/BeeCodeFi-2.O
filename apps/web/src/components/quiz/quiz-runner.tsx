@@ -77,7 +77,9 @@ export function QuizRunner({ quizId, onPassed }: { quizId: string; onPassed?: ()
         {attempt.questions.map((q, i) => (
           <span
             key={q.id}
-            className={`h-2 w-2 rounded-full ${i <= index ? "bg-primary" : "bg-text/20"}`}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === index ? "w-6 bg-primary" : i < index ? "w-2 bg-success" : "w-2 bg-text/15"
+            }`}
           />
         ))}
       </div>

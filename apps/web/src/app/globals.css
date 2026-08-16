@@ -8,34 +8,50 @@
 [data-theme="light"] {
   --bg: #fffbf2;
   --surface: #ffffff;
+  --surface-hover: #fff6e0;
   --primary: #f5b301;
+  --primary-strong: #d99400;
   --accent: #0e7c7b;
   --text: #1c1917;
+  --border: color-mix(in srgb, #0e7c7b 16%, transparent);
   --success: #16a34a;
   --warn: #f59e0b;
   --error: #dc2626;
+  --shadow-color: 28 25 23;
 }
 
 [data-theme="dark"] {
   --bg: #0f1115;
   --surface: #171a21;
+  --surface-hover: #1d212b;
   --primary: #ffc93c;
+  --primary-strong: #ffd966;
   --accent: #2dd4bf;
   --text: #e7e5e4;
+  --border: color-mix(in srgb, #2dd4bf 18%, transparent);
   --success: #22c55e;
   --warn: #fbbf24;
   --error: #f87171;
+  --shadow-color: 0 0 0;
 }
 
 [data-theme="bee"] {
   --bg: #0f1115;
   --surface: #1a1305;
+  --surface-hover: #241a08;
   --primary: #ffc93c;
+  --primary-strong: #ffdf80;
   --accent: #ffdf80;
   --text: #fff8e1;
+  --border: color-mix(in srgb, #ffdf80 20%, transparent);
   --success: #22c55e;
   --warn: #fbbf24;
   --error: #f87171;
+  --shadow-color: 0 0 0;
+}
+
+* {
+  border-color: var(--border);
 }
 
 html {
@@ -45,6 +61,90 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Slim, theme-aware scrollbar — default browser bars clash with the surface tokens. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton {
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 10%, transparent) 25%,
+    color-mix(in srgb, var(--accent) 20%, transparent) 37%,
+    color-mix(in srgb, var(--accent) 10%, transparent) 63%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 400ms ease-out both;
+}
+
+.input-field {
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  background-color: var(--bg);
+  padding: 0.55rem 0.75rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input-field:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.input-field:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+  outline: none;
 }
 
 .prose-lesson p {

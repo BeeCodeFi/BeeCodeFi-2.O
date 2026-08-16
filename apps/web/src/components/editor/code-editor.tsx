@@ -24,13 +24,15 @@ export function CodeEditor() {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex gap-1 border-b border-accent/20">
+      <div className="flex gap-1 border-b border-accent/15 bg-surface/60 p-1.5">
         {TABS.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`px-3 py-1.5 text-sm font-medium ${
-              activeTab === tab.key ? "border-b-2 border-primary text-text" : "text-text/60"
+            className={`rounded-md px-3 py-1 text-sm font-medium transition-all duration-150 ${
+              activeTab === tab.key
+                ? "bg-primary text-bg shadow-soft"
+                : "text-text/60 hover:bg-accent/10 hover:text-text"
             }`}
           >
             {tab.label}

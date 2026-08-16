@@ -1,0 +1,1 @@
+{ "id": "checkpoint-1", "prompt": "Which meta tag should appear first inside `<head>` so the browser reads the rest of the page's text correctly?", "options": ["<meta charset=\"UTF-8\" />", "<meta name=\"viewport\" content=\"width=device-width\" />", "<meta name=\"description\" content=\"...\" />", "<link rel=\"icon\" href=\"favicon.ico\" />"] }

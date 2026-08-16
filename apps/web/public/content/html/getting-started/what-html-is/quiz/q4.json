@@ -1,0 +1,1 @@
+{ "qtype": "multi", "prompt": "Which of these are parts of a typical URL? (select all that apply)", "options": ["scheme", "domain", "path", "stylesheet", "attribute"] }

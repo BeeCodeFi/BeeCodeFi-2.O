@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What is the most common visible symptom of a missing or wrong charset declaration?", "options": ["The page fails to load", "Special characters or emoji render as garbled symbols", "The favicon disappears", "The page becomes unresponsive on mobile"] }

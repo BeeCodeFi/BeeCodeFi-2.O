@@ -1,0 +1,12 @@
+{
+  "q1": "An HTML comment always starts with `<!--` and ends with `-->`; everything between is ignored when the page renders.",
+  "q2": "`<`, `>`, and `&` are reserved by the HTML parser for tags and entities; `@` has no special meaning in HTML markup.",
+  "q3": "`&nbsp;` renders as a space character that doesn't collapse and doesn't allow a line break at that position — a non-breaking space.",
+  "q4": "`&amp;` is the named entity for a literal ampersand.",
+  "q5": "`&lt;`, `&gt;`, `&amp;`, and `&copy;` are real named entities; `&nbsp2;` is not a recognized entity name.",
+  "q6": "HTML comments can't be nested — the parser closes the comment at the first `-->` it finds, so the text after that point is treated as regular markup.",
+  "q7": "A valid comment wraps the content between the opening `<!--` and the closing `-->`, in that order.",
+  "q8": "Comments are visible in page source (not hidden) and cannot be nested; a raw `&` can be misread as starting an entity, regular whitespace collapses to one space, and `&nbsp;` blocks a line break — all true.",
+  "q9": "`&nbsp;` does not collapse the way a regular space does, and it also blocks a line break at that position.",
+  "q10": "Raw `<` and `>` in text content should be escaped as `&lt;` and `&gt;` so the parser doesn't try to interpret them as the start of a tag."
+}

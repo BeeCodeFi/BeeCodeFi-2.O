@@ -1,0 +1,1 @@
+{ "qtype": "multi", "prompt": "Which of these are valid named HTML entities? (select all that apply)", "options": ["&lt;", "&gt;", "&amp;", "&nbsp2;", "&copy;"] }

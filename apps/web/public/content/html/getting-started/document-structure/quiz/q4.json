@@ -1,0 +1,1 @@
+{ "qtype": "multi", "prompt": "Which of these belong inside <head>? (select all that apply)", "options": ["title", "meta charset", "link (for CSS)", "visible body text", "an <img> the visitor should see"] }

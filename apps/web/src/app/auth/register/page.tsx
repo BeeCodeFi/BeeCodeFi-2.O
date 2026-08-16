@@ -34,13 +34,13 @@ export default function RegisterPage() {
 
   return (
     <section className="mx-auto max-w-sm px-6 py-16">
-      <h1 className="mb-6 text-2xl font-semibold">Create your account</h1>
-      <Card>
+      <h1 className="animate-fade-in-up mb-6 text-2xl font-semibold">Create your account</h1>
+      <Card className="animate-fade-in-up shadow-card">
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <label className="flex flex-col gap-1 text-sm">
             Display name
             <input
-              className="rounded-md border border-accent/30 bg-bg px-3 py-2"
+              className="input-field"
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
               required
@@ -50,7 +50,7 @@ export default function RegisterPage() {
             Email
             <input
               type="email"
-              className="rounded-md border border-accent/30 bg-bg px-3 py-2"
+              className="input-field"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -61,7 +61,7 @@ export default function RegisterPage() {
             <input
               type="password"
               minLength={8}
-              className="rounded-md border border-accent/30 bg-bg px-3 py-2"
+              className="input-field"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

@@ -1,0 +1,1 @@
+{ "qtype": "fill_blank", "prompt": "Fill in the blank: `<html ____=\"en\">` tells the browser (and screen readers) what language the page is in.", "placeholder": "attribute name" }

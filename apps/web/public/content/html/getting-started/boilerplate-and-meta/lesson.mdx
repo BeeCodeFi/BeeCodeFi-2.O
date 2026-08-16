@@ -1,0 +1,115 @@
+# HTML Boilerplate & Meta Tags
+
+You already know the standard boilerplate that starts every HTML page. This
+lesson goes one level deeper: what actually belongs inside `<head>`, and why
+each of those small `<meta>` tags matters more than its size suggests.
+
+## The standard boilerplate {#the-standard-boilerplate}
+
+As a quick recap, every page starts from the same checklist:
+
+- `<!DOCTYPE html>` — tells the browser to use modern HTML5 rules.
+- `<html lang="en">` — the root element, with a `lang` attribute so
+  screen readers and translators know what language the page is in.
+- `<head>` — holds information *about* the page: character encoding, the
+  viewport setting, the title, and other metadata. Nothing in `<head>` is
+  displayed directly on the page.
+- `<body>` — everything the visitor actually sees.
+
+We've used this skeleton before. What we haven't unpacked yet is *why* the
+first few tags inside `<head>` are there and what happens if you skip them.
+
+## Character encoding: `<meta charset>` {#charset-meta}
+
+The very first line inside `<head>` should almost always be:
+
+```html
+<meta charset="UTF-8" />
+```
+
+This tells the browser which character set to use when turning the raw bytes
+of your file into text. UTF-8 covers essentially every character and emoji
+in common use, which is why it's the default recommendation for HTML
+documents.
+
+Order matters here: the charset declaration needs to appear early in
+`<head>` (within roughly the first 1024 bytes) because the browser has to
+know the encoding *before* it can correctly read the rest of the markup.
+Without it, browsers fall back to a guessed encoding, and text with accents,
+curly quotes, or emoji can render as garbled symbols instead of the
+characters you actually typed.
+
+## The viewport meta tag {#viewport-meta}
+
+Mobile browsers historically rendered pages at a desktop-width layout and
+then zoomed out so the whole thing fit on screen — tiny, unreadable text and
+all. The viewport meta tag turns that behavior off:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+```
+
+`width=device-width` tells the browser to match the page's width to the
+device's actual screen width, and `initial-scale=1` sets the starting zoom
+level to 100%.
+
+**Common misconception:** adding this tag does not *make* your page
+responsive. It only stops the browser from forcing a zoomed-out desktop
+view. Your layout still needs to be built with responsive techniques —
+flexible widths, media queries, and so on — to actually adapt well to a
+small screen. The viewport tag just gives that CSS a fighting chance.
+
+## Description and SEO-related meta tags {#description-and-seo-meta}
+
+```html
+<meta name="description" content="A short summary of this page's content." />
+```
+
+Search engines may use this text as the snippet shown under your page's
+title in search results, and it's also commonly shown when a link is shared
+elsewhere. A good description is a plain-language, one- or two-sentence
+summary of what the page actually offers.
+
+**Common misconception:** a meta description does not directly boost your
+search ranking. Search engines don't treat it as a ranking signal — it
+mainly shapes how your result *looks* to a human deciding whether to click,
+and search engines may even rewrite it with a different snippet if they
+think another part of the page answers the search better.
+
+## The favicon link {#favicon-link}
+
+One more small tag rounds out a well-formed `<head>` — the favicon, the
+small icon shown in the browser tab:
+
+```html
+<link rel="icon" href="/favicon.ico" />
+```
+
+The `href` can point to an `.ico`, `.png`, or `.svg` file. Without it, most
+browsers just show a generic blank-page icon in the tab instead.
+
+Put together, a solid `<head>` looks like this:
+
+```html
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Page</title>
+  <meta name="description" content="A short summary of this page." />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+```
+
+**Summary in 5 lines:**
+
+1. `<meta charset="UTF-8">` goes first so text renders correctly, not garbled.
+2. The viewport meta tag stops mobile browsers from forcing a zoomed-out desktop view — it doesn't make CSS responsive by itself.
+3. `<title>` sets the browser-tab text and the search-result headline.
+4. `<meta name="description">` shapes the search-result snippet, but isn't a ranking signal.
+5. `<link rel="icon">` supplies the small tab icon (favicon).
+
+---
+
+**Quick check** — before moving on, answer the checkpoint question below.
+
+*Sources: MDN Web Docs.*

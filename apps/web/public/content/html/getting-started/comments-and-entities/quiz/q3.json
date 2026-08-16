@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What does the entity `&nbsp;` produce?", "options": ["A non-breaking space", "A line break", "A copyright symbol", "An ampersand"] }

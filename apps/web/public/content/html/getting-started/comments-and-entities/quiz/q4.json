@@ -1,0 +1,1 @@
+{ "qtype": "fill_blank", "prompt": "Fill in the entity that displays a literal ampersand: `Terms ____ Conditions` should render as `Terms & Conditions`.", "placeholder": "e.g. &amp;" }

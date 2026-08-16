@@ -49,7 +49,7 @@ export function SubmissionPanel({ taskId, onPassed }: { taskId: string; onPassed
 
   return (
     <div>
-      <div className="mb-3 flex gap-1 border-b border-accent/20">
+      <div className="mb-3 flex gap-1 rounded-lg bg-surface/60 p-1.5">
         <TabButton active={tab === "onsite_editor"} onClick={() => setTab("onsite_editor")}>
           Submit editor code
         </TabButton>
@@ -112,8 +112,8 @@ function TabButton({
       onClick={onClick}
       disabled={disabled}
       title={title}
-      className={`px-3 py-1.5 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-40 ${
-        active ? "border-b-2 border-primary text-text" : "text-text/60"
+      className={`rounded-md px-3 py-1 text-sm font-medium transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-40 ${
+        active ? "bg-primary text-bg shadow-soft" : "text-text/60 hover:bg-accent/10 hover:text-text"
       }`}
     >
       {children}

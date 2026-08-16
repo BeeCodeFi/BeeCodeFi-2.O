@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "Which characters mark the start and end of an HTML comment?", "options": ["<!-- and -->", "/* and */", "<!- and ->", "# and #"] }

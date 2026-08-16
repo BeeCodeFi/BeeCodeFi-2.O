@@ -1,0 +1,12 @@
+{
+  "q1": "`<meta charset=\"UTF-8\">` declares the character encoding the browser should use to interpret the page's text.",
+  "q2": "Without a correct charset declaration, the browser guesses the encoding, and accented characters, curly quotes, or emoji often render as garbled symbols.",
+  "q3": "The attribute is `initial-scale`, which sets the starting zoom level (usually `1`, meaning 100%).",
+  "q4": "False — the viewport tag only stops the browser from forcing a zoomed-out desktop-width view. Actual responsiveness still requires responsive CSS.",
+  "q5": "The viewport tag sets the page width to the device width and sets the initial zoom, and that combination prevents the forced zoomed-out desktop view — but it does not by itself guarantee a responsive layout, which depends on your CSS.",
+  "q6": "The description meta tag mainly shapes the snippet text search engines show under the page title in results; it is not itself a ranking factor.",
+  "q7": "A good description is a genuine plain-language summary, and search engines may substitute their own snippet text; it does not directly affect ranking, and it does have visible effects on how results look.",
+  "q8": "The correct value is `icon`, e.g. `<link rel=\"icon\" href=\"/favicon.ico\">`.",
+  "q9": "The head is missing `<meta charset=\"UTF-8\">`, which is the tag responsible for correct text rendering; nothing else in that head affects character rendering.",
+  "q10": "The conventional order is charset first (so the browser can read the rest of the head correctly), then viewport, then title, then description and other metadata."
+}

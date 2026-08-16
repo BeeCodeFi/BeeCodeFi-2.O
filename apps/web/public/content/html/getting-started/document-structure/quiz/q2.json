@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What does <!DOCTYPE html> tell the browser to do?", "options": ["Load a stylesheet", "Render the page in standards mode instead of quirks mode", "Delete cached data", "Enable JavaScript"] }

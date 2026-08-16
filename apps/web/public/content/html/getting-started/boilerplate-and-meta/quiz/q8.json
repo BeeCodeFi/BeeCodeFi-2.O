@@ -1,0 +1,1 @@
+{ "qtype": "fill_blank", "prompt": "Fill in the blank: `<link rel=\"____\" href=\"/favicon.ico\">` sets the browser-tab icon.", "placeholder": "the missing rel value" }

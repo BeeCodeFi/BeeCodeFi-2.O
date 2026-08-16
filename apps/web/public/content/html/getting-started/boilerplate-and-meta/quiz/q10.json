@@ -1,0 +1,1 @@
+{ "qtype": "order_steps", "prompt": "Put these tags in the recommended order of appearance inside `<head>`.", "options": ["<meta charset=\"UTF-8\">", "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">", "<title>My Page</title>", "<meta name=\"description\" content=\"...\">"] }

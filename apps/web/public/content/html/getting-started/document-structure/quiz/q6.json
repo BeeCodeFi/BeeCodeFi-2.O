@@ -1,0 +1,1 @@
+{ "qtype": "fill_blank", "prompt": "Fill in the missing value: `<meta charset=____ />` sets the character encoding that covers virtually every character used in the world's languages.", "placeholder": "encoding name" }
