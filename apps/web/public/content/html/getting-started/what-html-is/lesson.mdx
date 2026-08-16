@@ -1,9 +1,8 @@
-# Topic 1: What HTML Is & How the Web Works
-### (Progress: 0/45 — Phase A: Notes)
+# What HTML Is & How the Web Works
 
-## 1. What HTML Actually Is
+## What HTML Actually Is {#what-html-actually-is}
 
-**HTML (HyperText Markup Language)** is **not a programming language** — it's a *markup language*. Its job is to tell the browser how to **structure** content: what's a heading, what's a paragraph, what's a link, what's an image. It describes *meaning and structure*, not visual appearance.HTML is a markup language that tells web browsers how to structure the web pages you visit, and it can be as complicated or as simple as the developer wants it to be.
+**HTML (HyperText Markup Language)** is **not a programming language** — it's a *markup language*. Its job is to tell the browser how to **structure** content: what's a heading, what's a paragraph, what's a link, what's an image. It describes *meaning and structure*, not visual appearance. HTML is a markup language that tells web browsers how to structure the web pages you visit, and it can be as complicated or as simple as the developer wants it to be.
 
 Think of it like the skeleton of a body:
 - **HTML** = skeleton/structure (bones — what goes where, what each part *is*)
@@ -12,11 +11,11 @@ Think of it like the skeleton of a body:
 
 HTML deliberately stays out of the styling business. HTML only describes the meaning of the content, not style and formatting — appearance and layout should be defined with CSS, not explicit presentational HTML.
 
-## 2. A Little History (context, not trivia)
+## A Little History {#a-little-history}
 
 HTML traces back to the late 1980s, when Tim Berners-Lee — then a contractor at CERN — devised a way for scientists to share documents over the internet, at a time when internet communication was largely limited to plain text via email, FTP, and Usenet. HTML made it possible to link documents together and embed richer content like formatted text and images.
 
-## 3. Who Governs the HTML Standard
+## Who Governs the HTML Standard {#who-governs-html-standard}
 
 Two bodies matter here:
 - **WHATWG** (Web Hypertext Application Technology Working Group) — maintains the **HTML Living Standard**, a continuously updated spec.
@@ -24,26 +23,26 @@ Two bodies matter here:
 
 The WHATWG treats HTML as a constantly evolving "living standard," while the W3C has worked on both HTML's evolution and periodic snapshots of it. In modern practice (and for this course), we'll treat the **WHATWG Living Standard** as the authoritative, current source of truth — it's what browsers actually implement against today.
 
-## 4. What HTML Does — Core Jobs
+## What HTML Does — Core Jobs {#what-html-does}
 
 HTML has three main responsibilities:
-1. **Give text meaning (semantics)** — telling the browser *what* a piece of content is (a heading? a list? a quote?), not just how it looks.
-2. **Structure a document into logical sections** — header, navigation, main content, footer, etc.
-3. **Embed content** — images, video, audio, and other media into a page.
+- **Give text meaning (semantics)** — telling the browser *what* a piece of content is (a heading? a list? a quote?), not just how it looks.
+- **Structure a document into logical sections** — header, navigation, main content, footer, etc.
+- **Embed content** — images, video, audio, and other media into a page.
 
 One of HTML's main jobs is to give text meaning — also known as semantics — so that the browser knows how to display and interpret it correctly.
 
-## 5. How the Web Actually Works (the request-render cycle)
+## How the Web Actually Works {#how-web-works}
 
 Simplified flow when you visit a webpage:
-1. You type a URL / click a link → browser sends a **request** to a server.
-2. Server sends back an **HTML file** (plus linked CSS/JS/images).
-3. The browser reads the HTML on the client side to display the page.
-4. Browser builds the **DOM** (Document Object Model) — an in-memory tree representation of the HTML — then applies CSS for styling and runs JS for behavior, and paints the final result on screen.
+- You type a URL / click a link → browser sends a **request** to a server.
+- Server sends back an **HTML file** (plus linked CSS/JS/images).
+- The browser reads the HTML on the client side to display the page.
+- Browser builds the **DOM** (Document Object Model) — an in-memory tree representation of the HTML — then applies CSS for styling and runs JS for behavior, and paints the final result on screen.
 
 You don't need to memorize DOM internals yet — just know: **HTML in → browser parses it → structured page out.**
 
-## 6. Common Misconceptions (watch out for these)
+## Common Misconceptions {#common-misconceptions}
 
 | Misconception | Reality |
 |---|---|
@@ -52,11 +51,14 @@ You don't need to memorize DOM internals yet — just know: **HTML in → browse
 | "You need HTML5 specifically to write valid HTML" | HTML5 is the current major spec era, but "HTML" as a term generally now just means "whatever the Living Standard currently says." |
 | "Browsers all render HTML identically" | Mostly true for standard elements, but rendering can have subtle engine differences (Chromium vs Firefox vs Safari) — a reason validation/testing matters (Topic 41). |
 
-## Summary in 5 Lines
-1. HTML is a **markup language**, not a programming language — it structures content, it doesn't program logic or control visual style.
-2. HTML + CSS + JS form the three pillars of the web: structure, style, behavior.
-3. HTML originated at CERN in the late 1980s (Tim Berners-Lee) to let scientists share linked documents.
-4. The **WHATWG Living Standard** is the current, evolving authoritative spec browsers implement against.
-5. HTML's core jobs: give content **semantic meaning**, **structure** documents, and **embed** media.
+**Summary in 5 lines:**
 
-**Sources:** MDN Web Docs — *Introduction to HTML* / *Getting started with HTML*; MDN — *Introduction to HTML* (WHATWG/W3C standards context).
+- HTML is a **markup language**, not a programming language — it structures content, it doesn't program logic or control visual style.
+- HTML + CSS + JS form the three pillars of the web: structure, style, behavior.
+- HTML originated at CERN in the late 1980s (Tim Berners-Lee) to let scientists share linked documents.
+- The **WHATWG Living Standard** is the current, evolving authoritative spec browsers implement against.
+- HTML's core jobs: give content **semantic meaning**, **structure** documents, and **embed** media.
+
+---
+
+**Quick check** — before moving on, answer the checkpoint question below.
