@@ -2,5 +2,5 @@
   "q1": "False. HTML is a markup language, not a programming language. It describes structure and meaning but has no logic, loops, or conditionals.",
   "q2": "C - Structuring content and giving it semantic meaning. HTML's job is structure and semantics; CSS handles styling (A), JavaScript handles interactivity (B), and HTML doesn't compile to machine code (D).",
   "q3": "WHATWG (Web Hypertext Application Technology Working Group). The WHATWG maintains the HTML Living Standard as a continuously evolving specification.",
-  "q4": "The browser sends a request to a server, the server responds with an HTML file (plus linked resources), the browser parses the HTML and builds the DOM, then applies CSS/JS and paints the page."
+  "q4": "Browser sends request → Server responds with HTML → Browser parses HTML and builds DOM → Browser paints page. This is the correct order of the request-render cycle."
 }

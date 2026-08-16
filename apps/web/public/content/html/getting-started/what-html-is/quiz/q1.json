@@ -1,1 +1,1 @@
-{ "qtype": "tf", "prompt": "HTML is a programming language that can execute logic like loops and conditionals." }
+{ "qtype": "mcq", "prompt": "HTML is a programming language that can execute logic like loops and conditionals.", "options": ["True", "False"] }
