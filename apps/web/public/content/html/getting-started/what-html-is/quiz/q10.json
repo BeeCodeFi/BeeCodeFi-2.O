@@ -1,1 +1,0 @@
-{ "qtype": "order_steps", "prompt": "Put these steps in the order they happen when you load a web page, from first to last.", "options": ["You enter a URL in the browser", "The browser looks up the domain via DNS", "The browser sends an HTTP request to the server", "The server sends back an HTML response", "The browser parses the HTML and renders the page"] }

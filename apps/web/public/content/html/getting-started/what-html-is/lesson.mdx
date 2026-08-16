@@ -1,106 +1,62 @@
-# What HTML Is & How the Web Works
+# Topic 1: What HTML Is & How the Web Works
+### (Progress: 0/45 — Phase A: Notes)
 
-Before writing a single tag, it helps to know what HTML actually is and what
-happens between typing a web address and seeing a page on screen. This lesson
-is a quick tour of the whole picture — later lessons zoom into each piece.
+## 1. What HTML Actually Is
 
-## What HTML is {#what-is-html}
+**HTML (HyperText Markup Language)** is **not a programming language** — it's a *markup language*. Its job is to tell the browser how to **structure** content: what's a heading, what's a paragraph, what's a link, what's an image. It describes *meaning and structure*, not visual appearance.HTML is a markup language that tells web browsers how to structure the web pages you visit, and it can be as complicated or as simple as the developer wants it to be.
 
-HTML stands for **HyperText Markup Language**. It's a **markup language**,
-not a programming language: it has no variables, loops, or logic. Its job is
-to describe the *structure and meaning* of content — this text is a heading,
-this text is a paragraph, this is a list — not how it looks or how it behaves.
+Think of it like the skeleton of a body:
+- **HTML** = skeleton/structure (bones — what goes where, what each part *is*)
+- **CSS** = skin and clothes (visual styling — colors, fonts, layout)
+- **JavaScript** = muscles and nervous system (behavior — interactivity, logic)
 
-This is one of the most common beginner misconceptions: **HTML is not a
-programming language**, and it doesn't "do" things on its own. Appearance is
-handled by CSS, and behavior is handled by JavaScript. HTML's only job is
-structure and meaning. A minimal HTML document looks like this:
+HTML deliberately stays out of the styling business. HTML only describes the meaning of the content, not style and formatting — appearance and layout should be defined with CSS, not explicit presentational HTML.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>My Page</title>
-  </head>
-  <body>
-    <h1>Hello, Web</h1>
-  </body>
-</html>
-```
+## 2. A Little History (context, not trivia)
 
-Every part of that file is marking something up: `<title>` labels the page's
-name, `<h1>` labels a top-level heading.
+HTML traces back to the late 1980s, when Tim Berners-Lee — then a contractor at CERN — devised a way for scientists to share documents over the internet, at a time when internet communication was largely limited to plain text via email, FTP, and Usenet. HTML made it possible to link documents together and embed richer content like formatted text and images.
 
-## How a browser requests a page {#client-server-and-requests}
+## 3. Who Governs the HTML Standard
 
-When you type a web address into a browser, several things happen before any
-HTML shows up. First, the browser needs to find the computer that hosts the
-site. It looks up the address's **domain name** using DNS (the Domain Name
-System), which works like a phone book — translating a human-readable name
-into a numeric IP address a computer can connect to.
+Two bodies matter here:
+- **WHATWG** (Web Hypertext Application Technology Working Group) — maintains the **HTML Living Standard**, a continuously updated spec.
+- **W3C** (World Wide Web Consortium) — historically published periodic "snapshot" versions.
 
-Once the browser has that address, it opens a connection to the **server**
-and sends an **HTTP request** asking for a specific page. The server looks up
-or generates that page and sends back an **HTTP response**, which usually
-contains an HTML document as plain text. This request-and-response pattern —
-browser as **client**, remote computer as **server** — is the basic shape of
-almost everything on the web.
+The WHATWG treats HTML as a constantly evolving "living standard," while the W3C has worked on both HTML's evolution and periodic snapshots of it. In modern practice (and for this course), we'll treat the **WHATWG Living Standard** as the authoritative, current source of truth — it's what browsers actually implement against today.
 
-## How browsers render HTML {#how-browsers-render-html}
+## 4. What HTML Does — Core Jobs
 
-Receiving the HTML text is only the start. The browser **parses** it —
-reading it from top to bottom — and builds an internal tree structure out of
-the elements it finds. While parsing, whenever it encounters a reference to
-another file (a CSS stylesheet, an image, a JavaScript file), it fires off
-additional requests to fetch those resources too, often while still reading
-the rest of the HTML.
+HTML has three main responsibilities:
+1. **Give text meaning (semantics)** — telling the browser *what* a piece of content is (a heading? a list? a quote?), not just how it looks.
+2. **Structure a document into logical sections** — header, navigation, main content, footer, etc.
+3. **Embed content** — images, video, audio, and other media into a page.
 
-Once the browser has enough information about structure (from HTML) and
-style (from CSS), it calculates where everything goes and **paints** pixels
-onto the screen. Loading a page isn't one single step — it's a pipeline of
-fetching, parsing, requesting more resources, and painting, and browsers
-overlap these steps for speed rather than doing them strictly one after
-another.
+One of HTML's main jobs is to give text meaning — also known as semantics — so that the browser knows how to display and interpret it correctly.
 
-## The DOM {#the-dom}
+## 5. How the Web Actually Works (the request-render cycle)
 
-As the browser parses HTML, it doesn't just keep the raw text around — it
-builds a live, in-memory tree of objects representing every element, called
-the **DOM** (Document Object Model). The DOM is what the browser actually
-uses to render the page, and it's also what JavaScript reads and changes
-while a page is running.
+Simplified flow when you visit a webpage:
+1. You type a URL / click a link → browser sends a **request** to a server.
+2. Server sends back an **HTML file** (plus linked CSS/JS/images).
+3. The browser reads the HTML on the client side to display the page.
+4. Browser builds the **DOM** (Document Object Model) — an in-memory tree representation of the HTML — then applies CSS for styling and runs JS for behavior, and paints the final result on screen.
 
-Here's the second common misconception worth flagging now: **the DOM is not
-the same thing as the HTML source you wrote.** The source is a static file;
-the DOM is a live structure the browser builds from it and can then modify —
-adding, removing, or rearranging pieces — without ever touching the original
-file. If you inspect a page after some JavaScript has run, you may see DOM
-content that doesn't match the HTML you'd get by viewing the page's source.
-This lesson only previews the idea; working with the DOM in JavaScript is
-covered in a later course.
+You don't need to memorize DOM internals yet — just know: **HTML in → browser parses it → structured page out.**
 
-## URLs and links {#urls-and-links-preview}
+## 6. Common Misconceptions (watch out for these)
 
-A **URL** (Uniform Resource Locator) is the address that identifies a
-resource on the web, and it's built from a few recognizable parts: a
-**scheme** (`https://`, telling the browser which protocol to use), a
-**domain** (`example.com`, identifying the server), and usually a **path**
-(`/about`, identifying a specific resource on that server). There can be
-more — query strings, fragments — but scheme, domain, and path cover the
-core of most URLs you'll encounter.
+| Misconception | Reality |
+|---|---|
+| "HTML is a programming language" | It's a *markup* language — no loops, conditionals, or logic. It only describes structure. |
+| "HTML controls how things look" | That's CSS's job. HTML *can* technically do minor styling (legacy attributes), but it's bad practice — flagged later in Module 4, Topic 22. |
+| "You need HTML5 specifically to write valid HTML" | HTML5 is the current major spec era, but "HTML" as a term generally now just means "whatever the Living Standard currently says." |
+| "Browsers all render HTML identically" | Mostly true for standard elements, but rendering can have subtle engine differences (Chromium vs Firefox vs Safari) — a reason validation/testing matters (Topic 41). |
 
-Pages become a "web" because they link to one another. The `<a href="...">`
-element — the **anchor** element — is how HTML expresses a link: its `href`
-attribute holds the URL the browser should navigate to when the link is
-clicked. Anchors and URLs are covered in depth in a later lesson; for now,
-just recognize that every clickable link you've ever used is an `<a>` element
-pointing at a URL.
+## Summary in 5 Lines
+1. HTML is a **markup language**, not a programming language — it structures content, it doesn't program logic or control visual style.
+2. HTML + CSS + JS form the three pillars of the web: structure, style, behavior.
+3. HTML originated at CERN in the late 1980s (Tim Berners-Lee) to let scientists share linked documents.
+4. The **WHATWG Living Standard** is the current, evolving authoritative spec browsers implement against.
+5. HTML's core jobs: give content **semantic meaning**, **structure** documents, and **embed** media.
 
-**Summary in 5 lines:**
-1. HTML is a markup language for structure and meaning, not a programming language.
-2. Loading a page starts with a URL, a DNS lookup, and an HTTP request/response.
-3. The browser parses HTML top-to-bottom, fetches linked resources, then paints the page.
-4. The DOM is the browser's live in-memory tree built from — but distinct from — your HTML source.
-5. URLs (scheme, domain, path) and `<a href>` links are what connect pages into "the web."
-
-*Sources: MDN — Web Docs.*
+**Sources:** MDN Web Docs — *Introduction to HTML* / *Getting started with HTML*; MDN — *Introduction to HTML* (WHATWG/W3C standards context).

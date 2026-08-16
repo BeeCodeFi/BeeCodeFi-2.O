@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "What kind of language is HTML?", "options": ["A programming language", "A markup language", "A styling language", "A database query language"] }
+{ "qtype": "tf", "prompt": "HTML is a programming language that can execute logic like loops and conditionals." }

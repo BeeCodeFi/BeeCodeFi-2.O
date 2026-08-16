@@ -1,1 +1,1 @@
-{ "qtype": "mcq", "prompt": "After the browser's DNS lookup finds the server, what does the browser send next?", "options": ["A CSS stylesheet", "An HTTP request", "A completed DOM tree", "A JavaScript file"] }
+{ "qtype": "fill", "prompt": "The two organizations most associated with maintaining the HTML standard are the W3C and the ______, with the latter maintaining it as a continuously evolving \"Living Standard.\"" }

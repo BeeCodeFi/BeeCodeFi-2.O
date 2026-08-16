@@ -1,1 +1,1 @@
-{ "qtype": "multi", "prompt": "Which of these are parts of a typical URL? (select all that apply)", "options": ["scheme", "domain", "path", "stylesheet", "attribute"] }
+{ "qtype": "short", "prompt": "Briefly describe what happens between you clicking a link and the page appearing in your browser (the request → render cycle)." }

@@ -1,12 +1,6 @@
 {
-  "q1": "HTML is a markup language — it describes structure and meaning, not logic. It has no variables or loops the way a programming language does.",
-  "q2": "DNS works like a phone book for the internet: it translates a human-readable domain name into the numeric IP address a computer needs to connect to.",
-  "q3": "Once the browser knows the server's address, it opens a connection and sends an HTTP request asking for a page; the server replies with an HTTP response.",
-  "q4": "A typical URL is made up of a scheme (like https://), a domain, and a path. Stylesheets and attributes are not parts of a URL itself.",
-  "q5": "Browsers parse HTML top to bottom and build the DOM as they go, fetching linked resources like CSS and images as soon as they're discovered — not after painting.",
-  "q6": "In the client-server model, the browser (or other requesting program) is the client, and the computer that responds with the page is the server.",
-  "q7": "This in-memory tree is called the DOM — the Document Object Model — and it's what the browser actually renders and what JavaScript can manipulate.",
-  "q8": "The DOM is a live structure the browser builds from your HTML source, and it can be changed afterward (for example by JavaScript) without altering the original file.",
-  "q9": "A URL can include a scheme and domain in addition to a path — a bare path is just one common shorthand form, not the only valid one.",
-  "q10": "Correct order: enter URL, DNS lookup, HTTP request, HTML response, browser parses and renders — each step depends on the one before it."
+  "q1": "False. HTML is a markup language, not a programming language. It describes structure and meaning but has no logic, loops, or conditionals.",
+  "q2": "C - Structuring content and giving it semantic meaning. HTML's job is structure and semantics; CSS handles styling (A), JavaScript handles interactivity (B), and HTML doesn't compile to machine code (D).",
+  "q3": "WHATWG (Web Hypertext Application Technology Working Group). The WHATWG maintains the HTML Living Standard as a continuously evolving specification.",
+  "q4": "The browser sends a request to a server, the server responds with an HTML file (plus linked resources), the browser parses the HTML and builds the DOM, then applies CSS/JS and paints the page."
 }
