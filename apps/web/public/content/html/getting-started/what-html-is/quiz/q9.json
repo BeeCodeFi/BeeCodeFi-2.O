@@ -1,0 +1,1 @@
+{ "qtype": "mcq", "prompt": "What does the DOM (Document Object Model) represent?", "options": ["The original HTML source file", "An in-memory tree representation of the HTML", "The CSS stylesheet", "The JavaScript code"] }
