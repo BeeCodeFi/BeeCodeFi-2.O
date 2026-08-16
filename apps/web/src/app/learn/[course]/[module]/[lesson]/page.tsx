@@ -64,7 +64,7 @@ export default function LessonLoopPage({
   /* ── Loading skeleton ── */
   if (!course || !lesson) {
     return (
-      <section className="mx-auto max-w-6xl px-6 py-12">
+      <section className="mx-auto w-full max-w-[1600px] px-4 py-12 sm:px-8">
         <div className="space-y-5">
           <div className="skeleton h-4 w-28 rounded-lg" />
           <div className="skeleton h-9 w-2/3 rounded-xl" />
@@ -121,7 +121,7 @@ export default function LessonLoopPage({
 
       <LoopBar stages={loopStages} />
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-10 lg:grid-cols-[240px_1fr_200px]">
+      <section className="mx-auto grid w-full max-w-[1600px] gap-8 px-4 py-10 sm:px-8 lg:grid-cols-[260px_1fr_220px] lg:gap-12">
 
         {/* ── Left sidebar ── */}
         <LessonSidebar

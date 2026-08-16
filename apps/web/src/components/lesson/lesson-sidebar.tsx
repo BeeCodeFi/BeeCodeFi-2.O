@@ -74,18 +74,18 @@ export function LessonSidebar({
                     : "border-transparent text-text/65 hover:bg-surface-hover hover:text-text/85"
                 }`}
               >
-                <span className="flex min-w-0 items-center gap-2.5 truncate">
+                <span className="flex min-w-0 items-start gap-2.5">
                   {/* Status dot */}
                   {lesson.completed ? (
-                    <span className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-success/20 text-[9px] font-bold text-success">
+                    <span className="mt-[2px] flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-success/20 text-[9px] font-bold text-success">
                       ✓
                     </span>
                   ) : isCurrent ? (
-                    <span className="h-4 w-4 flex-shrink-0 rounded-full border-2 border-primary bg-primary/20 animate-ping-soft" />
+                    <span className="mt-[2px] h-4 w-4 flex-shrink-0 rounded-full border-2 border-primary bg-primary/20 animate-ping-soft" />
                   ) : (
-                    <span className="h-4 w-4 flex-shrink-0 rounded-full border border-text/20" />
+                    <span className="mt-[2px] h-4 w-4 flex-shrink-0 rounded-full border border-text/20" />
                   )}
-                  <span className="truncate">
+                  <span className="leading-snug">
                     <span className="mr-1 text-text/35">{i + 1}.</span>
                     {lesson.title}
                   </span>
