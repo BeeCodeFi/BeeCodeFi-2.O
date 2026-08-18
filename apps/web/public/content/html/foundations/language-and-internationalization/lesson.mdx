@@ -1,6 +1,6 @@
 # 🌍 Language & Internationalization Basics
 
-## 🗣️ The `lang` Attribute {#lang-attribute}
+## 🗣️ The `lang` Attribute {#why-language-matters}
 
 Declares the primary human language of an element's content (usually set once on `<html>`):
 
@@ -8,9 +8,9 @@ Declares the primary human language of an element's content (usually set once on
 <html lang="en">
 ```
 
-Uses **<span style="color: #3b82f6;">BCP 47 language tags</span>** — e.g. `<span style="color: #10b981;">en</span>` (English), `<span style="color: #10b981;">en-US</span>` (US English), `<span style="color: #10b981;">fr</span>` (French), `<span style="color: #10b981;">hi</span>` (Hindi), `<span style="color: #10b981;">ja</span>` (Japanese). Format: primary language subtag, optionally followed by a region subtag.
+Uses **<span style="color: #3b82f6;">BCP 47 language tags</span>** — e.g. <span style="color: #10b981;">en</span> (English), <span style="color: #10b981;">en-US</span> (US English), <span style="color: #10b981;">fr</span> (French), <span style="color: #10b981;">hi</span> (Hindi), <span style="color: #10b981;">ja</span> (Japanese). Format: primary language subtag, optionally followed by a region subtag.
 
-## ❗ Why `lang` Matters (not cosmetic) {#why-lang-matters}
+## ❗ Why `lang` Matters (not cosmetic) {#the-lang-attribute}
 
 - **<span style="color: #f59e0b;">Accessibility</span>**: screen readers use it to select correct pronunciation rules.
 - **<span style="color: #f59e0b;">SEO/Search</span>**: search engines use it to serve language-appropriate results.
@@ -21,20 +21,22 @@ Uses **<span style="color: #3b82f6;">BCP 47 language tags</span>** — e.g. `<sp
 <p>The French word for "hello" is <span lang="fr">bonjour</span>.</p>
 ```
 
-## ➡️ The `dir` Attribute {#dir-attribute}
+## ➡️ The `dir` Attribute {#the-dir-attribute-and-rtl}
 
 Declares text direction:
-- `<span style="color: #14b8a6; font-family: monospace;">dir="ltr"</span>` — left-to-right (default; English, Hindi, most languages)
-- `<span style="color: #14b8a6; font-family: monospace;">dir="rtl"</span>` — right-to-left (Arabic, Hebrew)
-- `<span style="color: #14b8a6; font-family: monospace;">dir="auto"</span>` — browser infers direction from content
+- <span style="color: #14b8a6; font-family: monospace;">dir="ltr"</span> — left-to-right (default; English, Hindi, most languages)
+- <span style="color: #14b8a6; font-family: monospace;">dir="rtl"</span> — right-to-left (Arabic, Hebrew)
+- <span style="color: #14b8a6; font-family: monospace;">dir="auto"</span> — browser infers direction from content
 
 ```html
 <html lang="ar" dir="rtl">
 ```
 
-## 📐 Interaction with Layout {#interaction-with-layout}
+## 📐 Charset & Unicode {#charset-and-unicode}
 
 RTL affects more than text flow — margins, padding, and flex/grid direction can flip too (this becomes very relevant once you learn CSS logical properties, outside HTML's scope but good to know exists).
+
+## ✅ Practical i18n Tips {#practical-i18n-tips}
 
 ## ❌ Common Misconceptions {#common-misconceptions}
 
@@ -44,11 +46,11 @@ RTL affects more than text flow — margins, padding, and flex/grid direction ca
 
 **Summary in 5 lines:**
 
-- `<span style="color: #3b82f6; font-family: monospace;">lang</span>` declares content language using BCP 47 tags (e.g. `en`, `hi`, `fr`).
-- Set on `<span style="color: #10b981; font-family: monospace;">&lt;html&gt;</span>` for the whole page, or on specific elements for exceptions.
+- <span style="color: #3b82f6; font-family: monospace;">lang</span> declares content language using BCP 47 tags (e.g. `en`, `hi`, `fr`).
+- Set on <span style="color: #10b981; font-family: monospace;">&lt;html&gt;</span> for the whole page, or on specific elements for exceptions.
 - `lang` affects screen reader pronunciation, SEO, and browser language features.
-- `<span style="color: #14b8a6; font-family: monospace;">dir</span>` declares text direction: `ltr`, `rtl`, or `auto`.
-- RTL languages (Arabic, Hebrew) need `<span style="color: #ec4899; font-family: monospace;">dir="rtl"</span>` for correct layout.
+- <span style="color: #14b8a6; font-family: monospace;">dir</span> declares text direction: `ltr`, `rtl`, or `auto`.
+- RTL languages (Arabic, Hebrew) need <span style="color: #ec4899; font-family: monospace;">dir="rtl"</span> for correct layout.
 
 ---
 

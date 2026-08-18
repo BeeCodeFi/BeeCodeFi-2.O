@@ -1,6 +1,6 @@
 # 🏗️ HTML Boilerplate & Meta Tags
 
-## 📄 What "Boilerplate" Means {#what-boilerplate-means}
+## 📄 What "Boilerplate" Means {#the-standard-boilerplate}
 
 The standard skeleton every HTML page starts with — the minimum setup needed before you write actual content:
 
@@ -19,7 +19,7 @@ The standard skeleton every HTML page starts with — the minimum setup needed b
 </html>
 ```
 
-## 🔤 `<meta charset="UTF-8">` {#meta-charset}
+## 🔤 `<meta charset="UTF-8">` {#charset-meta}
 
 Declares the character encoding. **<span style="color: #3b82f6;">UTF-8</span>** covers virtually all characters/emoji from all languages and is the modern default recommendation. Should be declared as early as possible in `<head>` (ideally the very first line) since browsers may re-parse the page if it's declared too late.
 
@@ -29,13 +29,13 @@ Declares the character encoding. **<span style="color: #3b82f6;">UTF-8</span>** 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
-Critical for **<span style="color: #ec4899;">responsive design</span>** — without it, mobile browsers render the page at a fake "desktop width" (usually 980px) and scale it down, making text tiny. `<span style="color: #14b8a6;">width=device-width</span>` matches the CSS viewport width to the device; `<span style="color: #14b8a6;">initial-scale=1.0</span>` sets the initial zoom level.
+Critical for **<span style="color: #ec4899;">responsive design</span>** — without it, mobile browsers render the page at a fake "desktop width" (usually 980px) and scale it down, making text tiny. <span style="color: #14b8a6;">width=device-width</span> matches the CSS viewport width to the device; <span style="color: #14b8a6;">initial-scale=1.0</span> sets the initial zoom level.
 
-## 🏷️ `<title>` {#title-element}
+## 🏷️ `<title>` {#description-and-seo-meta}
 
 Sets the browser tab text, bookmark name, and default search-result title. Every page needs exactly one — required for valid HTML.
 
-## 📝 `<meta name="description">` {#meta-description}
+## 📝 `<meta name="description">` {#favicon-link}
 
 Not required for validity, but used by search engines for the snippet shown in results (**<span style="color: #f59e0b;">SEO</span>** relevance covered fully in Topic 42).
 
@@ -48,10 +48,10 @@ Not required for validity, but used by search engines for the snippet shown in r
 **Summary in 5 lines:**
 
 - **<span style="color: #10b981;">Boilerplate</span>** = the standard minimum `<head>`/`<body>` skeleton for every page.
-- `<span style="color: #3b82f6; font-family: monospace;">&lt;meta charset="UTF-8"&gt;</span>` should be declared first, to avoid encoding issues.
+- <span style="color: #3b82f6; font-family: monospace;">&lt;meta charset="UTF-8"&gt;</span> should be declared first, to avoid encoding issues.
 - The **<span style="color: #ec4899;">viewport meta tag</span>** is essential for correct mobile rendering.
-- `<span style="color: #f59e0b; font-family: monospace;">&lt;title&gt;</span>` is required and distinct from a visible `<h1>`.
-- `<span style="color: #14b8a6; font-family: monospace;">&lt;meta name="description"&gt;</span>` isn't required but affects SEO snippets.
+- <span style="color: #f59e0b; font-family: monospace;">&lt;title&gt;</span> is required and distinct from a visible `<h1>`.
+- <span style="color: #14b8a6; font-family: monospace;">&lt;meta name="description"&gt;</span> isn't required but affects SEO snippets.
 
 ---
 

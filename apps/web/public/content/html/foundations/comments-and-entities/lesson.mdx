@@ -14,9 +14,9 @@
 
 Certain characters are **<span style="color: #ef4444;">reserved</span>** in HTML because the parser uses them for markup itself — most importantly `<` and `>` (tag delimiters) and `&` (starts an entity/character reference). If you type these literally as content, the browser may misinterpret them as markup. <span style="color: #3b82f6;">Character references</span> let you safely represent them, along with characters not on a standard keyboard (©, emoji-adjacent symbols, non-breaking spaces).
 
-## 🔣 The Anatomy of a Character Reference {#character-reference-anatomy}
+## 🔣 The Anatomy of a Character Reference {#common-entities}
 
-Format: `<span style="color: #14b8a6; font-family: monospace;">&amp;name;</span>` (named) or `<span style="color: #14b8a6; font-family: monospace;">&amp;#number;</span>` / `<span style="color: #14b8a6; font-family: monospace;">&amp;#xHEX;</span>` (numeric), always starting with `&` and ending with `;`.
+Format: <span style="color: #14b8a6; font-family: monospace;">&amp;name;</span> (named) or <span style="color: #14b8a6; font-family: monospace;">&amp;#number;</span> / <span style="color: #14b8a6; font-family: monospace;">&amp;#xHEX;</span> (numeric), always starting with `&` and ending with `;`.
 
 | Character | Entity Name | Numeric |
 |---|---|---|
@@ -28,11 +28,11 @@ Format: `<span style="color: #14b8a6; font-family: monospace;">&amp;name;</span>
 | (non-breaking space) | `&nbsp;` | `&#160;` |
 | © | `&copy;` | `&#169;` |
 
-## ⚠️ The Three "Always Escape These" Characters {#always-escape}
+## ⚠️ The Three "Always Escape These" Characters {#escaping-reserved-characters}
 
 `<`, `>`, and `&` are the ones that *must* be escaped when they appear as literal content (not markup), since they have structural meaning to the parser.
 
-## 🔠 Case Sensitivity {#case-sensitivity}
+## 🔠 Case Sensitivity {#whitespace-entities}
 
 Named references are <span style="color: #f59e0b; font-weight: bold;">case-sensitive</span> — `&Amp;` is not the same as `&amp;` and may not resolve correctly.
 
@@ -48,7 +48,7 @@ Named references are <span style="color: #f59e0b; font-weight: bold;">case-sensi
 - **<span style="color: #ef4444;">Reserved characters</span>** (`<`, `>`, `&`) must be escaped via character references.
 - References come in **<span style="color: #3b82f6;">named</span>** (`&lt;`) or **<span style="color: #3b82f6;">numeric</span>** (`&#60;` / `&#x3C;`) form.
 - Entity names are **<span style="color: #f59e0b;">case-sensitive</span>**.
-- `<span style="color: #14b8a6; font-family: monospace;">&amp;nbsp;</span>` forces a non-breaking space where normal whitespace would collapse.
+- <span style="color: #14b8a6; font-family: monospace;">&amp;nbsp;</span> forces a non-breaking space where normal whitespace would collapse.
 
 ---
 

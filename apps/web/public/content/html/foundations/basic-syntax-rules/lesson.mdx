@@ -1,12 +1,12 @@
 # 🏗️ Basic Syntax Rules (elements, tags, attributes, nesting, void elements)
 
-## 🧩 Elements vs. Tags {#elements-vs-tags}
+## 🧩 Elements vs. Tags {#what-is-an-element}
 
 An **<span style="color: #3b82f6;">element</span>** = opening tag + content + closing tag (e.g., `<p>Hello</p>`). A **<span style="color: #ec4899;">tag</span>** is just the `<p>` or `</p>` part. People often use "tag" loosely to mean "element" — understand both terms.
 
 ## 🏷️ Attributes {#attributes}
 
-Provide additional information about an element, written inside the opening tag as `<span style="color: #14b8a6;">name="value"</span>`:
+Provide additional information about an element, written inside the opening tag as <span style="color: #14b8a6;">name="value"</span>:
 
 ```html
 <a href="https://example.com" target="_blank">Link</a>
@@ -15,7 +15,7 @@ Provide additional information about an element, written inside the opening tag 
 - Double or single quotes are both valid; be consistent (convention: double quotes).
 - Some attributes are **<span style="color: #f59e0b;">boolean</span>** — their mere presence means "true" (e.g., <span style="color: #10b981;">disabled</span>, <span style="color: #10b981;">required</span>, <span style="color: #10b981;">checked</span>); no value needed: `<input disabled>`.
 
-## 🪆 Nesting {#nesting}
+## 🪆 Nesting {#nesting-rules}
 
 Elements can contain other elements, but must nest properly — like parentheses:
 
@@ -29,9 +29,9 @@ Elements can contain other elements, but must nest properly — like parentheses
 
 ## 👻 Void (Self-Closing / Empty) Elements {#void-elements}
 
-Some elements have no content and no closing tag, e.g. `<span style="color: #ef4444; font-family: monospace;">&lt;img&gt;</span>`, `<span style="color: #ef4444; font-family: monospace;">&lt;br&gt;</span>`, `<span style="color: #ef4444; font-family: monospace;">&lt;hr&gt;</span>`, `<span style="color: #ef4444; font-family: monospace;">&lt;input&gt;</span>`, `<span style="color: #ef4444; font-family: monospace;">&lt;meta&gt;</span>`, `<span style="color: #ef4444; font-family: monospace;">&lt;link&gt;</span>`. In HTML syntax you can write `<br>` or `<br />` — both are valid; the trailing slash is optional and purely stylistic in HTML (it matters in strict XHTML).
+Some elements have no content and no closing tag, e.g. <span style="color: #ef4444; font-family: monospace;">&lt;img&gt;</span>, <span style="color: #ef4444; font-family: monospace;">&lt;br&gt;</span>, <span style="color: #ef4444; font-family: monospace;">&lt;hr&gt;</span>, <span style="color: #ef4444; font-family: monospace;">&lt;input&gt;</span>, <span style="color: #ef4444; font-family: monospace;">&lt;meta&gt;</span>, <span style="color: #ef4444; font-family: monospace;">&lt;link&gt;</span>. In HTML syntax you can write `<br>` or `<br />` — both are valid; the trailing slash is optional and purely stylistic in HTML (it matters in strict XHTML).
 
-## 🧱 Block vs. Inline (preview) {#block-vs-inline}
+## 🧱 Block vs. Inline (preview) {#opening-closing-tags}
 
 Some elements naturally start on a new line and take full width (<span style="color: #3b82f6;">block</span>, e.g. `<p>`, `<div>`), others flow inline with surrounding text (<span style="color: #ec4899;">inline</span>, e.g. `<span>`, `<a>`). This is really a CSS `display` concept, but default browser stylesheets set it per element.
 
