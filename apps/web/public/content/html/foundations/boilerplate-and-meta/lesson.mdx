@@ -1,4 +1,4 @@
-# 🏗️ HTML Boilerplate & Meta Tags
+﻿# 🏗️ HTML Boilerplate & Meta Tags
 
 ## 📄 What "Boilerplate" Means {#the-standard-boilerplate}
 
@@ -21,7 +21,7 @@ The standard skeleton every HTML page starts with — the minimum setup needed b
 
 ## 🔤 `<meta charset="UTF-8">` {#charset-meta}
 
-Declares the character encoding. **<span style="color: #3b82f6;">UTF-8</span>** covers virtually all characters/emoji from all languages and is the modern default recommendation. Should be declared as early as possible in `&lt;head&gt;` (ideally the very first line) since browsers may re-parse the page if it's declared too late.
+Declares the character encoding. **<span style="color: #3b82f6;">UTF-8</span>** covers virtually all characters/emoji from all languages and is the modern default recommendation. Should be declared as early as possible in `<head>` (ideally the very first line) since browsers may re-parse the page if it's declared too late.
 
 ## 📱 The Viewport Meta Tag {#viewport-meta}
 
@@ -43,15 +43,15 @@ Not required for validity, but used by search engines for the snippet shown in r
 
 - Thinking `charset` doesn't matter if the text is "just English" — non-UTF-8 pages can break on curly quotes, em dashes, emoji, or any non-ASCII input later.
 - Skipping the **<span style="color: #ec4899;">viewport tag</span>** and wondering why the site looks "zoomed out" on mobile.
-- Confusing `&lt;title&gt;` (browser tab) with an `&lt;h1&gt;` (visible on-page heading) — they serve different purposes and should usually both exist.
+- Confusing `<title>` (browser tab) with an `<h1>` (visible on-page heading) — they serve different purposes and should usually both exist.
 
 **Summary in 5 lines:**
 
-- **<span style="color: #10b981;">Boilerplate</span>** = the standard minimum `&lt;head&gt;`/`&lt;body&gt;` skeleton for every page.
-- <span style="color: #3b82f6; font-family: monospace;">&lt;meta charset="UTF-8"&gt;</span> should be declared first, to avoid encoding issues.
+- **<span style="color: #10b981;">Boilerplate</span>** = the standard minimum `<head>`/`<body>` skeleton for every page.
+- <span style="color: #3b82f6; font-family: monospace;"><meta charset="UTF-8"></span> should be declared first, to avoid encoding issues.
 - The **<span style="color: #ec4899;">viewport meta tag</span>** is essential for correct mobile rendering.
-- <span style="color: #f59e0b; font-family: monospace;">&lt;title&gt;</span> is required and distinct from a visible `&lt;h1&gt;`.
-- <span style="color: #14b8a6; font-family: monospace;">&lt;meta name="description"&gt;</span> isn't required but affects SEO snippets.
+- <span style="color: #f59e0b; font-family: monospace;"><title></span> is required and distinct from a visible `<h1>`.
+- <span style="color: #14b8a6; font-family: monospace;"><meta name="description"></span> isn't required but affects SEO snippets.
 
 ---
 
