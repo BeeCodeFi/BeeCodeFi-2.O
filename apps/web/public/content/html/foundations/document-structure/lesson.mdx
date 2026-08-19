@@ -1,4 +1,4 @@
-# 🏗️ Document Structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
+# 🏗️ Document Structure (`<!DOCTYPE>`, `<html>`, `&lt;head&gt;`, `&lt;body&gt;`)
 
 ## 📄 The Doctype {#the-doctype}
 
@@ -12,11 +12,11 @@ Every HTML document starts with <span style="color: #f59e0b; font-family: monosp
 
 Everything else lives inside <span style="color: #10b981; font-family: monospace;">&lt;html&gt;...&lt;/html&gt;</span>. Best practice: include a <span style="color: #6366f1;">lang</span> attribute (covered fully in Topic 6), e.g. `&lt;html lang="en"&gt;`.
 
-## 🧠 `<head>` — Machine-Readable Metadata {#head-element}
+## 🧠 `&lt;head&gt;` — Machine-Readable Metadata {#head-element}
 
 Contains information *about* the document, not displayed directly on the page: <span style="color: #ec4899; font-family: monospace;">&lt;title&gt;</span>, <span style="color: #ec4899; font-family: monospace;">&lt;meta&gt;</span> tags, links to CSS, favicons, etc. (Deep dive in Topic 31.)
 
-## 👁️ `<body>` — Visible Content {#body-element}
+## 👁️ `&lt;body&gt;` — Visible Content {#body-element}
 
 Contains everything the user actually sees/interacts with: text, images, forms, etc. There should be exactly **<span style="color: #ef4444;">one</span>** <span style="color: #14b8a6; font-family: monospace;">&lt;body&gt;</span> per document.
 
@@ -37,7 +37,7 @@ Contains everything the user actually sees/interacts with: text, images, forms, 
 ## ❌ Common Misconceptions {#common-misconceptions}
 
 - Thinking `<!DOCTYPE html>` is an HTML tag with a closing tag — it isn't.
-- Putting visible content inside `<head>` — browsers will often silently move it to `<body>` or ignore it; don't rely on that.
+- Putting visible content inside `&lt;head&gt;` — browsers will often silently move it to `&lt;body&gt;` or ignore it; don't rely on that.
 - Forgetting `<!DOCTYPE html>` triggers **<span style="color: #ef4444;">quirks mode</span>**, causing inconsistent rendering/box-model behavior across browsers.
 
 **Summary in 5 lines:**

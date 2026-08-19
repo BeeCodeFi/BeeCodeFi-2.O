@@ -12,7 +12,7 @@
 
 ## ❓ Why Entities Exist {#why-entities-exist}
 
-Certain characters are **<span style="color: #ef4444;">reserved</span>** in HTML because the parser uses them for markup itself — most importantly `<` and `>` (tag delimiters) and `&` (starts an entity/character reference). If you type these literally as content, the browser may misinterpret them as markup. <span style="color: #3b82f6;">Character references</span> let you safely represent them, along with characters not on a standard keyboard (©, emoji-adjacent symbols, non-breaking spaces).
+Certain characters are **<span style="color: #ef4444;">reserved</span>** in HTML because the parser uses them for markup itself — most importantly `&lt;` and `&gt;` (tag delimiters) and `&amp;` (starts an entity/character reference). If you type these literally as content, the browser may misinterpret them as markup. <span style="color: #3b82f6;">Character references</span> let you safely represent them, along with characters not on a standard keyboard (©, emoji-adjacent symbols, non-breaking spaces).
 
 ## 🔣 The Anatomy of a Character Reference {#common-entities}
 
@@ -30,7 +30,7 @@ Format: <span style="color: #14b8a6; font-family: monospace;">&amp;name;</span> 
 
 ## ⚠️ The Three "Always Escape These" Characters {#escaping-reserved-characters}
 
-`<`, `>`, and `&` are the ones that *must* be escaped when they appear as literal content (not markup), since they have structural meaning to the parser.
+`&lt;`, `&gt;`, and `&amp;` are the ones that *must* be escaped when they appear as literal content (not markup), since they have structural meaning to the parser.
 
 ## 🔠 Case Sensitivity {#whitespace-entities}
 
@@ -45,7 +45,7 @@ Named references are <span style="color: #f59e0b; font-weight: bold;">case-sensi
 **Summary in 5 lines:**
 
 - **<span style="color: #10b981;">Comments</span>** (`<!-- -->`) aren't rendered but are visible in source — don't hide secrets there.
-- **<span style="color: #ef4444;">Reserved characters</span>** (`<`, `>`, `&`) must be escaped via character references.
+- **<span style="color: #ef4444;">Reserved characters</span>** (`&lt;`, `&gt;`, `&amp;`) must be escaped via character references.
 - References come in **<span style="color: #3b82f6;">named</span>** (`&lt;`) or **<span style="color: #3b82f6;">numeric</span>** (`&#60;` / `&#x3C;`) form.
 - Entity names are **<span style="color: #f59e0b;">case-sensitive</span>**.
 - <span style="color: #14b8a6; font-family: monospace;">&amp;nbsp;</span> forces a non-breaking space where normal whitespace would collapse.
