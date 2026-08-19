@@ -1,8 +1,8 @@
-﻿# 🏗️ Document Structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
+# 🏗️ Document Structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
 
 ## 📄 The Doctype {#the-doctype}
 
-Every HTML document starts with <span style="color: #f59e0b; font-family: monospace;"><!DOCTYPE html></span>. This tells the browser to render in **<span style="color: #3b82f6;">standards mode</span>** rather than "<span style="color: #ef4444;">quirks mode</span>" (a legacy compatibility mode that mimics old, non-standard browser behavior). It is *not* an HTML tag/element — it's a special instruction with no closing tag.
+Every HTML document starts with <span style="color: #f59e0b; font-family: monospace;">`<!DOCTYPE html>`</span>. This tells the browser to render in **<span style="color: #3b82f6;">standards mode</span>** rather than "<span style="color: #ef4444;">quirks mode</span>" (a legacy compatibility mode that mimics old, non-standard browser behavior). It is *not* an HTML tag/element — it's a special instruction with no closing tag.
 
 ```html
 <!DOCTYPE html>
@@ -10,15 +10,15 @@ Every HTML document starts with <span style="color: #f59e0b; font-family: monosp
 
 ## 🌳 The Root Element: `<html>` {#html-element-and-lang}
 
-Everything else lives inside <span style="color: #10b981; font-family: monospace;"><html>...</html></span>. Best practice: include a <span style="color: #6366f1;">lang</span> attribute (covered fully in Topic 6), e.g. `<html lang="en">`.
+Everything else lives inside <span style="color: #10b981; font-family: monospace;">`<html>`...`</html>`</span>. Best practice: include a <span style="color: #6366f1;">lang</span> attribute (covered fully in Topic 6), e.g. `<html lang="en">`.
 
 ## 🧠 `<head>` — Machine-Readable Metadata {#head-element}
 
-Contains information *about* the document, not displayed directly on the page: <span style="color: #ec4899; font-family: monospace;"><title></span>, <span style="color: #ec4899; font-family: monospace;"><meta></span> tags, links to CSS, favicons, etc. (Deep dive in Topic 31.)
+Contains information *about* the document, not displayed directly on the page: <span style="color: #ec4899; font-family: monospace;">`<title>`</span>, <span style="color: #ec4899; font-family: monospace;">`<meta>`</span> tags, links to CSS, favicons, etc. (Deep dive in Topic 31.)
 
 ## 👁️ `<body>` — Visible Content {#body-element}
 
-Contains everything the user actually sees/interacts with: text, images, forms, etc. There should be exactly **<span style="color: #ef4444;">one</span>** <span style="color: #14b8a6; font-family: monospace;"><body></span> per document.
+Contains everything the user actually sees/interacts with: text, images, forms, etc. There should be exactly **<span style="color: #ef4444;">one</span>** <span style="color: #14b8a6; font-family: monospace;">`<body>`</span> per document.
 
 ## 🧱 Why Structure Matters {#why-structure-matters}
 
@@ -42,10 +42,10 @@ Contains everything the user actually sees/interacts with: text, images, forms, 
 
 **Summary in 5 lines:**
 
-- <span style="color: #f59e0b; font-family: monospace;"><!DOCTYPE html></span> triggers standards mode rendering.
-- <span style="color: #10b981; font-family: monospace;"><html></span> is the root element wrapping the whole document.
-- <span style="color: #ec4899; font-family: monospace;"><head></span> holds metadata (not visible content).
-- <span style="color: #14b8a6; font-family: monospace;"><body></span> holds all visible/interactive content — only one per page.
+- <span style="color: #f59e0b; font-family: monospace;">`<!DOCTYPE html>`</span> triggers standards mode rendering.
+- <span style="color: #10b981; font-family: monospace;">`<html>`</span> is the root element wrapping the whole document.
+- <span style="color: #ec4899; font-family: monospace;">`<head>`</span> holds metadata (not visible content).
+- <span style="color: #14b8a6; font-family: monospace;">`<body>`</span> holds all visible/interactive content — only one per page.
 - Skipping the doctype risks inconsistent, legacy "<span style="color: #ef4444;">quirks mode</span>" rendering.
 
 ---
