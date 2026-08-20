@@ -1,4 +1,4 @@
-﻿# 🏗️ Comments & HTML Entities/Special Characters
+# 🏗️ Comments & HTML Entities/Special Characters
 
 ## 💬 HTML Comments {#html-comments}
 
@@ -18,15 +18,54 @@ Certain characters are **<span style="color: #ef4444;">reserved</span>** in HTML
 
 Format: <span style="color: #14b8a6; font-family: monospace;">&amp;name;</span> (named) or <span style="color: #14b8a6; font-family: monospace;">&amp;#number;</span> / <span style="color: #14b8a6; font-family: monospace;">&amp;#xHEX;</span> (numeric), always starting with `&` and ending with `;`.
 
-| Character | Entity Name | Numeric |
-|---|---|---|
-| `<` | `<` | `&#60;` |
-| `>` | `>` | `&#62;` |
-| `&` | `&amp;` | `&#38;` |
-| `"` | `&quot;` | `&#34;` |
-| `'` | `&apos;` | `&#39;` |
-| (non-breaking space) | `&nbsp;` | `&#160;` |
-| © | `&copy;` | `&#169;` |
+<div className="overflow-x-auto my-6">
+  <table>
+    <thead>
+      <tr>
+        <th>Character</th>
+        <th>Entity Name</th>
+        <th>Numeric</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;</code></td>
+        <td><code>&amp;lt;</code></td>
+        <td><code>&amp;#60;</code></td>
+      </tr>
+      <tr>
+        <td><code>&gt;</code></td>
+        <td><code>&amp;gt;</code></td>
+        <td><code>&amp;#62;</code></td>
+      </tr>
+      <tr>
+        <td><code>&amp;</code></td>
+        <td><code>&amp;amp;</code></td>
+        <td><code>&amp;#38;</code></td>
+      </tr>
+      <tr>
+        <td><code>&quot;</code></td>
+        <td><code>&amp;quot;</code></td>
+        <td><code>&amp;#34;</code></td>
+      </tr>
+      <tr>
+        <td><code>&apos;</code></td>
+        <td><code>&amp;apos;</code></td>
+        <td><code>&amp;#39;</code></td>
+      </tr>
+      <tr>
+        <td>(non-breaking space)</td>
+        <td><code>&amp;nbsp;</code></td>
+        <td><code>&amp;#160;</code></td>
+      </tr>
+      <tr>
+        <td>©</td>
+        <td><code>&amp;copy;</code></td>
+        <td><code>&amp;#169;</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## ⚠️ The Three "Always Escape These" Characters {#escaping-reserved-characters}
 
